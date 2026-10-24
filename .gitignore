@@ -5,7 +5,7 @@ build/
 scratch/
 .DS_Store
 *.log
-benchmark-results.json
+benchmark-results*.json
 benchmarks/.runs/
 scripts/*.report.json
 scripts/*.audit.json
@@ -13,3 +13,16 @@ scripts/*.validation.json
 .env
 .env.*
 *.tsbuildinfo
+
+# OCR model weights
+*.traineddata
+
+# Development research docs and specs
+FAST_PROFILE_RESEARCH*.md
+FAST_MODE_BEHAVIOR_SPEC.md
+OPENCODE_CHECKS.md
+
+# Legacy screenshot assets
+orvix-startup.png
+orvix-fast-start.png
+orvix-history-collapsed.png
