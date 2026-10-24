@@ -1,0 +1,10 @@
+[
+  {
+    "label": "01-MAX-Hero-Study",
+    "profile": "max",
+    "modelId": "opencode/muse-spark-1.3-contributor-free",
+    "variant": "xhigh",
+    "specialty": null,
+    "brief": "Create a bounded three-section website composition study, not a full website, for TANGENT, a fictional independent experimental typography studio. Make it premium, professional, engaging and inventive in a white theme. Develop a complete hero and two useful supporting sections with a connected progression. Invent the visual identity, spatial composition, artwork and motion from the subject rather than following a familiar photographic or card-grid recipe. The primary action is an accessible interaction for exploring one illustrative type study, with useful changed-state feedback and keyboard dismissal if it opens a panel. Do not invent real clients, awards, prices, releases or contact details. Any demonstration artwork or project is clearly illustrative. Choose media for its relevance; use direct image URLs without downloading images if photographs are useful. Keep all content and controls usable on mobile and with reduced motion. Use the selected MAX skill and existing preview tools to inspect the completed result, including its active hero and the primary action."
+  }
+]

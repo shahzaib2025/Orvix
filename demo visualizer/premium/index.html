@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b0c10" />
+    <title>Orvix · Audio visualizer studies</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="../../" aria-label="Orvix home"><span class="brand-mark">✳</span> ORVIX <span class="brand-divider"></span> LAB</a>
+        <span class="edition">VOICE INTERFACE / 001</span>
+      </header>
+
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Audio studies</p>
+        <h1 id="page-title">A quieter kind of motion<span>.</span></h1>
+        <p class="intro-copy">Five compact visualizers for Orvix voice. Each responds to the same signal, with a different character.</p>
+        <div class="signal-controls" role="group" aria-label="Audio source">
+          <button class="source-btn is-selected" id="demo-button" type="button" aria-pressed="true"><span class="source-icon">◉</span> Demo signal</button>
+          <button class="source-btn" id="mic-button" type="button" aria-pressed="false"><span class="source-icon mic-icon">♩</span> Microphone</button>
+          <span class="signal-status" id="signal-status" role="status"><span class="live-dot"></span> Previewing motion</span>
+        </div>
+      </section>
+
+      <section class="studies" aria-label="Visualizer concepts">
+        <article class="study study-orbit">
+          <div class="study-head"><span>01 / ORBIT</span><span class="study-mark">✧</span></div>
+          <div class="visual-stage"><canvas id="orbit" aria-label="Orbit audio visualizer" role="img"></canvas></div>
+          <div class="study-foot"><div><h2>Orbit</h2><p>Precise · attentive</p></div><span class="size-note">128 PX</span></div>
+        </article>
+        <article class="study study-veil">
+          <div class="study-head"><span>02 / VEIL</span><span class="study-mark">≈</span></div>
+          <div class="visual-stage"><canvas id="veil" aria-label="Veil audio visualizer" role="img"></canvas></div>
+          <div class="study-foot"><div><h2>Veil</h2><p>Soft · conversational</p></div><span class="size-note">128 PX</span></div>
+        </article>
+        <article class="study study-prism">
+          <div class="study-head"><span>03 / PRISM</span><span class="study-mark">◈</span></div>
+          <div class="visual-stage"><canvas id="prism" aria-label="Prism audio visualizer" role="img"></canvas></div>
+          <div class="study-foot"><div><h2>Prism</h2><p>Clear · expressive</p></div><span class="size-note">128 PX</span></div>
+        </article>
+        <article class="study study-halo">
+          <div class="study-head"><span>04 / HALO</span><span class="study-mark">◎</span></div>
+          <div class="visual-stage"><canvas id="halo" aria-label="Halo audio visualizer" role="img"></canvas></div>
+          <div class="study-foot"><div><h2>Halo</h2><p>Calm · immersive</p></div><span class="size-note">128 PX</span></div>
+        </article>
+        <article class="study study-facet">
+          <div class="study-head"><span>05 / FACET</span><span class="study-mark">◇</span></div>
+          <div class="visual-stage"><canvas id="facet" aria-label="Facet audio visualizer" role="img"></canvas></div>
+          <div class="study-foot"><div><h2>Facet</h2><p>Sharp · intelligent</p></div><span class="size-note">128 PX</span></div>
+        </article>
+      </section>
+      <footer class="page-footer"><span>ORVIX / AUDIO SYSTEMS</span><span>CONCEPT EXPLORATION</span></footer>
+    </main>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

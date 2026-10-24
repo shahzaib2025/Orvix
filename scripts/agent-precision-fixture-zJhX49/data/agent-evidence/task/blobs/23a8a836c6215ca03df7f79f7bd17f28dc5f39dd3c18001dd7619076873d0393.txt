@@ -1,0 +1,1 @@
+{"status":"ok","observedAt":1792339671770,"embeddedNode":"v25.9.0","executables":[{"name":"node","status":"available","version":"v25.9.0"},{"name":"npm","status":"available","version":"fixture"}]}

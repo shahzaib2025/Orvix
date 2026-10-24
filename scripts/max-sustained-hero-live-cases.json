@@ -1,0 +1,12 @@
+[
+  {
+    "label": "01-LUCENT-Photographic-Hero",
+    "specialty": null,
+    "brief": "Create one complete premium website hero section for LUCENT, a fictional experimental film festival, in a black theme. Invent its art direction and use relevant photographic media from Google image search through direct image URLs without downloads. The primary action opens an accessible local program-preview dialog with useful, clearly illustrative film entries. Deliver only this hero section and its dialog, with responsive composition; this is not a full website. Do not invent real dates, prices, venues, awards or participants. Build a working result and inspect it with the existing preview tools."
+  },
+  {
+    "label": "02-OPTIC-3D-Hero",
+    "specialty": "3d-website",
+    "brief": "Create one complete premium website hero section for OPTIC, a fictional camera-optics design laboratory, in a black theme. Invent its art direction and include a purposeful interactive Three.js experience that communicates the subject. The primary action opens an accessible local optical-study preview with useful, clearly illustrative content. Deliver only this hero section and its preview, with responsive composition; this is not a full website. Use relevant photographic media from Google image search through direct URLs if useful, without downloads. Do not invent real product claims, customers, prices or measurements. Build a working result and inspect it with the existing preview tools."
+  }
+]

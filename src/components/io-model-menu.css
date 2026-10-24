@@ -1,0 +1,46 @@
+.agent-io-menu .agent-opencode-menu-head > div {
+  display: flex;
+  gap: 5px;
+}
+
+.agent-io-menu .agent-opencode-menu-head button:disabled {
+  opacity: .45;
+  cursor: wait;
+}
+
+.agent-io-menu .is-refreshing {
+  animation: io-refresh 1s linear infinite;
+}
+
+@keyframes io-refresh {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agent-io-menu .is-refreshing {
+    animation: none;
+  }
+}
+
+.agent-io-model-info {
+  display: grid;
+  gap: 5px;
+  margin-top: 14px;
+  padding-top: 10px;
+  border-top: 1px solid #ffffff0d;
+  color: #9699a5;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.agent-io-model-info code {
+  overflow-wrap: anywhere;
+  font-size: 9px;
+  color: #b9bdc8;
+}
+
+.agent-io-model-info span {
+  color: #8b8f9a;
+}

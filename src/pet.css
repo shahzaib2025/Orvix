@@ -1,0 +1,19 @@
+html,body,#root{width:100%;height:100%;margin:0;overflow:hidden;background:transparent!important}
+body{color:#eceef3;font-family:'DM Sans','Segoe UI',sans-serif}
+.desktop-pet-root{position:fixed;inset:0;width:100%;height:100%;overflow:visible;touch-action:none;background:transparent}
+.desktop-pet-anchor{position:absolute;left:92px;top:184px;width:175px;height:240px;touch-action:none}
+/* Speech-only floating card; all visible text comes from the voice caption. */
+.pet-speech-caption{position:absolute;bottom:250px;left:18px;right:18px;box-sizing:border-box;padding:16px 18px;max-height:168px;border:1px solid rgba(175,192,226,.24);border-radius:22px;background:linear-gradient(145deg,rgba(38,46,64,.97),rgba(18,23,34,.98));color:#f1f4fc;box-shadow:0 8px 20px rgba(0,0,0,.32),inset 0 1px 0 rgba(255,255,255,.1),inset 0 -1px 0 rgba(0,0,0,.18);pointer-events:auto;touch-action:auto;user-select:text;transition:border-color .2s ease,box-shadow .2s ease;animation:pet-caption-enter .2s ease-out}
+.pet-speech-caption.is-speaking{border-color:rgba(144,206,208,.48);box-shadow:0 8px 20px rgba(0,0,0,.32),0 0 16px rgba(114,176,184,.09),inset 0 1px 0 rgba(255,255,255,.13)}
+.pet-speech-caption:after{content:'';position:absolute;bottom:-5px;left:50%;width:9px;height:9px;transform:translateX(-50%) rotate(45deg);background:#141a26;border-right:1px solid rgba(175,192,226,.24);border-bottom:1px solid rgba(175,192,226,.24)}
+.pet-speech-text{max-height:134px;overflow:auto;white-space:pre-wrap;overflow-wrap:anywhere;font-family:'Segoe UI','Nirmala UI',sans-serif;font-size:14px;font-weight:400;line-height:1.7;letter-spacing:.01em;scrollbar-width:thin;scrollbar-color:rgba(174,193,221,.4) transparent;touch-action:pan-y;overscroll-behavior:contain}
+.pet-speech-text::selection{background:rgba(131,183,211,.3);color:#fff}
+@keyframes pet-caption-enter{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.pet-speech-caption{animation:none;transition:none}}
+.desktop-pet-anchor>.orvix-gpt-pet{pointer-events:auto}
+.pet-controls{position:absolute;z-index:30;top:170px;left:50%;display:flex;align-items:center;gap:2px;padding:5px;border:1px solid #505a6c;border-radius:100px;background:#1c202b;box-shadow:0 9px 20px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.08);opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,-4px);transition:opacity .16s ease,transform .16s ease,visibility .16s ease}
+.desktop-pet-anchor.is-hovered .pet-controls{opacity:1;visibility:visible;pointer-events:auto;transform:translate(-50%,0)}
+.pet-controls button{width:33px;height:33px;display:grid;place-items:center;padding:0;border:0;border-radius:50%;background:transparent;color:#c9d2e3;cursor:pointer;transition:background .14s ease,color .14s ease}
+.pet-controls button svg{width:16px;height:16px}
+.pet-controls button:hover,.pet-controls button[aria-pressed="true"]{background:#34435e;color:#fff}
+.pet-controls button:focus-visible{outline:2px solid #aaa;outline-offset:1px}

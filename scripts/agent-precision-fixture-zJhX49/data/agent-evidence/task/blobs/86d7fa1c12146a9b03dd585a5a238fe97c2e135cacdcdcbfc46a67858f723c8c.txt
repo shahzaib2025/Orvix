@@ -1,0 +1,3 @@
+Command approval was declined; no checks ran.
+
+Requirements awaiting current verification: Inspect the project runtime (pending).

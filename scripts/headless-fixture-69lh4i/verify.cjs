@@ -1,0 +1,1 @@
+require("node:fs").appendFileSync("probe.js", "\n// changed during check");

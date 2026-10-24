@@ -1,0 +1,391 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "work_browser",
+      "description": "Complete a familiar browser task through verified operations. Prefer search for Google searches instead of typing and Enter. Choices preserve screen order. fill_submit requires exact observed input ref and the expected submitted outcome. Consequential submission is reviewed in Orvix.",
+      "behavior": "BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "operation": {
+            "type": "STRING",
+            "enum": [
+              "search",
+              "open",
+              "switch",
+              "find_media",
+              "select_media",
+              "fill_submit"
+            ]
+          },
+          "query": {
+            "type": "STRING"
+          },
+          "url": {
+            "type": "STRING"
+          },
+          "target": {
+            "type": "STRING"
+          },
+          "candidateId": {
+            "type": "STRING"
+          },
+          "ref": {
+            "type": "STRING"
+          },
+          "text": {
+            "type": "STRING"
+          },
+          "expect": {
+            "type": "OBJECT",
+            "properties": {
+              "kind": {
+                "type": "STRING",
+                "enum": [
+                  "url",
+                  "text",
+                  "value",
+                  "visible"
+                ]
+              },
+              "value": {
+                "type": "STRING"
+              },
+              "ref": {
+                "type": "STRING"
+              }
+            },
+            "required": [
+              "kind",
+              "value"
+            ]
+          }
+        },
+        "required": [
+          "operation"
+        ]
+      }
+    },
+    {
+      "name": "desktop_observe",
+      "description": "Observe Windows applications, windows, or controls. Exact refs are generation-bound. Request a screenshot only when controls cannot identify the task target; the window must be foreground. Password fields and elevated windows are unsupported.",
+      "behavior": "BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "scope": {
+            "type": "STRING",
+            "enum": [
+              "apps",
+              "windows",
+              "page"
+            ]
+          },
+          "target": {
+            "type": "STRING"
+          },
+          "query": {
+            "type": "STRING"
+          },
+          "screenshot": {
+            "type": "BOOLEAN"
+          }
+        },
+        "required": [
+          "scope"
+        ]
+      }
+    },
+    {
+      "name": "desktop_act",
+      "description": "Launch or act in an ordinary Windows application and verify the reported outcome. Use observed control refs for interaction. For launch use appName or an exact discovered executablePath. Click/invoke/key are dispatched until an expectation is verified. Never invent completion. Consequential actions require UI confirmation.",
+      "behavior": "BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "action": {
+            "type": "STRING",
+            "enum": [
+              "launch",
+              "focus",
+              "minimize",
+              "maximize",
+              "restore",
+              "close",
+              "invoke",
+              "click",
+              "type",
+              "key",
+              "select",
+              "check",
+              "scroll"
+            ]
+          },
+          "target": {
+            "type": "STRING"
+          },
+          "appName": {
+            "type": "STRING"
+          },
+          "executablePath": {
+            "type": "STRING"
+          },
+          "args": {
+            "type": "OBJECT",
+            "properties": {
+              "ref": {
+                "type": "STRING"
+              },
+              "text": {
+                "type": "STRING"
+              },
+              "replace": {
+                "type": "BOOLEAN"
+              },
+              "enabled": {
+                "type": "BOOLEAN"
+              },
+              "key": {
+                "type": "STRING"
+              },
+              "direction": {
+                "type": "STRING",
+                "enum": [
+                  "up",
+                  "down"
+                ]
+              },
+              "x": {
+                "type": "NUMBER"
+              },
+              "y": {
+                "type": "NUMBER"
+              },
+              "generation": {
+                "type": "INTEGER"
+              }
+            }
+          },
+          "expect": {
+            "type": "OBJECT",
+            "properties": {
+              "kind": {
+                "type": "STRING",
+                "enum": [
+                  "value",
+                  "text",
+                  "checked",
+                  "visible",
+                  "window_title"
+                ]
+              },
+              "ref": {
+                "type": "STRING"
+              },
+              "value": {
+                "type": "STRING"
+              }
+            },
+            "required": [
+              "kind",
+              "value"
+            ]
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    },
+    {
+      "name": "run_workflow",
+      "description": "Ask the Gemini reasoning worker to complete the CURRENT user task using the same verified browser/desktop executor. Use for unfamiliar multi-page/app workflows, visual interpretation, or two failed recoveries. Never use for a simple search/open/mute. It returns confirmed steps, pending work, choices or approval requirements; its review/partial status is not overall success.",
+      "behavior": "BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {}
+      }
+    },
+    {
+      "name": "plan_task",
+      "behavior": "BLOCKING",
+      "description": "Register or revise the CURRENT multi-step task before acting. Include every requested outcome and preserve existing requirement/step IDs from taskContext. Tool names must be browser_act, browser_observe, desktop_act, desktop_observe, window_act, web_search, read_web_page, get_weather, read_file, write_file, list_directory, search_files, search_content, manage_clipboard, or answer. For work_browser search/open/switch use browser_act with action search/navigate/tab_activate. Plan fill_submit as separate browser_act type and key steps. Research requirements require source-backed answer coverage. Dependencies must be acyclic. Do not drop old requirements or verified steps. For ambiguous corrections ask a focused question first. Executor owns verification. review_task is a review interface, never an execution step; use answer for the final synthesis. If a source fails, add a supplemental read/search step without removing the original required outcome. For country-scope checks, prove the negative verdict and retrieval limits; do not invent an obligation to extract rejected article content.",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "requirements": {
+            "type": "ARRAY",
+            "items": {
+              "type": "OBJECT",
+              "properties": {
+                "id": {
+                  "type": "STRING"
+                },
+                "text": {
+                  "type": "STRING"
+                },
+                "kind": {
+                  "type": "STRING",
+                  "enum": [
+                    "outcome",
+                    "research",
+                    "weather"
+                  ]
+                }
+              },
+              "required": [
+                "id",
+                "text",
+                "kind"
+              ]
+            }
+          },
+          "steps": {
+            "type": "ARRAY",
+            "items": {
+              "type": "OBJECT",
+              "properties": {
+                "id": {
+                  "type": "STRING"
+                },
+                "title": {
+                  "type": "STRING"
+                },
+                "tool": {
+                  "type": "STRING",
+                  "enum": [
+                    "browser_act",
+                    "browser_observe",
+                    "desktop_act",
+                    "desktop_observe",
+                    "window_act",
+                    "web_search",
+                    "read_web_page",
+                    "get_weather",
+                    "read_file",
+                    "write_file",
+                    "list_directory",
+                    "search_files",
+                    "search_content",
+                    "manage_clipboard",
+                    "answer"
+                  ]
+                },
+                "action": {
+                  "type": "STRING"
+                },
+                "requirementIds": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                },
+                "dependsOn": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                },
+                "expected": {
+                  "type": "STRING"
+                }
+              },
+              "required": [
+                "id",
+                "title",
+                "tool",
+                "requirementIds",
+                "dependsOn",
+                "expected"
+              ]
+            }
+          }
+        },
+        "required": [
+          "requirements",
+          "steps"
+        ]
+      }
+    },
+    {
+      "name": "review_task",
+      "behavior": "BLOCKING",
+      "description": "Review the CURRENT task before claiming overall completion. Supply the complete answer and exact answer passages for every outcome, mapped to evidence IDs returned by tools. For research claims map each answer passage to its controller-provided sourcePassageId (preferred) or a verbatim sourceQuote in retrieved page evidence; cite that evidence source URL in the answer. Unknown requirements must set unknown true and explicitly explain the gap. Source support is not independent truth proof. This tool can return partial/blocked even for fluent answers. Only completed authorizes an overall completion claim. Map EACH non-root requirement ID from taskContext separately. Coverage for request alone cannot complete a compound task. A completion-distinction answer must explain both requested concepts, not only quote turnComplete or interruption text.",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "answer": {
+            "type": "STRING",
+            "description": "Write the full final answer first. Coverage.answerQuote and claims.answerQuote MUST then be copied verbatim from this exact answer string, never from the source text or a paraphrase."
+          },
+          "coverage": {
+            "type": "ARRAY",
+            "items": {
+              "type": "OBJECT",
+              "properties": {
+                "requirementId": {
+                  "type": "STRING",
+                  "description": "Exact non-root requirement ID from taskContext; do not use request. Supply mappings for every required outcome."
+                },
+                "answerQuote": {
+                  "type": "STRING",
+                  "description": "Exact continuous passage copied FROM the answer field in this same call. It is NOT a source quotation. Do not paraphrase it."
+                },
+                "evidenceIds": {
+                  "type": "ARRAY",
+                  "items": {
+                    "type": "STRING"
+                  }
+                },
+                "unknown": {
+                  "type": "BOOLEAN"
+                }
+              },
+              "required": [
+                "requirementId",
+                "answerQuote",
+                "evidenceIds"
+              ]
+            }
+          },
+          "claims": {
+            "type": "ARRAY",
+            "items": {
+              "type": "OBJECT",
+              "properties": {
+                "requirementId": {
+                  "type": "STRING",
+                  "description": "Exact non-root requirement ID from taskContext; do not use request. Supply mappings for every required outcome."
+                },
+                "evidenceId": {
+                  "type": "STRING"
+                },
+                "sourceQuote": {
+                  "type": "STRING",
+                  "description": "Exact continuous passage copied FROM retrieved evidence.excerpt, supporting this specific answer claim. Do not reuse unrelated source wording for a different claim."
+                },
+                "sourcePassageId": {
+                  "type": "STRING",
+                  "description": "Prefer this exact controller-provided sourcePassageId from evidence context or sourcePassages and OMIT sourceQuote when using it. The controller resolves the observed excerpt; independent review still checks this answer claim. A guessed sourceQuote conflicts with the passage and is rejected."
+                },
+                "answerQuote": {
+                  "type": "STRING",
+                  "description": "Exact continuous passage copied FROM the answer field in this same call. It is NOT a source quotation. Do not paraphrase it."
+                }
+              },
+              "required": [
+                "requirementId",
+                "evidenceId",
+                "answerQuote"
+              ]
+            }
+          }
+        },
+        "required": [
+          "answer",
+          "coverage"
+        ]
+      }
+    }
+  ]
+}

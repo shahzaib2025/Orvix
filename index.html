@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="frame-src about:" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d0d0d" />
+    <meta name="description" content="Orvix is a thoughtful space for ideas and work." />
+    <title>Orvix — Your workspace</title>
+    <style>
+      html, body { margin: 0; width: 100%; height: 100%; background: #0d0d0d; }
+      #startup-splash { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; background: #0d0d0d; color: #fff; font-family: 'Plus Jakarta Sans', 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif; user-select: none; -webkit-font-smoothing: antialiased; opacity: 1; transition: opacity .46s ease; }
+      #startup-splash.is-hidden { opacity: 0; pointer-events: none; }
+      .startup-stage { display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative; }
+      .startup-ambient { position: absolute; width: 240px; height: 240px; border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,.08) 0%, transparent 70%); filter: blur(40px); pointer-events: none; animation: startupAmbientPulse 4s ease-in-out infinite; }
+      #startup-bloom { width: 160px; height: 160px; display: block; z-index: 2; }
+      .startup-wordmark { margin-top: 24px; font-size: 13px; font-weight: 600; letter-spacing: .32em; text-indent: .32em; color: rgba(255,255,255,.45); text-transform: uppercase; z-index: 2; animation: startupTextBreath 3s ease-in-out infinite; }
+      .startup-error { display: none; max-width: 290px; margin-top: 30px; text-align: center; z-index: 2; }
+      .startup-error strong { display: block; font-size: 14px; font-weight: 600; color: #f2f2f5; }
+      .startup-error p { color: #b5b5be; font-size: 12px; line-height: 1.6; }
+      .startup-error button { background: #353744; border: 1px solid #666b7d; color: #fff; border-radius: 7px; padding: 9px 15px; font: inherit; font-size: 11px; cursor: pointer; }
+      #startup-splash.has-error .startup-error { display: block; }
+      @keyframes startupAmbientPulse { 0%,100% { transform: scale(.9); opacity: .5; } 50% { transform: scale(1.15); opacity: .9; } }
+      @keyframes startupTextBreath { 0%,100% { opacity: .4; } 50% { opacity: .85; color: rgba(255,255,255,.85); } }
+      @media (prefers-reduced-motion: reduce) { .startup-ambient,.startup-wordmark { animation: none; } .startup-wordmark { opacity: .78; color: rgba(255,255,255,.8); } #startup-splash { transition-duration: .18s; } }
+      #startup-splash.startup-reduced .startup-ambient,#startup-splash.startup-reduced .startup-wordmark { animation: none; }
+      #startup-splash.startup-reduced .startup-wordmark { opacity: .78; color: rgba(255,255,255,.8); }
+      #startup-splash.startup-reduced { transition-duration: .18s; }
+    </style>
+  </head>
+  <body>
+    <div id="startup-splash" role="status" aria-label="Orvix is starting" aria-live="polite">
+      <div class="startup-stage">
+        <div class="startup-ambient"></div>
+        <canvas id="startup-bloom" width="320" height="320" aria-hidden="true"></canvas>
+        <div class="startup-wordmark">ORVIX</div>
+        <div class="startup-error" id="startup-error"><strong>Orvix could not start</strong><p id="startup-error-message">Please restart the app and try again.</p><button type="button" onclick="location.reload()">Try again</button></div>
+      </div>
+    </div>
+    <script>
+      (() => {
+        const splash = document.getElementById('startup-splash');
+        const canvas = document.getElementById('startup-bloom');
+        const ctx = canvas.getContext('2d');
+        const size = 160;
+        const dpr = window.devicePixelRatio || 1;
+        let frame = 0;
+        let stopped = false;
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        let savedReduceMotion = false;
+        try { savedReduceMotion = JSON.parse(localStorage.getItem('orvix.reduceMotion') || 'false') === true; } catch { /* Use system preference. */ }
+        if (savedReduceMotion) splash.classList.add('startup-reduced');
+        const motionReduced = () => reduceMotion.matches || savedReduceMotion;
+        canvas.width = size * dpr;
+        canvas.height = size * dpr;
+        ctx.scale(dpr, dpr);
+
+        // The six-loop rosette uses the exact geometry, gradient stops, and timing
+        // from the supplied standalone ChatGPT Bloom variant.
+        function draw(time) {
+          ctx.clearRect(0, 0, size, size);
+          const t = time * 0.0016;
+          const breath = Math.sin(t * 1.8);
+          const radius = 26 + breath * 4;
+          const loopR = 21 + Math.cos(t * 2.2) * 2.5;
+          ctx.save();
+          ctx.translate(size / 2, size / 2);
+          ctx.rotate(t * 0.6);
+          for (let i = 0; i < 6; i++) {
+            const angle = (i * Math.PI * 2) / 6;
+            const cx = Math.cos(angle) * radius;
+            const cy = Math.sin(angle) * radius;
+            ctx.beginPath();
+            ctx.arc(cx, cy, loopR, 0, Math.PI * 2);
+            const grad = ctx.createLinearGradient(cx - loopR, cy - loopR, cx + loopR, cy + loopR);
+            grad.addColorStop(0, 'rgba(255, 255, 255, 0.85)');
+            grad.addColorStop(0.5, 'rgba(224, 231, 255, 0.45)');
+            grad.addColorStop(1, 'rgba(148, 163, 184, 0.1)');
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 1.75;
+            ctx.stroke();
+          }
+          ctx.restore();
+          if (!stopped && !motionReduced()) frame = requestAnimationFrame(draw);
+        }
+        draw(0);
+        const motionChange = () => {
+          cancelAnimationFrame(frame);
+          if (motionReduced()) draw(0);
+          else if (!stopped) frame = requestAnimationFrame(draw);
+        };
+        reduceMotion.addEventListener('change', motionChange);
+        const watchdog = setTimeout(() => {
+          if (!splash.classList.contains('is-hidden')) {
+            splash.classList.add('has-error');
+            document.getElementById('startup-error-message').textContent = 'The workspace did not finish loading. Please restart Orvix.';
+          }
+        }, 12000);
+        window.__orvixStartup = {
+          startedAt: performance.now(),
+          stop() { stopped = true; cancelAnimationFrame(frame); clearTimeout(watchdog); reduceMotion.removeEventListener('change', motionChange); },
+          fail(message) { clearTimeout(watchdog); splash.classList.add('has-error'); document.getElementById('startup-error-message').textContent = message; }
+        };
+      })();
+    </script>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

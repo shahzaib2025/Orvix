@@ -1,0 +1,23 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "web_search",
+      "description": "Searches the live web for facts, news, documentation, curriculum, companies, marketplaces, AI model comparisons, or information. REQUIRED for explicit web research/search requests and current/latest facts that may have changed. Call for requests in Bangla, Banglish, or English. Always write the semantic search query in concise English; preserve exact names, URLs, quoted titles, and other literal identifiers. Do not answer a current-facts request from memory if this function was not called. Do NOT call this tool for weather (use get_weather) or local computer files (use list_directory/read_file).",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "query": {
+            "type": "STRING",
+            "description": "Use a short focused query for one research subject and criterion, e.g. 'Google latest Gemini models official', 'OpenAI latest GPT models official', or 'Bangladesh NCTB English for Today Class 9 10 textbook units'. Do not anchor a latest-model lookup to model names from memory. Compare after retrieving current evidence for both subjects."
+          },
+          "refresh": {
+            "type": "BOOLEAN",
+            "description": "Set true only when the user explicitly asks to search again or refresh this lookup. This bypasses Orvix's local five-minute query cache; it does not guarantee that the provider has newer results."
+          }
+        },
+        "required": ["query"]
+      }
+    }
+  ]
+}

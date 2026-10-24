@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><title>PC Monitor Test</title>
+<style>
+  body { width: 290px; padding: 15px; margin: 0; background: #15171b; color: #f2f3f5; font: 13px system-ui, sans-serif; }
+  h1 { margin: 0 0 8px; font-size: 17px; } p { color: #afb5c1; line-height: 1.4; }
+  input { width: 100%; box-sizing: border-box; padding: 9px; border: 1px solid #454b58; border-radius: 7px; background: #22262c; color: white; }
+  button { margin-top: 9px; padding: 8px 13px; border: 0; border-radius: 7px; background: #6f91ff; color: #101318; cursor: pointer; font-weight: 600; }
+  #status { margin-top: 10px; }
+</style>
+<h1>PC Monitor Test</h1>
+<p>Press P in the terminal and enter its local pairing token once. Browser data stays on this PC.</p>
+<input id="token" type="password" autocomplete="off" aria-label="Pairing token" placeholder="Pairing token">
+<button id="save">Pair browser</button>
+<p id="status">Not paired</p>
+<script src="popup.js"></script></html>

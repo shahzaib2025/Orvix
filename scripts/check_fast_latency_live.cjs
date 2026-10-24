@@ -1,0 +1,17 @@
+// Real provider, typed input and counted PCM; no physical microphone or speaker test.
+const fs=require('node:fs'),path=require('node:path'),Module=require('node:module');
+const root=path.join(__dirname,'..');require('../electron/live-env.cjs').loadLiveEnv(root);
+const file=path.join(root,'scratch/fast-latency-live.report.json');fs.mkdirSync(path.dirname(file),{recursive:true});
+const report={scope:'Real Live provider; ten typed turns; PCM counted, physical playback not measured',turns:[]};let turn,finish;
+const save=()=>fs.writeFileSync(file,JSON.stringify(report,null,2));
+global.window={speechSynthesis:{getVoices:()=>[],cancel(){}},orvixDesktop:{createLiveToken:require('../electron/live-auth.cjs').createLiveToken,getPcSnapshot:async()=>null,getFastSettings:async()=>({desktopEnabled:false,transcriptionHints:false}),onFastWorkEvent:()=>()=>{},logLive:(kind,message,details)=>{if(!turn)return;turn.events.push({kind,message,details});if(message.endsWith('Report delivered'))finish?.({delivery:details.delivery});save();}}};
+const code=require('esbuild').buildSync({entryPoints:[path.join(root,'src/simpleFastVoice.ts')],bundle:true,platform:'node',format:'cjs',write:false,logLevel:'silent'}).outputFiles[0].text;
+const loaded=new Module(__filename,module);loaded.paths=module.paths;loaded._compile(code,__filename);
+const prompts=['hi','ki koro?','valo asi tmi kmn aso?','thanks','amar sathe ektu kotha bolo','ajke amar valo lagche','tumi ki bangla bujho?','একটু ছোট করে উত্তর দাও','kota bje?','bye'];
+const stats=values=>{const a=values.filter(Number.isFinite).sort((a,b)=>a-b);return {samples:a.length,medianMs:a.length?(a[Math.floor((a.length-1)/2)]+a[Math.ceil((a.length-1)/2)])/2:null,slowestMs:a.at(-1)??null};};
+(async()=>{const voice=new loaded.exports.SimpleFastVoiceSession([],{onStatus:(s,d)=>{if(s==='error')finish?.({error:d});},onProgress(){},onTranscript:e=>{if(turn){turn.transcripts[e.id]=e;}}});voice.audioEngine.ensureContext=async()=>{};voice.audioEngine.playAudio=()=>{if(turn)turn.audioChunks++;};
+try{await voice.start(false);for(const prompt of prompts){turn={prompt,events:[],transcripts:{},audioChunks:0};report.turns.push(turn);let timer;const done=new Promise(resolve=>{finish=resolve;timer=setTimeout(()=>resolve({error:'45-second deadline reached'}),45000);});voice.sendText(prompt);Object.assign(turn,await done);clearTimeout(timer);finish=undefined;
+const first=turn.events.find(e=>e.message.endsWith('First response audio received'));const playback=turn.events.find(e=>e.message.endsWith('Conversation playback started'));turn.firstAudioMs=first?.details.elapsedMs;turn.bufferingMs=playback?.details.bufferingMs;turn.classificationMs=turn.events.find(e=>e.message.endsWith('Request classified'))?.details.classificationMs;console.log(JSON.stringify({prompt,firstAudioMs:turn.firstAudioMs,bufferingMs:turn.bufferingMs,delivery:turn.delivery,error:turn.error}));save();if(turn.error)break;}
+report.firstAudio=stats(report.turns.map(t=>t.firstAudioMs));report.buffering=stats(report.turns.map(t=>t.bufferingMs));report.passed=report.turns.length===10&&report.turns.every(t=>!t.error&&t.delivery==='complete'&&t.bufferingMs<=100);console.log(JSON.stringify({passed:report.passed,firstAudio:report.firstAudio,buffering:report.buffering,report:file}));if(!report.passed)process.exitCode=1;
+}finally{voice.stop();save();}})().catch(e=>{console.error(e.message);process.exitCode=1;});
+

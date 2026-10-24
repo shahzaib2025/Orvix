@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orvix • AI Voice Visualizer Orb</title>
+  <meta name="description" content="Ultra-clean, compact, fluid circular audio visualizers inspired by ChatGPT Voice and Gemini Live.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stage-container">
+    <!-- Ambient Background Radial Glow -->
+    <div id="ambient-bloom" class="ambient-bloom"></div>
+
+    <!-- Top Status / Branding -->
+    <header class="orb-header">
+      <div class="status-indicator">
+        <span class="status-dot" id="status-dot"></span>
+        <span class="status-label" id="status-label">Ready</span>
+      </div>
+      <div class="mode-badge" id="mode-badge">ChatGPT Fluid Cloud</div>
+    </header>
+
+    <!-- Center Stage: The Hero Circular Visualizer Orb -->
+    <main class="orb-stage">
+      <div class="orb-frame" id="orb-frame">
+        <!-- Canvas renders the circular fluid dynamics inside -->
+        <canvas id="orb-canvas" class="orb-canvas"></canvas>
+        <!-- Glass rim specular highlight overlay -->
+        <div class="orb-rim"></div>
+      </div>
+    </main>
+
+    <!-- Bottom Controls: Minimalist, Sleek Floating Bar -->
+    <footer class="controls-dock">
+      <!-- 4 Completely Distinct Circular Orb Designs -->
+      <div class="variant-tabs" role="tablist">
+        <button class="tab-btn active" data-variant="fluid-cloud" title="ChatGPT Liquid Cloud: Multi-harmonic fluid wave with billowing white foam">
+          <span class="tab-color-dot azure"></span>
+          <span>Fluid Cloud</span>
+        </button>
+        <button class="tab-btn" data-variant="plasma-blob" title="Siri Organic Amoeba: 3D deforming plasma jelly sphere with chromatic refraction">
+          <span class="tab-color-dot blob"></span>
+          <span>Plasma Blob</span>
+        </button>
+        <button class="tab-btn" data-variant="orbital-ribbon" title="Gemini Twin Helix: 3D rotating auroral ribbons with glowing parametric loops">
+          <span class="tab-color-dot gemini"></span>
+          <span>Orbital Ribbon</span>
+        </button>
+        <button class="tab-btn" data-variant="quantum-core" title="Living Star Nebula: Gravitational particle swarm with acoustic radial burst">
+          <span class="tab-color-dot star"></span>
+          <span>Quantum Core</span>
+        </button>
+      </div>
+
+      <!-- Action Buttons & Audio Sources -->
+      <div class="action-bar">
+        <!-- Built-in Demo Voice / Track -->
+        <button id="btn-demo-sound" class="btn primary-btn" title="Start AI Voice Cadence Demo">
+          <svg class="icon-play" width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <svg class="icon-pause" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="display:none;">
+            <rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>
+          </svg>
+          <span id="demo-btn-text">Demo Sound</span>
+        </button>
+
+        <!-- Live Microphone Toggle -->
+        <button id="btn-mic" class="btn" title="Speak through Microphone">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/>
+          </svg>
+          <span id="mic-btn-text">Live Mic</span>
+        </button>
+
+        <!-- Audio File Upload -->
+        <label class="btn file-btn" title="Upload an audio song or voice recording">
+          <input type="file" id="file-input" accept="audio/*" style="display:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/>
+          </svg>
+          <span>Upload</span>
+        </label>
+
+        <div class="dock-sep"></div>
+
+        <!-- Size Toggle (Mini 110px / Standard 170px / Large 240px) -->
+        <div class="size-selector" title="Change Orb Size">
+          <button class="size-btn" data-size="mini" title="Compact (110px)">S</button>
+          <button class="size-btn active" data-size="medium" title="Standard (170px)">M</button>
+          <button class="size-btn" data-size="large" title="Large (240px)">L</button>
+        </div>
+
+        <!-- Sensitivity Slider -->
+        <div class="slider-wrap" title="Audio Sensitivity">
+          <span class="slider-label">SENS</span>
+          <input type="range" id="sensitivity-slider" min="0.6" max="2.5" step="0.1" value="1.4">
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="audio-engine.js"></script>
+  <script src="visualizers.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

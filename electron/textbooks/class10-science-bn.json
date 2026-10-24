@@ -1,0 +1,24 @@
+{
+  "edition": "2026",
+  "class": "9-10",
+  "group": "Science",
+  "language": "bn",
+  "catalogSource": "https://nctb.gov.bd/pages/static-pages/695b99afc4774958d7b70612",
+  "books": [
+    { "id": "bangla-literature", "title": "বাংলা সাহিত্য", "category": "common", "shareId": "bspYlB4Rwd4VFUM" },
+    { "id": "bangla-supplementary", "title": "বাংলা সহপাঠ", "category": "common", "shareId": "DJ6TEuMohVdTuht" },
+    { "id": "bangla-grammar", "title": "বাংলা ভাষার ব্যাকরণ ও নির্মিতি", "category": "common", "shareId": "z7CNJUJAw9UuPv5" },
+    { "id": "english-for-today", "title": "English For Today", "category": "common", "shareId": "CobRtJNoc1ISrGv", "aliases": ["english textbook", "english first paper"] },
+    { "id": "english-grammar", "title": "English Grammar and Composition", "category": "common", "shareId": "6cNd5kYL7lbK62r", "aliases": ["english second paper", "grammar book"] },
+    { "id": "mathematics", "title": "গণিত", "category": "common", "shareId": "HwrCrAtDhb9K484", "aliases": ["math", "general mathematics"] },
+    { "id": "ict", "title": "তথ্য ও যোগাযোগ প্রযুক্তি", "category": "common", "shareId": "PjriLZ5LTTdrkDc", "aliases": ["ict", "computer studies"] },
+    { "id": "physics", "title": "পদার্থবিজ্ঞান", "category": "science", "shareId": "KOdI1T0gyhPiFRz", "aliases": ["physics"] },
+    { "id": "chemistry", "title": "রসায়ন", "category": "science", "shareId": "sDHVsdQgt7dVQzO", "aliases": ["chemistry"] },
+    { "id": "biology", "title": "জীববিজ্ঞান", "category": "science", "shareId": "MCyVlYL9pnrc5gy", "aliases": ["biology"] },
+    { "id": "higher-mathematics", "title": "উচ্চতর গণিত", "category": "science", "shareId": "iSz6xhjfGbQnu4G", "aliases": ["higher math", "higher mathematics"] },
+    { "id": "islamic-studies", "title": "ইসলাম শিক্ষা", "category": "common", "shareId": "P4DQEn2UadaVBjS", "aliases": ["islam", "religion"] },
+    { "id": "career-education", "title": "ক্যারিয়ার শিক্ষা", "category": "common", "shareId": "BbG1MTVu3u4ZHa8", "aliases": ["career education"] },
+    { "id": "bangladesh-global-studies", "title": "বাংলাদেশ ও বিশ্বপরিচয়", "category": "common", "shareId": "beRqNxgYNDPUhUL", "aliases": ["bangladesh and global studies", "bgs"] },
+    { "id": "physical-education", "title": "শারীরিক শিক্ষা, স্বাস্থ্যবিজ্ঞান ও খেলাধুলা", "category": "common", "shareId": "jTHGfZtNd1cMYng", "aliases": ["physical education", "health science"] }
+  ]
+}

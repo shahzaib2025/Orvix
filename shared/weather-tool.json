@@ -1,0 +1,21 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "get_weather",
+      "description": "Gets current weather conditions and forecast for ONE city or location per call. Call this tool whenever the user asks in Bangla (e.g. 'আবহাওয়া কেমন', 'আজকের আবহাওয়া কেমন', 'রংপুরের আজকের আবহাওয়া কেমন', 'বৃষ্টি হবে কি না', 'তাপমাত্রা কত'), Banglish (e.g. 'weather kemon', 'ajker weather kemon'), or English (e.g. 'what is the weather', 'check forecast') for any city or location. For multi-location requests like 'all divisions weather', call get_weather ONE location at a time in separate announced steps (never combine multiple locations in one argument), speaking a short progress update naming the next location before each call. Fast may overlap at most two already resolved independent city reads; final reports must cover every requested city with actual temperature and conditions, and identify unavailable cities.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "location": {
+            "type": "STRING",
+            "description": "City or location name, e.g. 'Rangpur' or 'Dhaka'."
+          }
+        },
+        "required": [
+          "location"
+        ]
+      }
+    }
+  ]
+}

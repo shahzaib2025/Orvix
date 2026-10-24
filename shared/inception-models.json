@@ -1,0 +1,38 @@
+{
+  "baseUrl": "https://api.inceptionlabs.ai/v1",
+  "defaultModel": "mercury-3",
+  "freeTokenGrant": 100000000,
+  "models": [
+    {
+      "id": "mercury-3",
+      "name": "Mercury 3",
+      "contextLength": 1000000,
+      "outputLimit": 131072,
+      "route": "chat",
+      "input": ["text"],
+      "variants": ["instant", "low", "medium", "high"],
+      "features": ["tool_calling", "structured_outputs", "reasoning_effort"],
+      "apiModelId": "mercury-3"
+    },
+    {
+      "id": "mercury-2.5",
+      "name": "Mercury 2.5",
+      "contextLength": 260000,
+      "outputLimit": 65536,
+      "route": "chat",
+      "input": ["text"],
+      "features": ["tool_calling", "structured_outputs"],
+      "apiModelId": "mercury-2.5"
+    },
+    {
+      "id": "mercury-2",
+      "name": "Mercury 2",
+      "contextLength": 128000,
+      "outputLimit": 50000,
+      "route": "chat",
+      "input": ["text"],
+      "features": ["tool_calling", "structured_outputs"],
+      "apiModelId": "mercury-2"
+    }
+  ]
+}

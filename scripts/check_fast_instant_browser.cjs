@@ -1,0 +1,20 @@
+const assert=require('node:assert/strict'),http=require('node:http'),path=require('node:path'),{chromium}=require('playwright-core'),esbuild=require('esbuild');
+const fixture=`import {SimpleFastVoiceSession} from './src/simpleFastVoice';
+window.checkInstant=async()=>{
+  const logs=[];const voice=new SimpleFastVoiceSession([],{onStatus(){},onTranscript(){}});
+  window.orvixDesktop={logLive:(kind,message,details)=>logs.push({message,details})};
+  voice.stopped=false;voice.session={sendClientContent(){},sendRealtimeInput(){},sendToolResponse(){},close(){}};voice.kick=()=>{};
+  await voice.audioEngine.ensureContext();voice.beginTask('Minimize Notepad');
+  voice.receipts=[{name:'manage_window',args:{action:'minimize'},result:{status:'ok',stepCheck:{verified:true,approval:false}}}];voice.resultSubmittedAt=Date.now();
+  let cutoffs=0;const clear=voice.audioEngine.clearPlayback.bind(voice.audioEngine);voice.audioEngine.clearPlayback=()=>{cutoffs++;clear();};
+  const pcm=btoa(String.fromCharCode(...new Uint8Array(24000)));const received=Date.now();
+  voice.receive({serverContent:{outputTranscription:{text:'The window is minimized.'},modelTurn:{parts:[{inlineData:{mimeType:'audio/pcm;rate=24000',data:pcm}}]}}});
+  const started=logs.find(l=>l.message.endsWith('Conversation playback started'));const scheduled=voice.audioEngine.hasPlayback;
+  voice.receive({toolCall:{functionCalls:[{id:'next',name:'desktop_observe',args:{}}]}});
+  const began=Date.now();await voice.waitForPlayback();const drainMs=Date.now()-began;
+  const result={scheduled,playbackBeforeTurnComplete:!voice.turnComplete,firstScheduleMs:started.details.elapsedMs,bufferingMs:started.details.bufferingMs,drainMs,cutoffs};
+  voice.stop();return result;
+};`;
+const js=esbuild.buildSync({stdin:{contents:fixture,resolveDir:path.join(__dirname,'..'),loader:'ts'},bundle:true,platform:'browser',format:'iife',write:false,logLevel:'silent'}).outputFiles[0].text;
+const server=http.createServer((req,res)=>{res.setHeader('Content-Type',req.url==='/fixture.js'?'application/javascript':'text/html');res.end(req.url==='/fixture.js'?js:'<script src="/fixture.js"></script>');});
+(async()=>{let browser;try{await new Promise(r=>server.listen(0,'127.0.0.1',r));browser=await chromium.launch({channel:'chromium',headless:true,args:['--autoplay-policy=no-user-gesture-required']});const page=await browser.newPage();await page.goto('http://127.0.0.1:'+server.address().port);const result=await page.evaluate(()=>window.checkInstant());assert.equal(result.scheduled,true);assert.equal(result.playbackBeforeTurnComplete,true);assert.ok(result.bufferingMs<100);assert.ok(result.drainMs>=450);assert.equal(result.cutoffs,0);console.log(JSON.stringify({scope:'Real Web Audio scheduling with synthetic PCM; no physical microphone, audible speakers, or provider latency claim.',...result}));}finally{await browser?.close();await new Promise(r=>server.close(r));}})().catch(e=>{console.error(e);process.exitCode=1;});

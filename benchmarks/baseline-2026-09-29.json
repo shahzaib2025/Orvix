@@ -1,0 +1,82 @@
+{
+  "modelId": "opencode/space-bunny-free",
+  "createdAt": "2026-09-28T20:20:18.593Z",
+  "total": 9,
+  "passed": 9,
+  "toolErrors": 1,
+  "unsupportedCheckClaims": 1,
+  "cases": [
+    {
+      "name": "Focused bug fix",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 32236
+    },
+    {
+      "name": "Two-file refactor",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 52525
+    },
+    {
+      "name": "Two independent workspaces",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 1,
+      "durationMs": 47360
+    },
+    {
+      "name": "Bug fix with regression preservation",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 52774
+    },
+    {
+      "name": "Preserve unrelated files",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 38541
+    },
+    {
+      "name": "Cross-file caller update",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 1,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 51870
+    },
+    {
+      "name": "Unknown behavior requires evidence",
+      "passed": true,
+      "verification": "not_needed",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 12457
+    },
+    {
+      "name": "No unsupported test pass claim",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 36468
+    },
+    {
+      "name": "Respect explicit instruction in existing code",
+      "passed": true,
+      "verification": "not_run",
+      "toolErrors": 0,
+      "unsupportedCheckClaims": 0,
+      "durationMs": 37724
+    }
+  ]
+}

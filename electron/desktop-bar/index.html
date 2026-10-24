@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+    <meta name="theme-color" content="#10131a" />
+    <title>Quick access</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="widget-shell">
+    <main class="deck" id="deck" data-expanded="false">
+      <div class="deck-glow deck-glow-blue" aria-hidden="true"></div>
+      <div class="deck-glow deck-glow-violet" aria-hidden="true"></div>
+
+      <header class="deck-bar">
+        <div class="identity">
+          <span class="drag-handle" title="Drag to move" aria-label="Drag to move">
+            <svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="5" cy="4" r="1"/><circle cx="11" cy="4" r="1"/><circle cx="5" cy="8" r="1"/><circle cx="11" cy="8" r="1"/><circle cx="5" cy="12" r="1"/><circle cx="11" cy="12" r="1"/></svg>
+          </span>
+          <span class="brand-mark"><img src="orvix-logo.png" alt="Orvix" /></span>
+        </div>
+
+        <nav class="bar-shortcuts" aria-label="Quick shortcuts">
+          <button type="button" class="bar-shortcut" data-launch="browser" title="Open browser"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M8 3.8c4.1 5 4.1 11.4 0 16.4M16 3.8c-4.1 5-4.1 11.4 0 16.4"/></svg><span>Web</span></button>
+          <button type="button" class="bar-shortcut" data-launch="notepad" title="Open Notepad"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></svg><span>Notes</span></button>
+          <button type="button" class="bar-shortcut" data-launch="task-manager" title="Open Task Manager"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m5 13 4-4 4 7 3-5 3 2"/></svg><span>Tasks</span></button>
+          <button type="button" class="bar-shortcut" data-launch="calculator" title="Open calculator"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg><span>Calc</span></button>
+          <button type="button" class="bar-shortcut" data-launch="search" title="Open Windows Search"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><span>Search</span></button>
+          <button type="button" class="bar-shortcut" data-launch="lock" title="Lock this PC"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="3"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><span>Lock</span></button>
+        </nav>
+
+      </header>
+
+      <section class="quick-panel" id="quickPanel" aria-hidden="true" inert>
+        <div class="panel-heading">
+          <div>
+            <span class="eyebrow">YOUR WORKSPACE</span>
+            <h1>Quick access</h1>
+          </div>
+          <span class="panel-count">5 shortcuts</span>
+        </div>
+
+        <div class="launch-grid" aria-label="Apps and places">
+          <button class="launch-card card-web" type="button" data-launch="browser">
+            <span class="launch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3.5 9h17M8 3.8c2.3 2.4 3.1 4.9 3.1 8.2s-.8 5.8-3.1 8.2M16 3.8c-2.3 2.4-3.1 4.9-3.1 8.2s.8 5.8 3.1 8.2"/></svg></span>
+            <span class="launch-text"><strong>Browser</strong><small>Pick up where you left off</small></span><span class="launch-arrow">↗</span>
+          </button>
+          <button class="launch-card card-notepad" type="button" data-launch="notepad">
+            <span class="launch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></svg></span>
+            <span class="launch-text"><strong>Notepad</strong><small>Write something down</small></span><span class="launch-arrow">↗</span>
+          </button>
+          <button class="launch-card card-task-manager" type="button" data-launch="task-manager">
+            <span class="launch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m5 13 4-4 4 7 3-5 3 2"/></svg></span>
+            <span class="launch-text"><strong>Task Manager</strong><small>View running apps</small></span><span class="launch-arrow">↗</span>
+          </button>
+          <button class="launch-card card-calc" type="button" data-launch="calculator">
+            <span class="launch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="3"/><path d="M8 7h8M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"/></svg></span>
+            <span class="launch-text"><strong>Calculator</strong><small>Do a quick calculation</small></span><span class="launch-arrow">↗</span>
+          </button>
+          <button class="launch-card card-settings" type="button" data-launch="settings">
+            <span class="launch-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 8.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6Z"/><path d="m19.4 15 .1.1a1.7 1.7 0 1 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 1 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 1 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 1 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 1 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 1 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 1 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 1 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/></svg></span>
+            <span class="launch-text"><strong>Settings</strong><small>Adjust Windows settings</small></span><span class="launch-arrow">↗</span>
+          </button>
+        </div>
+
+        <div class="controls-heading"><span>Quick controls</span><span class="controls-note" id="displayNote">Changes apply to this device</span></div>
+        <div class="control-list">
+          <label class="control-row" for="volumeSlider">
+            <span class="control-icon volume-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 10v4h4l5 4V6l-5 4H4Z"/><path d="M17 9a5 5 0 0 1 0 6M19.5 6.5a9 9 0 0 1 0 11"/></svg></span>
+            <span class="control-label"><strong>Volume</strong><small>System output</small></span>
+            <input id="volumeSlider" type="range" min="0" max="100" value="35" aria-label="System volume" disabled />
+            <output id="volumeValue" for="volumeSlider">—</output>
+          </label>
+          <label class="control-row" for="brightnessSlider" id="brightnessRow">
+            <span class="control-icon brightness-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></span>
+            <span class="control-label"><strong>Brightness</strong><small id="brightnessHint">Display level</small></span>
+            <input id="brightnessSlider" type="range" min="0" max="100" value="60" aria-label="Screen brightness" disabled />
+            <output id="brightnessValue" for="brightnessSlider">—</output>
+          </label>
+        </div>
+        <div class="panel-status" id="panelStatus" role="status" aria-live="polite"><span class="status-dot"></span><span>Warming up system controls</span><kbd>Esc</kbd><span>to tuck away</span></div>
+      </section>
+    </main>
+      <aside class="deck-clock" aria-label="Current time">
+        <span class="clock-suspension" aria-hidden="true"></span>
+        <div class="clock-meta"><span id="clockDate"></span><span id="clockPeriod"></span></div>
+        <time class="clock-face" id="clockTime"><span id="clockHours">--</span><span class="clock-colon" aria-hidden="true">:</span><span id="clockMinutes">--</span></time>
+      </aside>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="renderer.js"></script>
+  </body>
+</html>

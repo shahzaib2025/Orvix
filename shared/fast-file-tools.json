@@ -1,0 +1,67 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "open_local_file",
+      "description": "Fast only: open an exact discovered local document, image, audio or video file in its default Windows app and verify its window. Defaults to maximized (taskbar visible). Explicit windowState overrides the default. Reuse an already open matching file window. read_file reads text; open_in_explorer selects a file; neither opens it in its associated app. Ask about ambiguous paths or windows. Never automatically launch scripts, installers or programs. Do not repeat uncertain launches.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "path": {
+            "type": "STRING"
+          },
+          "windowState": {
+            "type": "STRING",
+            "enum": [
+              "maximized",
+              "minimized",
+              "normal",
+              "focus",
+              "left",
+              "right",
+              "top_left",
+              "top_right",
+              "bottom_left",
+              "bottom_right"
+            ]
+          },
+          "handle": {
+            "type": "INTEGER",
+            "description": "Only to resolve a window choice: exact handle returned in matching options. Never invent a handle."
+          }
+        },
+        "required": [
+          "path"
+        ]
+      }
+    },
+    {
+      "name": "position_window",
+      "description": "Fast only: snap an exact observed Windows window handle to the left or right half, or a named quarter of its current monitor work area. Taskbar stays visible. Observe windows first; never invent a handle. If the user only says small portion, ask side or corner. For minimize/maximize/restore/focus/close use manage_window on that same observed handle. Close means close the window, never delete a file.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "handle": {
+            "type": "INTEGER"
+          },
+          "layout": {
+            "type": "STRING",
+            "enum": [
+              "left",
+              "right",
+              "top_left",
+              "top_right",
+              "bottom_left",
+              "bottom_right"
+            ]
+          }
+        },
+        "required": [
+          "handle",
+          "layout"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+.agent-verification {
+  position: relative;
+  width: min(100%, 821px);
+  margin: 8px 0 20px;
+  padding: 0;
+  overflow: hidden;
+  border-left: none;
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+  color: #b9bbbd;
+  font-size: 11px;
+}
+.agent-verification-card { display: block; border: 0; background: transparent; }
+.agent-verification-summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  min-height: 46px;
+  padding: 0 13px;
+  cursor: pointer;
+  list-style: none;
+}
+.agent-verification-summary::-webkit-details-marker { display: none; }
+.agent-verification-summary:hover { background: #ffffff05; }
+.agent-verification-summary:focus-visible { outline: 2px solid #d0b47d; outline-offset: -3px; border-radius: 12px; }
+.agent-verification-summary > svg:first-child { flex: none; color: #d0b47d; }
+.agent-verification-summary > strong {
+  flex: none;
+  color: #e7e7e4;
+  font-size: 10px;
+  font-weight: 650;
+  white-space: nowrap;
+}
+.agent-verification-summary-message {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  color: #aaacae;
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.agent-verification-summary > small {
+  flex: none;
+  color: #94989b;
+  font-size: 9px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.agent-verification.is-passed .agent-verification-summary > svg:first-child { color: #81c99c; }
+.agent-verification.is-failed .agent-verification-summary > svg:first-child { color: #e49a92; }
+.agent-verification-summary .agent-verification-chevron {
+  flex: none;
+  margin-left: 1px;
+  color: #777c80;
+  transition: transform .18s ease;
+}
+.agent-verification-card[open] > .agent-verification-summary .agent-verification-chevron { transform: rotate(180deg); }
+.agent-verification-content {
+  padding: 0 13px 12px;
+  border-top: 1px solid #ffffff0b;
+}
+.agent-verification-check.is-passed summary > svg:first-child { color: #81c99c; }
+.agent-verification-check.is-failed summary > svg:first-child { color: #e49a92; }
+.agent-verification.is-not_run .agent-verification-check.is-skipped summary > svg:first-child { color: #d0b47d; }
+.agent-verification-content > p {
+  margin: 8px 0 3px 24px;
+  color: #a8abad;
+  line-height: 1.65;
+}
+.agent-verification-check {
+  margin: 7px 0 0 23px;
+  overflow: hidden;
+  border: 1px solid #ffffff0d;
+  border-radius: 9px;
+  background: #ffffff03;
+  transition: border-color .16s ease, background .16s ease;
+}
+.agent-verification-check:hover,
+.agent-verification-check[open] {
+  border-color: #ffffff18;
+  background: #ffffff05;
+}
+.agent-verification-check summary {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 6px 10px;
+  color: #d0d1d2;
+  cursor: pointer;
+  list-style: none;
+}
+.agent-verification-check summary::-webkit-details-marker { display: none; }
+.agent-verification-check summary > svg:first-child { flex: none; color: #999; }
+.agent-verification-check summary > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.agent-verification-check summary > small {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  color: #96999c;
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.agent-verification-check summary > small ~ small { margin-left: 4px; }
+.agent-verification-chevron {
+  flex: none;
+  margin-left: 2px;
+  color: #777c80;
+  transition: transform .18s ease;
+}
+.agent-verification-check[open] .agent-verification-chevron { transform: rotate(180deg); }
+.agent-verification-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 9px 11px 11px 29px;
+  border-top: 1px solid #ffffff0b;
+  color: #96999c;
+}
+.agent-verification-detail code {
+  color: #dedfe0;
+  font: 10px/1.5 Consolas, "Cascadia Code", monospace;
+  overflow-wrap: anywhere;
+}
+.agent-verification-detail > span { overflow-wrap: anywhere; font-size: 9px; }
+.agent-verification-detail pre {
+  max-height: 260px;
+  margin: 0;
+  overflow: auto;
+  padding: 9px 10px;
+  border: 1px solid #ffffff10;
+  border-radius: 7px;
+  background: #101112;
+  color: #c3c5c6;
+  font: 10px/1.55 Consolas, "Cascadia Code", monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.agent-verification-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #c5c7c8;
+  font-variant-numeric: tabular-nums;
+}
+.agent-verification-detail th {
+  padding: 7px 9px;
+  border-bottom: 1px solid #ffffff12;
+  color: #92979a;
+  font-size: 9px;
+  font-weight: 600;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.agent-verification-detail td {
+  padding: 8px 9px;
+  border-bottom: 1px solid #ffffff09;
+}
+.agent-verification-detail tbody tr:last-child td { border-bottom: 0; }
+.agent-verification-detail td:not(:first-child),
+.agent-verification-detail th:not(:first-child) { text-align: right; }
+.agent-verification-limitation {
+  margin-top: 10px !important;
+  padding: 8px 0 0;
+  border-top: 1px solid #ffffff10;
+  color: #96999c !important;
+}
+@media (max-width: 600px) {
+  .agent-verification-summary { min-height: 43px; gap: 7px; padding-inline: 10px; }
+  .agent-verification-summary > strong { max-width: 106px; overflow: hidden; text-overflow: ellipsis; }
+  .agent-verification-summary > small { display: none; }
+  .agent-verification-content { padding-inline: 10px; }
+  .agent-verification-check { margin-left: 0; }
+  .agent-verification-check summary > small:nth-of-type(2),
+  .agent-verification-check summary > small:nth-of-type(3) { display: none; }
+  .agent-verification-detail { padding-left: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .agent-verification-check,
+  .agent-verification-chevron { transition: none; }
+}

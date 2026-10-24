@@ -1,0 +1,1 @@
+{"goal":"Create the requested files","acknowledgement":"I’ll create the requested files and check their saved contents.","feature":"Fixture files","expectedBehavior":"Requested contents are saved","questions":[],"assumptions":[],"examples":[]}

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self'; connect-src 'none'; base-uri 'none'; form-action 'none'" />
+  <style>
+    :root { color-scheme: light; font-family: Inter, "Segoe UI Variable", "Segoe UI", sans-serif; }
+    * { box-sizing: border-box; }
+    html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+    body { display: block; color: #202a39; user-select: none; -webkit-font-smoothing: antialiased; }
+    .deck-clock { position: absolute; top: 13px; right: auto; z-index: 3; width: 125px; padding: 10px 15px 11px; border: none; border-radius: 18px; background: radial-gradient(ellipse at 12% 0%, rgba(255,255,255,.94), transparent 65%), linear-gradient(135deg, rgba(255,255,255,.68), rgba(227,237,253,.32)); box-shadow: none; backdrop-filter: blur(24px) saturate(170%); -webkit-backdrop-filter: blur(24px) saturate(170%); opacity: 1; transform: none; pointer-events: none; }
+    .clock-suspension { position: absolute; top: -13px; left: 24px; right: 24px; height: 15px; background: linear-gradient(90deg, #b7c7dd, #f8fbff 48%, #9fb4d2) left top / 3px 100% no-repeat, linear-gradient(90deg, #b7c7dd, #f8fbff 48%, #9fb4d2) right top / 3px 100% no-repeat; }
+    .clock-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; color: #7d8ba0; font-size: 8px; font-weight: 600; letter-spacing: .065em; text-transform: uppercase; }
+    #clockPeriod { color: #6581a8; font-size: 7px; letter-spacing: .1em; }
+    .clock-face { display: flex; align-items: baseline; justify-content: center; margin-top: -3px; color: #2f3e59; font-family: "Segoe UI Variable Display", "Segoe UI", sans-serif; font-size: 31px; font-weight: 400; font-variant-numeric: tabular-nums; letter-spacing: -.055em; line-height: 1.15; }
+    .clock-colon { align-self: center; margin: 0 5px; color: #2f3e59; font-size: 23px; font-weight: 700; transform: translateY(-2px); }
+  </style>
+  <title>Orvix clock</title>
+</head>
+<body class="clock-window">
+  <aside class="deck-clock" aria-label="Current time">
+    <span class="clock-suspension" aria-hidden="true"></span>
+    <div class="clock-meta"><span id="clockDate"></span><span id="clockPeriod"></span></div>
+    <time class="clock-face" id="clockTime"><span id="clockHours">--</span><span class="clock-colon" aria-hidden="true">:</span><span id="clockMinutes">--</span></time>
+  </aside>
+  <script src="clock-renderer.js"></script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+// Real Orvix native execution: model starts a local fixture, performs assertions and sees browser screenshots.
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const { createOpenCodeHeadless } = require('../electron/agent/opencode-headless.cjs');
+const { configureOpenCodeCatalog, refreshOpenCodeCatalog } = require('../electron/agent/opencode-catalog.cjs');
+const { configureOpenCodeModel } = require('../electron/agent/opencode-model.cjs');
+const { createAgentEngine } = require('../electron/agent/engine.cjs');
+const root = path.resolve(__dirname, '..', 'scratch', 'visual-website-live');
+fs.mkdirSync(root, { recursive: true });
+const project = fs.mkdtempSync(path.join(root, 'fixture-'));
+const runtime = createOpenCodeHeadless(path.join(root, 'runtime'));
+const results = { at: new Date().toISOString(), project, checks: [] };
+const events = [];
+let engine, timer;
+const save = () => fs.writeFileSync(path.join(root, 'result.json'), JSON.stringify(results, null, 2));
+(async () => {
+  const html = '<!doctype html><html lang="en"><head><title>Visual website test</title><meta name="viewport" content="width=device-width, initial-scale=1"><style>body{margin:0;color:#fff;background:#0a555f;font-family:Arial,sans-serif}main{padding:40px 24px;max-width:900px;margin:auto}h1{font-size:36px}.art{height:320px;display:grid;place-items:center}.mark{width:160px;height:160px;background:#ff8a30;transform:rotate(45deg)}button{padding:16px 24px;font-size:18px;background:#fff;color:#083e46;border:0;border-radius:12px}footer{margin-top:600px;padding:24px}</style></head><body><main><h1>Explore the experience</h1><div class="art" aria-hidden="true"><div class="mark"></div></div><button id="reveal">Show details</button><p id="status" role="status">Waiting</p><footer>End of page</footer></main><script>document.querySelector("#reveal").onclick=()=>document.querySelector("#status").textContent="Ready to explore"</script></body></html>';
+  fs.writeFileSync(path.join(project, 'package.json'), '{"name":"visual-live-fixture","private":true,"scripts":{"dev":"node server.cjs"}}');
+  fs.writeFileSync(path.join(project, 'server.cjs'), 'const http=require("node:http");const server=http.createServer((req,res)=>{res.writeHead(200,{"content-type":"text/html"});res.end(' + JSON.stringify(html) + ')});server.listen(0,"127.0.0.1",()=>console.log("PREVIEW_URL=http://127.0.0.1:"+server.address().port));');
+  configureOpenCodeCatalog(root, runtime); configureOpenCodeModel(runtime);
+  const catalog = await refreshOpenCodeCatalog(true, AbortSignal.timeout(30000));
+  assert.ok(!catalog.error && !catalog.stale, catalog.error);
+  const model = catalog.models.find(item => item.input.includes('image'));
+  assert.ok(model, 'No available free model advertises image input'); results.model = model.id;
+  engine = createAgentEngine({ getPath: () => path.join(root, 'engine'), getVersion: () => 'test' }, { getKey: () => '' }, event => { events.push(event); if (event.type === 'activity') console.log(event.message); });
+  const taskId = 'website-live-' + Date.now();
+  await engine.workspaces.open(taskId, project, async () => true);
+  timer = setTimeout(() => engine.cancel(taskId), 180000);
+  const start = Date.now();
+  const reply = await engine.run({ taskId, requestId: 'website-test-1', modelId: model.id, accessMode: 'Full access', accessModeVersion: 2,
+    messages: [{ role: 'user', content: `Test the existing local website in ${project}. Do not edit files, use shell/read tools, or create a new site. Use orvix_visual_start_preview_server with directory ${project} and command "node server.cjs". Get PREVIEW_URL from its output. Then use orvix_visual_preview_website with that URL, the same directory, full_page true, and workflow [{"action":"click","selector":"#reveal"},{"action":"assert","assertion":{"kind":"text","selector":"#status","expected":"Ready to explore"}}]. Keep the default desktop and mobile views. In your final answer describe the central geometric shape and its colours from the returned images, and the observed button result. Do not run more commands after preview.` }] });
+  results.durationMs = Date.now() - start; results.reply = reply.text; results.usage = reply.usage;
+  results.verification = reply.verification;
+  results.tools = events.filter(event => event.type === 'tool' && event.phase === 'completed').map(event => ({ name: event.name, failed: event.failed, evidenceId: event.evidenceId }));
+  save();
+  assert.ok(results.tools.some(tool => tool.name === 'orvix_visual_start_preview_server' && !tool.failed), 'Live model did not start the server with the new tool');
+  assert.ok(results.tools.some(tool => tool.name === 'orvix_visual_preview_website' && !tool.failed), 'Live model did not inspect the browser with the new tool');
+  const flow = reply.verification.checks.find(check => check.phase === 'user_flow' && !check.stale);
+  assert.equal(flow?.status, 'passed', 'Live desktop/mobile interaction assertions did not pass');
+  assert.match(reply.text, /diamond|rotated square/i); assert.match(reply.text, /orange/i); assert.match(reply.text, /teal|cyan|turquoise|blue.green|dark green/i);
+  const previewCheck = reply.verification.checks.find(check => check.phase === 'layout');
+  const views = JSON.parse(previewCheck.output);
+  assert.equal(views.length, 2); assert.ok(views.every(view => view.capture.fullPage && view.workflow.status === 'passed'));
+  results.checks.push('real native preview-server launch', 'desktop and mobile full-page screenshots delivered to a live vision model', 'click and explicit text-state assertions passed in both viewports', 'geometric shape identified from browser screenshots');
+  const startOutput = events.find(event => event.type === 'tool' && event.name === 'orvix_visual_start_preview_server' && event.phase === 'completed')?.output ?? '';
+  const url = startOutput.match(/PREVIEW_URL=(http:\/\/127\.0\.0\.1:\d+)/)?.[1];
+  assert.ok(url, 'Preview URL was not recorded');
+  let stopped = false;
+  for (let attempt = 0; attempt < 15; attempt++) { try { await fetch(url, { signal: AbortSignal.timeout(1000) }); } catch { stopped = true; break; } await new Promise(resolve => setTimeout(resolve, 200)); }
+  assert.ok(stopped, 'Preview server remained active after task completion'); results.checks.push('preview server stopped after turn completion');
+  const status = await runtime.exclusive(AbortSignal.timeout(15000), ({ api }) => api('/mcp'));
+  assert.notEqual(status.orvix_visual?.status, 'connected'); results.checks.push('native visual bridge disconnected after turn completion');
+  results.status = 'passed'; save(); console.log(JSON.stringify({ status: results.status, model: results.model, reply: results.reply, checks: results.checks, durationMs: results.durationMs }, null, 2));
+})().catch(error => { results.status = 'failed'; results.error = String(error.message ?? error); save(); console.error(error); process.exitCode = 1; }).finally(async () => { clearTimeout(timer); engine?.shutdown(); await runtime.shutdown(); });

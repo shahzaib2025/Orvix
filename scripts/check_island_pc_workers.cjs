@@ -1,0 +1,90 @@
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
+const assert = require('node:assert/strict');
+const root = path.resolve(__dirname, '..');
+if (process.versions.electron) {
+  const { app, BrowserWindow, ipcMain } = require('electron');
+  const { createTinyAgents } = require('../electron/tiny-agents.cjs');
+  app.setPath('userData', process.env.ORVIX_ISLAND_PC_DIR);
+  app.whenReady().then(async () => {
+    let window;
+    const effects = [];
+    const engine = createTinyAgents(app, { notify: () => ({ status: 'shown' }), executeAction: async action => { effects.push(action.type); await new Promise(resolve => { global.finishAction = resolve; }); }, onChange: event => window?.webContents.send('orvix:tiny-agent-event', event) });
+    const base = { condition: { op: 'predicate', signal: 'battery_percent', comparator: 'lte', value: 30 }, action: { type: 'notify', message: 'Check battery' }, holdSeconds: 0, repeatSeconds: 0, fireOnApproval: false };
+    const garden = engine.draft({ ...base, name: 'Battery worker', district: 'garden' }).rule;
+    engine.approve(garden.id);
+    const focus = engine.draft({ ...base, name: 'Focus keeper', district: 'workshop', action: { type: 'focus_app', target: 'editor', message: '' } }).rule;
+    engine.approve(focus.id);
+    engine.draft({ ...base, name: 'Desk reminder', district: 'library' });
+    engine.ingest({ BatteryPercent: 80 });
+    for (const [name, fn] of Object.entries({ list: () => engine.list(), draft: input => engine.draft(input), approve: id => engine.approve(id), enabled: (id, value) => engine.setEnabled(id, value), delete: id => engine.remove(id), preview: input => engine.preview(input) })) ipcMain.handle(`orvix:tiny-agents-${name}`, (_event, ...args) => fn(...args));
+    ipcMain.handle('orvix:pc-snapshot', () => null);
+    ipcMain.handle('orvix:opencode-status', () => ({ zen: { configured: false }, go: { configured: false }, canPersist: false }));
+    window = new BrowserWindow({ show: true, x: -10000, y: -10000, focusable: false, skipTaskbar: true, width: 1536, height: 1000, webPreferences: { preload: path.join(root, 'electron/preload.cjs'), sandbox: true, nodeIntegration: false, contextIsolation: true, backgroundThrottling: false } });
+    global.pcFixture = { engine, effects, focusId: focus.id };
+    app.on('before-quit', () => engine.stop());
+    await window.loadFile(path.join(root, 'dist/index.html'));
+  }).catch(error => { console.error(error); app.exit(1); });
+} else {
+  (async () => {
+    const { _electron } = require('playwright-core');
+    const temporary = fs.mkdtempSync(path.join(os.tmpdir(), 'orvix-island-pc-'));
+    const env = { ...process.env, ORVIX_ISLAND_PC_DIR: temporary }; delete env.ELECTRON_RUN_AS_NODE;
+    const captures = path.join(root, 'scratch/island-pc-workers'); fs.mkdirSync(captures, { recursive: true });
+    let desktop;
+    try {
+      desktop = await _electron.launch({ executablePath: require('electron'), args: [__filename], env });
+      const page = await desktop.firstWindow();
+      const errors = []; page.on('pageerror', error => errors.push(error.message));
+      await page.locator('#startup-splash').waitFor({ state: 'detached', timeout: 20000 });
+      assert.equal(await page.evaluate(() => typeof window.orvixDesktop.listTinyWorkers), 'undefined');
+      await page.getByRole('button', { name: /^Support/ }).click();
+      await page.locator('.island-renderer[data-world-ready=true]').waitFor({ timeout: 20000 });
+      await page.waitForFunction(() => document.querySelector('.island-renderer')?.dataset.residentCount === '3');
+      const main = await page.locator('.main-canvas').boundingBox(), view = await page.locator('.island-world').boundingBox();
+      assert.ok(Math.abs(main.width - view.width) < 2 && Math.abs(main.height - view.height) < 2);
+      await page.locator('.island-roster-list>button').filter({ hasText: 'Focus keeper' }).click();
+      await page.locator('.island-resident-state').filter({ hasText: 'Monitoring PC' }).waitFor();
+      assert.match(await page.locator('.island-agent-detail').innerText(), /focus app · editor/);
+      await desktop.evaluate(() => global.pcFixture.engine.ingest({ BatteryPercent: 10 }));
+      await page.locator('.island-resident-state').filter({ hasText: 'Performing PC action' }).waitFor();
+      assert.equal(await desktop.evaluate(() => global.pcFixture.engine.list().rules.find(r => r.id === global.pcFixture.focusId).executing), true);
+      await page.screenshot({ path: path.join(captures, 'pc-worker-acting.png') });
+      await page.getByRole('button', { name: 'Pause scenery' }).click();
+      await desktop.evaluate(async () => { global.finishAction(); await global.pcFixture.engine.waitForActions(); });
+      await page.locator('.island-watcher-history').getByText('Action 1: focus_app completed.', { exact: false }).waitFor();
+      await page.locator('.island-resident-state').filter({ hasText: 'Monitoring PC' }).waitFor();
+      await page.getByRole('button', { name: 'Pause PC worker' }).click();
+      await page.locator('.island-resident-state').filter({ hasText: 'Paused' }).waitFor();
+      await page.getByRole('button', { name: 'Resume PC worker' }).click();
+      await desktop.evaluate(() => global.pcFixture.engine.ingest({ BatteryPercent: 80 }));
+      await page.locator('.island-resident-state').filter({ hasText: 'Monitoring PC' }).waitFor();
+      await page.getByRole('button', { name: 'Manage PC worker' }).click();
+      await page.getByRole('heading', { name: 'Tiny Agents', exact: true }).waitFor();
+      assert.match(await page.locator('.tiny-detail').innerText(), /Focus keeper/);
+      assert.equal(await page.getByRole('button', { name: /^AI workers/ }).count(), 0);
+      await page.getByRole('button', { name: 'New tiny agent', exact: true }).click();
+      const dialog = page.getByRole('dialog');
+      await dialog.getByLabel('Name', { exact: true }).fill('Island PC assignment');
+      await dialog.getByLabel('Island work area').selectOption('harbor');
+      await dialog.getByRole('button', { name: 'Save for review' }).click();
+      await dialog.waitFor({ state: 'hidden' });
+      assert.equal(await desktop.evaluate(() => global.pcFixture.engine.list().rules[0].district), 'harbor');
+      assert.equal(await desktop.evaluate(() => global.pcFixture.engine.list().rules[0].draft), true);
+      await page.getByRole('button', { name: 'Visit island', exact: true }).click();
+      await page.waitForFunction(() => document.querySelector('.island-renderer')?.dataset.residentCount === '4');
+      await page.locator('.island-roster-list>button').filter({ hasText: 'Island PC assignment' }).click();
+      assert.match(await page.locator('.island-agent-detail').innerText(), /The harbor/);
+      await page.locator('.island-resident-state').filter({ hasText: 'Awaiting approval' }).waitFor();
+      assert.equal(await page.getByRole('button', { name: 'Resume PC worker' }).isDisabled(), true);
+      await page.setViewportSize({ width: 390, height: 844 });
+      assert.equal(await page.locator('.island-page').evaluate(el => el.scrollWidth > el.clientWidth + 1), false);
+      await page.screenshot({ path: path.join(captures, 'pc-worker-mobile.png') });
+      assert.deepEqual(errors, []);
+      assert.deepEqual(await desktop.evaluate(() => global.pcFixture.effects), ['focus_app']);
+      console.log('PC island passed: actual Tiny Agents IPC, monitoring/action execution/completion, pause/resume, scenery independence, rule navigation, PC creation + district, draft approval protection, full main section, mobile, and no AI worker bridge. OS effects were injected.');
+    } finally { await desktop?.close(); assert.equal(path.dirname(temporary), os.tmpdir()); fs.rmSync(temporary, { recursive: true, force: true }); }
+  })().catch(error => { console.error(error); process.exitCode = 1; });
+}
+

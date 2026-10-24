@@ -1,0 +1,74 @@
+appId: com.orvix.desktop
+productName: Orvix
+copyright: Copyright © 2026 Orvix
+directories:
+  buildResources: build
+  output: release
+files:
+  - dist/**/*
+  - electron/**/*
+  - shared/browser-tools.json
+  - shared/work-tools.json
+  - shared/fast-evaluation.json
+  - shared/routeway-models.json
+  - shared/requesty-models.json
+  - shared/inception-models.json
+  - build/icons/icon.ico
+  - package.json
+extraResources:
+  - from: build/opencode-runtime-sdk
+    to: opencode-runtime-sdk
+  - from: PC-Monitor-Test/bin/PCMonitor.Fast.exe
+    to: PC-Monitor-Test/bin/PCMonitor.exe
+  - from: PC-Monitor-Test/extension
+    to: PC-Monitor-Test/extension
+asar: true
+asarUnpack:
+  - electron/fast-file-native.ps1
+  - electron/desktop-bar/controls.ps1
+  - electron/desktop-bar/shortcuts.ps1
+  - electron/tiny-*.cjs
+  - electron/workflow-resources.cjs
+  - electron/agent/durable-store.cjs
+  - electron/agent/api-key-check.cjs
+  - electron/agent/zen-key-check.cjs
+  - electron/agent/workspace-manager.cjs
+  - electron/agent/file-policy.cjs
+  - electron/opencode-models.json
+  - electron/construction-access.ps1
+  - electron/construction-recovery.ps1
+  - electron/agent/skills/**
+  - electron/agent/static-preview.cjs
+  - node_modules/opencode-ai/bin/**
+  - node_modules/opencode-windows-*/bin/**
+  - electron/construction-lock.ps1
+  - electron/construction-lock-native.cs
+  - electron/agent/project-map-python.py
+  - node_modules/@vscode/ripgrep-*/bin/**
+  - node_modules/tesseract.js/src/worker-script/node/**
+  - node_modules/tesseract.js-core/**
+disableAsarIntegrity: true
+win:
+  icon: build/icons/icon.ico
+  target:
+    - target: nsis
+      arch: [x64]
+    - target: msi
+      arch: [x64]
+nsis:
+  artifactName: Orvix-Setup-${version}.${ext}
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  perMachine: false
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  installerIcon: build/icons/icon.ico
+  uninstallerIcon: build/icons/icon.ico
+  installerHeader: build/installer/nsis-header.bmp
+  installerSidebar: build/installer/nsis-sidebar.bmp
+  uninstallerSidebar: build/installer/nsis-sidebar.bmp
+msi:
+  artifactName: Orvix-${version}.${ext}
+  createDesktopShortcut: true
+  createStartMenuShortcut: true
+  menuCategory: Orvix

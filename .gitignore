@@ -1,0 +1,15 @@
+node_modules/
+dist/
+release/
+build/
+scratch/
+.DS_Store
+*.log
+benchmark-results.json
+benchmarks/.runs/
+scripts/*.report.json
+scripts/*.audit.json
+scripts/*.validation.json
+.env
+.env.*
+*.tsbuildinfo

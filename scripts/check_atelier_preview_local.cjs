@@ -1,0 +1,10 @@
+const fs=require('node:fs'),path=require('node:path');
+const {createStaticPreview}=require('../electron/agent/static-preview.cjs');
+const {previewWebsite}=require('../electron/agent/preview-website.cjs');
+const {createImageStore}=require('../electron/agent/image-store.cjs');
+const root=path.resolve('scratch/atelier-max-inspection');
+const server=createStaticPreview('C:/MockWorkspace/Florian BD Shop White Atelier');
+(async()=>{await new Promise(r=>server.listen(0,'127.0.0.1',r));
+ const result=await previewWebsite({url:`http://127.0.0.1:${server.address().port}`,taskId:'atelier-recheck',requestId:'capture',signal:AbortSignal.timeout(60000),imageStore:createImageStore({getPath:()=>root}),viewports:[{width:1440,height:900,label:'desktop'},{width:390,height:844,label:'mobile'}],full_page:true,motion:{section:'#story',input:'position',settle_ms:250,observe_selectors:['#pin-title','#pin-text','#pin-cap'],checkpoints:[{progress:0,label:'entry'},{progress:.4,label:'middle'},{progress:1.1,label:'release'},{progress:0,label:'reverse'}]}});
+ fs.writeFileSync(path.join(root,'current-preview-recheck.json'),JSON.stringify(result,null,2));console.log(JSON.stringify(result.views.map(v=>({label:v.label,clipped:v.metrics.viewportClippedContent,overflow:v.metrics.horizontalOverflow,broken:v.metrics.brokenImages,frames:v.motion?.frames?.length,errors:v.errors}))));
+})().catch(e=>{console.error(e.message);process.exitCode=1;}).finally(()=>new Promise(r=>server.close(r)));

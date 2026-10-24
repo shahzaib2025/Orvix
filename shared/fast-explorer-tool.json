@@ -1,0 +1,15 @@
+{
+  "functionDeclarations": [{
+    "name": "open_in_explorer",
+    "description": "Fast profile only: visibly open a local folder in Windows File Explorer, or show a local file selected in its containing folder. Use this when asked to open/show a folder or locate a file visibly, including 'Songs folder open koro', 'ফোল্ডারটা ওপেন করো', and 'फोल्डर ओपन करो'. Reuse the exact path returned by list_directory, search_files or read_file for follow-ups. Listing or reading a file does not open Explorer. If the path is unknown, discover it or ask; never invent a permission denial. This does not read file contents, play media, execute files or open documents in their associated apps. Completion requires the returned Explorer verification.",
+    "behavior": "NON_BLOCKING",
+    "parameters": {
+      "type": "OBJECT",
+      "properties": {
+        "path": {"type": "STRING", "description": "Exact discovered local path, or a standard location such as Desktop, Documents, Downloads or Desktop/Songs."},
+        "mode": {"type": "STRING", "enum": ["open", "reveal"], "description": "open shows a directory's contents (files are selected in their parent); reveal selects the specified file or folder in its parent."}
+      },
+      "required": ["path"]
+    }
+  }]
+}

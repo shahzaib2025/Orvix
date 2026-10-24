@@ -1,0 +1,45 @@
+# Design generation quality: research and implementation
+
+## Primary-source findings
+
+- [OpenAI frontend prompting guidance](https://developers.openai.com/api/docs/guides/frontend-prompt) provides concrete criteria for subject-relevant visual assets, avoiding common generated-UI defaults, and checking desktop/mobile screenshots. It is published guidance, not evidence of every internal Codex instruction. Orvix adopts the principles of visible subject fit and browser evidence, without copying a fixed hero or font recipe.
+- [Anthropic's frontend harness research](https://www.anthropic.com/engineering/harness-design-long-running-apps) identifies optimistic self-evaluation and bland safe layouts. Its experiments separate generation from evaluation using design quality, originality, craft and functionality. They also warn that rubric language can cause visual convergence. Their experimental 5-15 iterations can take hours; Orvix instead reuses its existing reviewer with one bounded pass and a targeted revision for fast premium sites.
+- [Claude Code best practices](https://www.anthropic.com/engineering/claude-code-best-practices) describes implementing, screenshotting and iterating against a clear visual target. For an open brief, the target in Orvix is the chosen subject-specific concept rather than a copied reference layout.
+- [Antigravity screenshots documentation](https://antigravity.google/docs/screenshots) describes screenshots as reviewable artifacts with feedback. It does not establish a secret mechanism that guarantees original designs. Orvix already captures images; the missing change was using them for visual judgment instead of treating their existence as aesthetic acceptance.
+
+## Changes
+
+1. Correct the Medium workflow gate: successful actions use `performed`, successful assertions use `passed`, and the overall workflow must pass. An assertion without an actual action is insufficient.
+2. For new complete Medium/MAX sites, record three brief concepts differing in communication idea, composition and media role. Choose one with a subject-specific reason using the existing brief fields. No new settings, template catalog, layout seed or cross-project memory.
+3. Make imagery decisions before source construction when the concept depends on media. Preserve direct-URL delivery, source preference and factual honesty.
+4. Run one independent visual review in fast mode for substantial full Medium/MAX design work. Keep Default, off, ordinary repairs and bounded experiments on their existing paths. The evaluator checks actual composition and credibility, not just code correctness. No numerical premium score.
+5. Preserve the review outcome for an unchanged reviewed candidate. A rejected unchanged candidate remains `needs_revision` and task status remains partial. A changed and freshly inspected final version can be `reinspected`, explicitly without independent final approval.
+6. Retain existing MAX motion evidence requirements and bounded capture/revision budgets. No dependency, continuous animation loop or repeated automatic polishing added.
+7. Correct separate assertion ordering: preview workflows run before final top-level assertions, and successful externally asserted workflows count as checked. Retain successful action evidence across captures of the same source.
+8. Retain desktop/mobile images from separate calls for the same source, with unique reviewer labels. New premium full-site captures default to full-page coverage while honoring explicit section/viewport-only requests.
+9. Provide command `static` through the existing preview tool for plain HTML/CSS/JS. The bundled local server returns an observed ephemeral port and avoids generated server files, dependency installation and guessed ports. It denies dotfiles, sensitive filenames and links escaping the project. Include the helper in unpacked desktop packaging.
+10. Image search can recover once from a too-narrow Commons query with a broader subject query; explicit provider restrictions remain binding. Missing keys and unavailable providers remain reported limitations.
+11. Recover a saved key's stale local-decryption failure after successful decryption. Preserve provider-rejected invalid keys, pauses, quota balances and accounting. An older Electron showcase runner read Orvix's encrypted keys using another Chromium profile; it now sets the correct user-data encryption context before app readiness. The three real saved keys decrypted successfully and recovered to ready without changing their balances.
+12. Full-page captures finish at the document top, preventing a fixed header from being baked halfway down a screenshot after a scrolled form interaction. Motion frames retain their independently sampled states.
+
+## Validation boundaries
+
+The regression suite includes a real browser click followed by a changed-text assertion, profile/routing isolation, direct/native image handoff, cancellation and review bounds. Fresh native Muse Spark 1.3 xhigh generations use isolated state and save initial/final pages, inputs, screenshots, duration and review feedback. Functional checks and observed visual quality are reported separately. Multiple successful samples increase confidence but cannot guarantee every future result is unique or premium.
+
+## Follow-up: initial generation and current Codex research
+
+The ablation report at ~/Desktop/Orvix-Design-Diagnosis-1791667011746/report.json records familiar split-hero/card/composer structures in isolated native runs with the selected skill, without Orvix design skills, and with a higher advertised agent temperature. This shows that copying a stored website or loading the Orvix skill is not necessary for the repetition. It does not reveal hidden provider settings or prove the model's internal cause.
+
+[OpenAI's frontend design article](https://developers.openai.com/blog/designing-delightful-frontends-with-gpt-5-4) explains that underspecified prompts can elicit common learned patterns. It recommends real content and visual references, and attributes stronger results partly to model training. Its reasoning recommendations concern GPT models, not verified Muse behavior.
+
+[Published frontend instructions](https://developers.openai.com/api/docs/guides/frontend-prompt) explicitly discourage split text/card heroes, emphasize relevant subject imagery and require desktop/mobile visual checks. They are public guidance, not proof of every current Codex internal instruction. Copying their entire visual recipe could create another repeated style.
+
+[Newer skills guidance](https://developers.openai.com/blog/rethinking-skills-and-prompts-for-gpt-6-astra) recommends concise, scoped instructions and progressive disclosure; elaborate recipes can overconstrain capable models. Longer skill files alone are not a demonstrated cure.
+
+Changes to initial generation: deliver a scoped frontend contract through the native API's supported system field; keep selected skills separate; identify the first obvious composition as a discarded baseline; add the actual observed repeated combination as a negative example, without prescribing a replacement. Default avoids the additional concept-selection rule. Backend/Plan work receives no creative contract. Existing identity and reference fidelity remain binding.
+
+The first native system-contract test still used the familiar layout. The abstract discarded-baseline test also failed: the model called a banner its baseline and selected the same split-card composition as an alternative. Those diagnostics were stopped/superseded, not accepted. Fresh-Medium-A/B test the concrete negative example with Muse Spark 1.3 xhigh, isolated state and the same human prompt; independent revisions are off so the comparison concerns initial generation. See ~/Desktop/Orvix-Fresh-Design-Tests/report.json for actual status and timing.
+
+Regression checks: scratch/design-final-checks.log records 74 passed, 0 failed. Build: scratch/design-concept-build.log passed with the existing large-chunk warning. These checks verify transport, scope, routing and review behavior; they do not establish aesthetic quality or universal uniqueness.
+
+Fresh first-pass comparison completed: A took 212323 ms (3m32s); B took 248768 ms (4m09s). Desktop/mobile screenshots are in ~/Desktop/Orvix-Fresh-Design-Tests/Comparison. A uses a centered opening and three-image frieze with ledger rows; B uses a large brand masthead, a single wide shop image with side notes, shelf ribbon and order slip. They avoid the previous split-card scaffold, but share a white serif stationery aesthetic. This is partial progress, not demonstrated broad design diversity or universal uniqueness. A still failed performance and text assertions; pending remote images were observed in its independent desktop capture. Watermarked assets and unsupported business/service details remain quality weaknesses. Neither sample was independently approved; revisions were intentionally off. No additional automatic revision was used to obtain this initial layout difference.

@@ -1,0 +1,1 @@
+{"goal":"Create the requested files","acknowledgement":"I’ll create the requested files and check their saved contents.","taskKind":null,"feature":"Fixture files","trigger":"","expectedBehavior":"Requested contents are saved","exclusions":[],"assumptions":[],"examples":[],"questions":[],"status":"reviewed","understandingVersion":2}

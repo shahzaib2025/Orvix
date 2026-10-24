@@ -1,0 +1,3 @@
+.startup-setting-status { min-height: 12px; margin: -5px 0 12px 54px; color: #8b91a3; font-size: 10px; }
+.settings-card .toggle:disabled { cursor: not-allowed; opacity: .55; }
+.settings-card code { color: #c5cce8; font: 500 10px ui-monospace, SFMono-Regular, Consolas, monospace; }

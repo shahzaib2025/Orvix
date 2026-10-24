@@ -1,0 +1,4 @@
+export type SearchCounters = { queries: number; attempts: number; successes: number; credits: number; cacheHits: number; failures: number; unknown: number; fallbackCalls: number; fallbackSuccesses: number };
+export type SearchKey = { id: string; label: string; masked: string; poolId: string; poolLabel: string; enabled: boolean; status: string; addedAt: number; lastUsedAt: number | null; lastError: string; remaining: number; attempts: number; successes: number; failures: number; credits: number; unknown: number };
+export type SearchKeysSnapshot = { revision: number; canPersist: boolean; storageError: string; lastProvider: string; lastSearchAt: number | null; providerCooldownUntil: number; unresolvedUnknown: number; keys: SearchKey[]; pools: { id: string; label: string; remaining: number }[]; totals: SearchCounters };
+export type SearchKeyInput = { label: string; key: string; poolId?: string; remaining?: number };

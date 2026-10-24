@@ -1,0 +1,23 @@
+.agent-design-options-preview-toolbar { gap: 10px; }
+.agent-design-options-preview-toolbar .agent-editor-tab-strip { flex: 1 1 auto; }
+.agent-design-options-preview-toolbar .agent-editor-tab { flex: 1 1 0; min-width: 0; max-width: 240px; }
+.agent-design-options-preview-toolbar .agent-editor-tab > button[role="tab"] { min-width: 0; }
+.agent-design-options-preview-toolbar .agent-editor-tab > button[role="tab"] > svg { flex: none; color: #c7b99f; }
+.agent-design-options-preview-count { flex: none; color: #85898d; font-size: 10px; white-space: nowrap; }
+.agent-design-options-preview-body { background: #191a1b; }
+.agent-design-options-preview-article { width: min(100%, 760px); margin: 0 auto; padding: clamp(20px, 4vw, 34px); }
+.agent-design-options-preview-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin: 0 0 20px; }
+.agent-design-options-preview-heading h3 { margin: 0; color: #f0eee8; font-size: clamp(17px, 2vw, 21px); font-weight: 600; line-height: 1.45; }
+.agent-design-options-preview-selected { flex: none; padding: 4px 8px; border: 1px solid #3c653f; border-radius: 5px; background: #2a472d; color: #a4f0aa; font-size: 9px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.agent-design-options-preview-copy { color: #d0d0ce; font-size: 13px; line-height: 1.85; white-space: pre-wrap; overflow-wrap: anywhere; }
+.agent-design-options-preview-reason { margin-top: 28px; padding: 16px 18px; border-left: 2px solid #cbb692; background: #cbb6920c; color: #e7e4de; }
+.agent-design-options-preview-reason strong { font-size: 11px; font-weight: 600; }
+.agent-design-options-preview-reason p { margin: 8px 0 0; color: #bfc0c0; font-size: 12px; line-height: 1.7; }
+.agent-design-options-preview-status { margin: 18px 0 0; color: #a9aaa7; font-size: 11px; line-height: 1.7; }
+@media (max-width: 620px) {
+  .agent-design-options-preview-toolbar { padding-inline: 8px; }
+  .agent-design-options-preview-toolbar .agent-editor-tab { flex-basis: 50%; }
+  .agent-design-options-preview-toolbar .agent-editor-tab > button[role="tab"] { gap: 5px; padding-inline: 5px; font-size: 9px; }
+  .agent-design-options-preview-count { display: none; }
+  .agent-design-options-preview-heading { flex-direction: column; }
+}

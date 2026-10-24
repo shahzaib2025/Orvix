@@ -1,0 +1,29 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "read_web_page",
+      "description": "Reads the clean text content of any public web page URL returned by web_search or mentioned by the user. Use this to inspect an article, website, organization, or documentation page in detail. A truncated result includes nextOffset. Use offset to read another bounded section, or query to locate an exact phrase such as function response. Do not infer details absent from the returned excerpt.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "url": {
+            "type": "STRING",
+            "description": "Exact HTTPS URL to read (e.g. from web_search or direct website address)."
+          },
+          "offset": {
+            "type": "INTEGER",
+            "description": "Character offset from a previous nextOffset for the same source."
+          },
+          "query": {
+            "type": "STRING",
+            "description": "Short exact phrase locating the needed source section; check queryMatched."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    }
+  ]
+}

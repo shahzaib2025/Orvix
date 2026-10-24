@@ -1,0 +1,31 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "manage_window",
+      "description": "Brings an application window to the foreground (focus), or minimizes, maximizes, restores, or closes a window on the user's PC. Call this tool whenever the user asks in Bangla, Banglish, or English to bring any app to the front, switch to a window, focus an app (e.g. 'চ্যাটজিপিটি সামনে আনো', 'চ্যাটজিপিটি উইন্ডোটি সামনে নিয়ে আসো', 'ক্রোম উইন্ডোটি সামনে নিয়ে আসো', 'chrome ke focus koro', 'accha chrome ke focus koro', 'ভিএস কোড সামনে আনো', 'focus Chrome', 'focus ChatGPT', 'bring VS Code to front', 'minimize Notepad', 'close window'), or confirms an offer to focus a window.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "action": {
+            "type": "STRING",
+            "description": "Action to perform: 'focus' (brings window to foreground and restores if minimized; default), 'minimize', 'maximize', 'restore', or 'close'."
+          },
+          "appName": {
+            "type": "STRING",
+            "description": "The application process name, alias, or title substring to target (e.g. 'ChatGPT', 'chatgpt', 'chrome', 'code' for Visual Studio Code, 'antigravity' for Antigravity IDE, 'notepad', 'cmd', 'explorer', 'edge'). Also handles requests like 'chrome ke focus koro'."
+          },
+          "title": {
+            "type": "STRING",
+            "description": "Optional substring of the window title to match."
+          },
+          "handle": {
+            "type": "INTEGER",
+            "description": "Exact observed window handle from the current task's windowTargets. Required for a planned action on each window in an all-window request. Never invent a handle."
+          }
+        },
+        "required": ["appName"]
+      }
+    }
+  ]
+}

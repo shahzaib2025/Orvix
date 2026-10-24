@@ -1,0 +1,1787 @@
+{
+  "scope": "Production Fast with real Gemini Live and Open-Meteo; typed request, simulated PCM timing; no physical microphone or speakers.",
+  "startedAt": "2026-10-14T11:06:54.319Z",
+  "events": [
+    {
+      "at": 1791976015063,
+      "kind": "turn",
+      "message": "[SimpleFast] Live model selected",
+      "details": {
+        "turnId": "d0783efa-8082-40d3-a724-19707910c105",
+        "model": "gemini-3.8-live",
+        "profile": "Fast",
+        "monotonicElapsedMs": 739.9938,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017740,
+      "kind": "turn",
+      "message": "[SimpleFast] User request received",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "text": "ওগুলো দিয়াগুলো আমাকে দাও। কি যেন বলে ওয়েদার রিপোর্টটা আমাকে দাও।",
+        "input": "typed",
+        "speechEndToRequestMs": null,
+        "monotonicElapsedMs": 0.05819999999948777,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017744,
+      "kind": "turn",
+      "message": "[SimpleFast] Request classified",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "route": "lookup",
+        "classificationMs": 0.48329999999987194,
+        "monotonicElapsedMs": 3.982600000000275,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017747,
+      "kind": "turn",
+      "message": "[SimpleFast] Weather collection started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "cities": [
+          "Dhaka, Bangladesh",
+          "Chattogram, Bangladesh",
+          "Rajshahi, Bangladesh",
+          "Khulna, Bangladesh",
+          "Barishal, Bangladesh",
+          "Sylhet, Bangladesh",
+          "Rangpur, Bangladesh",
+          "Mymensingh, Bangladesh"
+        ],
+        "modelRoundTripPerCity": false,
+        "monotonicElapsedMs": 6.594299999999748,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017751,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "preparing",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 10.71810000000005,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017752,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "ঢাকার আবহাওয়াটা দেখি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 11.28189999999995,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017752,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "ঢাকার আবহাওয়াটা দেখি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 3,
+        "overlong": false,
+        "monotonicElapsedMs": 11.47230000000036,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017752,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 1.6197999999994863,
+        "monotonicElapsedMs": 11.695300000000316,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017752,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 2,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 12.048600000000079,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017762,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 11.230799999999363,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 21.337400000000343,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017762,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.054500000000189175,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 21.463600000000042,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976017762,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 22,
+        "monotonicElapsedMs": 21.84990000000016,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019359,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1597,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 1618.7222000000002,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019360,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 1619.4485999999997,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019360,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.33360000000084256,
+        "monotonicElapsedMs": 1619.6574,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019474,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 1724,
+        "monotonicElapsedMs": 1733.8694999999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019475,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "preparing",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 1735.0424000000003,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019475,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, চট্টগ্রামের আবহাওয়াটা দেখি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 1735.0972000000002,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019475,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, চট্টগ্রামের আবহাওয়াটা দেখি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 4,
+        "overlong": false,
+        "monotonicElapsedMs": 1735.1394,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019475,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.24639999999999418,
+        "monotonicElapsedMs": 1735.1620999999996,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019476,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 1,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 1735.3698999999997,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019489,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 14.098700000000463,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 1749.0194000000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019489,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.0430000000005748,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 1749.0739999999996,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019489,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 1749,
+        "monotonicElapsedMs": 1749.0900000000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976019725,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment connection rewarmed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "monotonicElapsedMs": 1984.2065000000002,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976020503,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1014,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 2762.6646,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976020503,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 2762.7339,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976020503,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.056199999999989814,
+        "monotonicElapsedMs": 2762.7461999999996,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021795,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 2320,
+        "monotonicElapsedMs": 4055.1405000000004,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021796,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "ready",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 4056.1920999999993,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021797,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "রাজশাহীর আবহাওয়াটা দেখছি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 4056.3306999999995,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021797,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "রাজশাহীর আবহাওয়াটা দেখছি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 3,
+        "overlong": false,
+        "monotonicElapsedMs": 4056.3771000000006,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021797,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.24719999999979336,
+        "monotonicElapsedMs": 4056.396099999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021797,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 1,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 4056.7712,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021810,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 13.686400000000503,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 4069.8398000000007,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021810,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.03660000000127184,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 4069.888900000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976021810,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 4070,
+        "monotonicElapsedMs": 4069.9083,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976022947,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1137,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 5206.569200000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976022947,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 5206.633199999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976022947,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.052400000000488944,
+        "monotonicElapsedMs": 5206.647,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023638,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 1842,
+        "monotonicElapsedMs": 5897.287799999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023638,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "ready",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 5897.7962,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023638,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, খুলনার আবহাওয়াটা দেখি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 5897.826599999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023638,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, খুলনার আবহাওয়াটা দেখি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 4,
+        "overlong": false,
+        "monotonicElapsedMs": 5897.8497,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023638,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.10159999999996217,
+        "monotonicElapsedMs": 5897.8589,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023638,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 0,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 5897.944699999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023653,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 14.884200000000419,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 5912.649899999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023653,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.042099999998754356,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 5912.7069,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976023653,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 5913,
+        "monotonicElapsedMs": 5912.725100000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976024768,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1115,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 7027.6776,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976024768,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 7027.7331,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976024768,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.04589999999916472,
+        "monotonicElapsedMs": 7027.743100000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025917,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 2279,
+        "monotonicElapsedMs": 8176.4991,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025918,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "ready",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 8177.377100000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025918,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, বরিশালের আবহাওয়াটা দেখি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 8177.413299999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025918,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, বরিশালের আবহাওয়াটা দেখি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 4,
+        "overlong": false,
+        "monotonicElapsedMs": 8177.4443,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025918,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.1091999999989639,
+        "monotonicElapsedMs": 8177.4541,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025918,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 0,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 8177.6441,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025933,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 15.017099999999118,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 8192.367999999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025933,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.0525999999990745,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 8192.4342,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976025933,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 8193,
+        "monotonicElapsedMs": 8192.450499999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976026932,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 999,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 9191.7448,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976026932,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 9191.829600000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976026932,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.06410000000141736,
+        "monotonicElapsedMs": 9191.8417,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028113,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 2195,
+        "monotonicElapsedMs": 10373.163499999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028114,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "ready",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 10373.7359,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028114,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "সিলেটের আবহাওয়ার খবরটা নিচ্ছি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 10373.784500000002,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028114,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "সিলেটের আবহাওয়ার খবরটা নিচ্ছি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 4,
+        "overlong": false,
+        "monotonicElapsedMs": 10373.816200000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028114,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.12410000000090804,
+        "monotonicElapsedMs": 10373.829399999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028114,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 0,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 10373.953099999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028129,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 15.067300000000614,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 10388.781500000001,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028129,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.04490000000077998,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 10388.843499999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976028129,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 10389,
+        "monotonicElapsedMs": 10388.8682,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976029145,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1016,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 11404.850999999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976029145,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 11404.9119,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976029145,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.04950000000098953,
+        "monotonicElapsedMs": 11404.9225,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030155,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 2041,
+        "monotonicElapsedMs": 12414.939599999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030156,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "ready",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 12415.545999999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030156,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "চলুন, রংপুরের আবহাওয়া দেখে নেওয়া যাক।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 12415.582599999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030156,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "চলুন, রংপুরের আবহাওয়া দেখে নেওয়া যাক।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 6,
+        "overlong": false,
+        "monotonicElapsedMs": 12415.6051,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030156,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.09130000000004657,
+        "monotonicElapsedMs": 12415.6148,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030156,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 0,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 12415.800899999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030171,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 14.785100000000966,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 12430.314699999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030171,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.04260000000067521,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 12430.3707,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976030171,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 12431,
+        "monotonicElapsedMs": 12430.390599999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976031188,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1017,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 13447.931199999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976031188,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 13448.0023,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976031188,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.05879999999888241,
+        "monotonicElapsedMs": 13448.029599999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032734,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 2578,
+        "monotonicElapsedMs": 14993.451099999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032736,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "stage": "tool",
+        "readiness": "ready",
+        "acknowledgmentLength": "short",
+        "targetWords": "2-6 with an action",
+        "topicSimilarityPercent": 0,
+        "styleReason": "ordinary_task",
+        "monotonicElapsedMs": 14995.630399999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032736,
+      "kind": "turn",
+      "message": "[SimpleFast] Prepared acknowledgment selected",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, ময়মনসিংহের আবহাওয়াটা দেখি।",
+        "renderer": "bundled_pcm",
+        "generationMs": 0,
+        "monotonicElapsedMs": 14995.678799999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032736,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment generation finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "text": "আচ্ছা, ময়মনসিংহের আবহাওয়াটা দেখি।",
+        "generationMs": 0,
+        "streaming": false,
+        "wordCount": 4,
+        "overlong": false,
+        "monotonicElapsedMs": 14995.785,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032736,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment first audio generated",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "generationStartToAudioMs": 0.20720000000073924,
+        "monotonicElapsedMs": 14995.805099999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032736,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio scheduled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "firstAudioMs": 0,
+        "streaming": true,
+        "acknowledgmentLength": "short",
+        "speechEndToAcknowledgmentMs": null,
+        "monotonicElapsedMs": 14995.958999999999,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032743,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment audio onset",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "elapsedMs": 7.359200000002602,
+        "timingBasis": "audio_clock",
+        "monotonicElapsedMs": 15002.963799999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032743,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment onset to dispatch",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delayMs": 0.0676000000021304,
+        "timingBasis": "monotonic",
+        "monotonicElapsedMs": 15003.128699999997,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976032743,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "elapsedMs": 15003,
+        "monotonicElapsedMs": 15003.1823,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976033767,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool settled",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "durationMs": 1024,
+        "owningLifecycle": 0,
+        "stale": false,
+        "monotonicElapsedMs": 16027.0297,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976033767,
+      "kind": "tool",
+      "message": "[SimpleFast] Tool completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "name": "get_weather",
+        "status": "unavailable",
+        "stepVerified": false,
+        "monotonicElapsedMs": 16027.0982,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976033767,
+      "kind": "turn",
+      "message": "[SimpleFast] Local result check finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "localCheckMs": 0.05860000000029686,
+        "monotonicElapsedMs": 16027.1136,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976035254,
+      "kind": "turn",
+      "message": "[SimpleFast] Acknowledgment finished",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "tool": "get_weather",
+        "delivery": "complete",
+        "totalMs": 2518,
+        "monotonicElapsedMs": 17513.9849,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976035260,
+      "kind": "turn",
+      "message": "[SimpleFast] Weather collection completed",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "cities": 8,
+        "succeeded": 0,
+        "collectionMs": 17513,
+        "finalModelRequests": 1,
+        "maxConcurrentReads": 2,
+        "monotonicElapsedMs": 17519.664099999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976037556,
+      "kind": "turn",
+      "message": "[SimpleFast] First response text received",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "elapsedMs": 19816,
+        "speechEndToFirstTextMs": null,
+        "streaming": false,
+        "monotonicElapsedMs": 19815.602,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976037556,
+      "kind": "turn",
+      "message": "[SimpleFast] First audio after tool result",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "providerWaitMs": 2298,
+        "monotonicElapsedMs": 19816.027299999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976037556,
+      "kind": "turn",
+      "message": "[SimpleFast] First response audio received",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "elapsedMs": 19816,
+        "speechEndToFirstAudioMs": null,
+        "streaming": false,
+        "monotonicElapsedMs": 19816.0545,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976043237,
+      "kind": "turn",
+      "message": "[SimpleFast] Weather reply settled without a provider completion signal",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "quietMs": 1200,
+        "cities": 8,
+        "coverageCheckBeforeDelivery": true,
+        "monotonicElapsedMs": 25497.168299999998,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976043244,
+      "kind": "turn",
+      "message": "[SimpleFast] Report ready",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "text": "ঢাকা, চট্টগ্রাম, রাজশাহী, খুলনা, বরিশাল, সিলেট, রংপুর এবং ময়মনসিংহ—এই আটটি বিভাগের আবহাওয়ার নির্ভরযোগ্য তথ্য এই মুহূর্তে পাওয়া যায়নি।",
+        "elapsedMs": 25504,
+        "audioChunks": 33,
+        "evidenceScope": "no_web_evidence",
+        "monotonicElapsedMs": 25503.6342,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976043245,
+      "kind": "turn",
+      "message": "[SimpleFast] Report playback preparing",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "phase": "final",
+        "monotonicElapsedMs": 25504.2015,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976043245,
+      "kind": "turn",
+      "message": "[SimpleFast] Report playback started",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "phase": "final",
+        "acknowledgmentEndToPlaybackMs": 7996,
+        "bufferingMs": 5694,
+        "resultToPlaybackMs": 7992,
+        "speechEndToPlaybackMs": null,
+        "timingBasis": "web_audio_schedule",
+        "monotonicElapsedMs": 25504.3436,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976048195,
+      "kind": "turn",
+      "message": "[SimpleFast] Late response ignored during final delivery",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "hasTool": false,
+        "monotonicElapsedMs": 30454.992199999997,
+        "clock": "renderer_performance"
+      }
+    },
+    {
+      "at": 1791976054844,
+      "kind": "turn",
+      "message": "[SimpleFast] Report delivered",
+      "details": {
+        "turnId": "de766650-48ee-4743-9ce3-95208ffba600",
+        "delivery": "complete",
+        "renderer": "live",
+        "preparationMs": 6,
+        "playbackMs": 11594,
+        "speechEndToPlaybackMs": null,
+        "monotonicElapsedMs": 37103.9066,
+        "clock": "renderer_performance"
+      }
+    }
+  ],
+  "transcripts": [
+    {
+      "id": "8c1870b6-fede-4f54-8af1-4d58035826f6",
+      "role": "user",
+      "text": "ওগুলো দিয়াগুলো আমাকে দাও। কি যেন বলে ওয়েদার রিপোর্টটা আমাকে দাও।",
+      "delivery": "complete",
+      "at": 1791976017734
+    },
+    {
+      "id": "d7544a2c-81e6-4a81-abf5-7b0db75125f5",
+      "role": "assistant",
+      "text": "ঢাকার আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976017752
+    },
+    {
+      "id": "d7544a2c-81e6-4a81-abf5-7b0db75125f5",
+      "role": "assistant",
+      "text": "ঢাকার আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976019474
+    },
+    {
+      "id": "81a6e921-f9b2-4a85-9636-2c9f1316ffda",
+      "role": "assistant",
+      "text": "আচ্ছা, চট্টগ্রামের আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976019475
+    },
+    {
+      "id": "81a6e921-f9b2-4a85-9636-2c9f1316ffda",
+      "role": "assistant",
+      "text": "আচ্ছা, চট্টগ্রামের আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976021795
+    },
+    {
+      "id": "3c48b4c3-c90b-44d7-9563-5096e07528f0",
+      "role": "assistant",
+      "text": "রাজশাহীর আবহাওয়াটা দেখছি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976021797
+    },
+    {
+      "id": "3c48b4c3-c90b-44d7-9563-5096e07528f0",
+      "role": "assistant",
+      "text": "রাজশাহীর আবহাওয়াটা দেখছি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976023638
+    },
+    {
+      "id": "9b3cb181-7d00-47b7-a4ed-3db21b254218",
+      "role": "assistant",
+      "text": "আচ্ছা, খুলনার আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976023638
+    },
+    {
+      "id": "9b3cb181-7d00-47b7-a4ed-3db21b254218",
+      "role": "assistant",
+      "text": "আচ্ছা, খুলনার আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976025917
+    },
+    {
+      "id": "527d3583-2401-49b1-9e4a-85610217b364",
+      "role": "assistant",
+      "text": "আচ্ছা, বরিশালের আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976025918
+    },
+    {
+      "id": "527d3583-2401-49b1-9e4a-85610217b364",
+      "role": "assistant",
+      "text": "আচ্ছা, বরিশালের আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976028113
+    },
+    {
+      "id": "d96ba350-d57a-48b4-9aee-ba33fbe367b0",
+      "role": "assistant",
+      "text": "সিলেটের আবহাওয়ার খবরটা নিচ্ছি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976028114
+    },
+    {
+      "id": "d96ba350-d57a-48b4-9aee-ba33fbe367b0",
+      "role": "assistant",
+      "text": "সিলেটের আবহাওয়ার খবরটা নিচ্ছি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976030155
+    },
+    {
+      "id": "a5cfedba-e1dc-4594-974c-ec76231171c8",
+      "role": "assistant",
+      "text": "চলুন, রংপুরের আবহাওয়া দেখে নেওয়া যাক।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976030156
+    },
+    {
+      "id": "a5cfedba-e1dc-4594-974c-ec76231171c8",
+      "role": "assistant",
+      "text": "চলুন, রংপুরের আবহাওয়া দেখে নেওয়া যাক।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976032733
+    },
+    {
+      "id": "3fdbecd0-6c7d-4b06-a21b-df942a54b716",
+      "role": "assistant",
+      "text": "আচ্ছা, ময়মনসিংহের আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "interrupted",
+      "at": 1791976032736
+    },
+    {
+      "id": "3fdbecd0-6c7d-4b06-a21b-df942a54b716",
+      "role": "assistant",
+      "text": "আচ্ছা, ময়মনসিংহের আবহাওয়াটা দেখি।",
+      "phase": "progress",
+      "delivery": "complete",
+      "at": 1791976035254
+    },
+    {
+      "id": "4f02ae9f-7453-4f44-83dd-b607dd755ab5",
+      "role": "assistant",
+      "text": "ঢাকা, চট্টগ্রাম, রাজশাহী, খুলনা, বরিশাল, সিলেট, রংপুর এবং ময়মনসিংহ—এই আটটি বিভাগের আবহাওয়ার নির্ভরযোগ্য তথ্য এই মুহূর্তে পাওয়া যায়নি।",
+      "phase": "final",
+      "delivery": "interrupted",
+      "at": 1791976043244
+    },
+    {
+      "id": "4f02ae9f-7453-4f44-83dd-b607dd755ab5",
+      "role": "assistant",
+      "text": "ঢাকা, চট্টগ্রাম, রাজশাহী, খুলনা, বরিশাল, সিলেট, রংপুর এবং ময়মনসিংহ—এই আটটি বিভাগের আবহাওয়ার নির্ভরযোগ্য তথ্য এই মুহূর্তে পাওয়া যায়নি।",
+      "phase": "final",
+      "delivery": "complete",
+      "at": 1791976054844
+    }
+  ],
+  "weather": [
+    {
+      "args": {
+        "location": "Dhaka"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976017762,
+      "finishedAt": 1791976019359
+    },
+    {
+      "args": {
+        "location": "Chattogram"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976019489,
+      "finishedAt": 1791976020503
+    },
+    {
+      "args": {
+        "location": "Rajshahi"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976021810,
+      "finishedAt": 1791976022947
+    },
+    {
+      "args": {
+        "location": "Khulna"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976023653,
+      "finishedAt": 1791976024768
+    },
+    {
+      "args": {
+        "location": "Barishal"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976025933,
+      "finishedAt": 1791976026932
+    },
+    {
+      "args": {
+        "location": "Sylhet"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976028129,
+      "finishedAt": 1791976029145
+    },
+    {
+      "args": {
+        "location": "Rangpur"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976030171,
+      "finishedAt": 1791976031188
+    },
+    {
+      "args": {
+        "location": "Mymensingh"
+      },
+      "result": {
+        "status": "unavailable",
+        "message": "Weather data is temporarily unavailable: Weather service returned HTTP 503."
+      },
+      "startedAt": 1791976032743,
+      "finishedAt": 1791976033767
+    }
+  ],
+  "request": "ওগুলো দিয়াগুলো আমাকে দাও। কি যেন বলে ওয়েদার রিপোর্টটা আমাকে দাও।",
+  "submittedAt": 1791976017734,
+  "summary": {
+    "weatherCalls": 8,
+    "successfulWeatherCalls": 0,
+    "acknowledgmentCount": 8,
+    "uniqueAcknowledgments": 8,
+    "finalCount": 1,
+    "firstAcknowledgmentMs": 28,
+    "collectionMs": 17513,
+    "finalReadyMs": 25510,
+    "finalPlaybackMs": 25511,
+    "finalText": "ঢাকা, চট্টগ্রাম, রাজশাহী, খুলনা, বরিশাল, সিলেট, রংপুর এবং ময়মনসিংহ—এই আটটি বিভাগের আবহাওয়ার নির্ভরযোগ্য তথ্য এই মুহূর্তে পাওয়া যায়নি।",
+    "acknowledgments": [
+      "ঢাকার আবহাওয়াটা দেখি।",
+      "আচ্ছা, চট্টগ্রামের আবহাওয়াটা দেখি।",
+      "রাজশাহীর আবহাওয়াটা দেখছি।",
+      "আচ্ছা, খুলনার আবহাওয়াটা দেখি।",
+      "আচ্ছা, বরিশালের আবহাওয়াটা দেখি।",
+      "সিলেটের আবহাওয়ার খবরটা নিচ্ছি।",
+      "চলুন, রংপুরের আবহাওয়া দেখে নেওয়া যাক।",
+      "আচ্ছা, ময়মনসিংহের আবহাওয়াটা দেখি।"
+    ]
+  },
+  "passed": true,
+  "finishedAt": "2026-10-14T11:07:34.848Z"
+}

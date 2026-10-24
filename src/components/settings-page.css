@@ -1,0 +1,41 @@
+.settings-page{--settings-text:#ededed;--settings-muted:#9a9a9a;--settings-border:#343434;--settings-soft-border:#2b2b2b;max-width:760px;margin:0 auto;color:var(--settings-text)}
+.settings-page-header{padding:0 0 25px;border-bottom:1px solid var(--settings-border)}
+.settings-page-header h1{margin:0;font:600 29px/1.2 Manrope,'Segoe UI',sans-serif;letter-spacing:-.04em;color:#f2f2f2}
+.settings-page-header p{margin:8px 0 0;color:var(--settings-muted);font-size:12px;line-height:1.55}
+.settings-page .settings-section{min-width:0;padding:23px 0 25px;border-bottom:1px solid var(--settings-border);scroll-margin-top:20px}
+.settings-page .settings-section:last-child{border-bottom:0}
+.settings-section-heading{margin:0 0 8px}
+.settings-section-heading h2,.fast-work-settings h2{margin:0;color:#ededed;font:600 15px/1.35 Manrope,'Segoe UI',sans-serif;letter-spacing:-.02em}
+.settings-section-heading>p,.fast-work-settings .settings-section-heading>div>p{margin:5px 0 0;color:var(--settings-muted);font-size:11px;line-height:1.55}
+.settings-rows,.settings-fast-controls{display:grid}
+.desktop-bar-retry{padding:6px 10px;border:1px solid var(--settings-border);border-radius:7px;background:transparent;color:var(--settings-text);font:inherit;font-size:11px;cursor:pointer}
+.desktop-bar-retry:focus-visible{outline:2px solid #8da9e0;outline-offset:3px}
+.desktop-bar-retry:disabled{opacity:.5;cursor:wait}
+.settings-page .settings-row{min-width:0;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--settings-soft-border)}
+.settings-page .settings-row:last-child{border-bottom:0}
+.settings-row-copy{min-width:0}
+.settings-row-copy strong,.settings-page .settings-row strong{display:block;color:#e7e7e7;font-size:12px;font-weight:600;line-height:1.4}
+.settings-row-copy p,.settings-page .settings-row p{margin:4px 0 0;color:var(--settings-muted);font-size:11px;line-height:1.5}
+.settings-page .settings-value{flex:none;color:#bdbdbd;font-size:10px;white-space:nowrap}
+.settings-page .toggle{position:relative;flex:none;width:34px;height:19px;padding:2px;border:1px solid #555;background:#3b3b3b;border-radius:99px;cursor:pointer;transition:background .16s,border-color .16s}
+.settings-page .toggle span{display:block;width:13px;height:13px;border-radius:50%;background:#d8d8d8;transition:transform .16s,background .16s}
+.settings-page .toggle.on{border-color:#c4c4c4;background:#c4c4c4}
+.settings-page .toggle.on span{transform:translateX(14px);background:#262626}
+.settings-page .toggle:focus-visible,.settings-page button:focus-visible,.companion-memories button:focus-visible,.companion-memories input:focus-visible,.companion-memories select:focus-visible,.companion-memories textarea:focus-visible{outline:2px solid #d0d0d0;outline-offset:3px}
+.settings-page .toggle:disabled{cursor:not-allowed;opacity:.5}
+.settings-page .settings-card{min-width:0;min-height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;margin:0;padding:12px 0;border:0;border-bottom:1px solid var(--settings-soft-border);border-radius:0;background:transparent;box-shadow:none}
+.settings-page .settings-card:last-of-type{border-bottom:0}
+.settings-page .settings-card>div{min-width:0;display:block}
+.settings-page .settings-card strong{color:#e7e7e7;font-size:12px;font-weight:600}
+.settings-page .settings-card p{margin:4px 0 0;color:var(--settings-muted);font-size:11px;line-height:1.5}
+.settings-page .settings-card code{color:#c9c9c9;font:500 10px ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}
+.settings-page .settings-icon,.settings-page .settings-fast-icon{display:none}
+.settings-page .startup-setting-status{min-height:13px;margin:6px 0 0;color:#aaa;font-size:10px;line-height:1.45}
+.settings-page .settings-memory-section{padding-top:23px}
+.settings-page .settings-memory-section .companion-memories{margin:0;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none}
+.settings-page .settings-fast-heading{margin-bottom:8px}
+.settings-page .settings-fast-status{min-height:13px;margin:7px 0 0;color:#aaa;font-size:10px;line-height:1.5}
+.settings-page .settings-section .companion-memories button,.settings-page .settings-section button{transition:background .15s,border-color .15s,color .15s}
+@media(max-width:750px){.settings-page{max-width:none}.settings-page-header{padding-bottom:21px}.settings-page .settings-section{padding:20px 0 22px}}
+@media(max-width:420px){.settings-page-header h1{font-size:26px}.settings-page .settings-row,.settings-page .settings-card{gap:12px}.settings-page .settings-row-copy p,.settings-page .settings-card p{max-width:260px}}
+@media(prefers-reduced-motion:reduce){.settings-page *, .settings-page *::before, .settings-page *::after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important}}

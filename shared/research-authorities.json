@@ -1,0 +1,8 @@
+[
+  {"pattern":"\\bSREDA\\b|বাংলাদেশ.*(?:নেট মিটারিং|সৌর|নবায়নযোগ্য)|Bangladesh.*(?:net metering|solar|renewable)", "domains":["sreda.gov.bd"]},
+  {"pattern":"\\bIDCOL\\b|আইডি?সিওএল|ইডকল", "domains":["idcol.org"]},
+  {"pattern":"\\bWorld Bank\\b|বিশ্বব্যাংক", "domains":["worldbank.org"]},
+  {"pattern":"\\bIRENA\\b", "domains":["irena.org"]},
+  {"pattern":"\\bEIA\\b|Energy Information Administration", "domains":["eia.gov"]},
+  {"pattern":"\\benergy\\s?sage\\b", "domains":["energysage.com"]}
+]

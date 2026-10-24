@@ -1,0 +1,6 @@
+extends: electron-builder.yml
+extraResources:
+  - from: build/opencode-runtime-sdk
+    to: opencode-runtime-sdk
+  - from: PC-Monitor-Test/bin/PCMonitor.Presence.exe
+    to: PC-Monitor-Test/bin/PCMonitor.exe

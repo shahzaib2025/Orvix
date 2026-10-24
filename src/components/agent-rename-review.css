@@ -1,0 +1,37 @@
+.agent-rename-backdrop{position:absolute;inset:0;z-index:45;display:grid;place-items:center;padding:18px;background:#000c}
+.agent-rename-dialog{display:flex;flex-direction:column;width:min(1080px,100%);height:min(720px,calc(100vh - 36px));min-height:360px;overflow:hidden;border:1px solid #444;border-radius:15px;background:#1d1d1d;box-shadow:0 28px 70px #000b;color:#e6e6e6}
+.agent-rename-dialog>header{flex:none;padding:17px 20px;border-bottom:1px solid #353535}
+.agent-rename-dialog>header>div{display:flex;align-items:center;gap:12px}
+.agent-rename-dialog>header svg{color:#9bc0ef}
+.agent-rename-dialog h2{margin:0;font-size:16px;font-weight:650}
+.agent-rename-dialog header p{margin:5px 0 0;color:#aaa;font-size:11px}
+.agent-rename-dialog header p strong{color:#eee;font-weight:600}
+.agent-rename-body{display:grid;grid-template-columns:260px minmax(0,1fr);min-height:0;flex:1}
+.agent-rename-files{min-height:0;overflow:auto;padding:9px;border-right:1px solid #353535}
+.agent-rename-files button{display:flex;align-items:center;gap:9px;width:100%;min-width:0;margin:2px 0;padding:10px 9px;border:0;border-radius:8px;background:transparent;color:#ddd;text-align:left}
+.agent-rename-files button:hover{background:#2b2b2b}
+.agent-rename-files button.selected{background:#30394a}
+.agent-rename-files button svg{flex:none;color:#a9bdd9}
+.agent-rename-files button span{min-width:0;flex:1}
+.agent-rename-files button strong,.agent-rename-files button small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.agent-rename-files button strong{font-size:11px;font-weight:600}
+.agent-rename-files button small{margin-top:3px;color:#999;font-size:10px}
+.agent-rename-files button em{flex:none;color:#9dbbdc;font-size:10px;font-style:normal}
+.agent-rename-preview{display:flex;min-width:0;min-height:0;flex-direction:column;background:#181818}
+.agent-rename-preview-title{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:38px;padding:0 14px;border-bottom:1px solid #343434;color:#b8c9df;font-size:11px}
+.agent-rename-preview-title span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.agent-rename-preview-title small{flex:none;color:#aaa;font-size:10px}
+.agent-rename-patch{min-height:0;flex:1;overflow:auto;margin:0;padding:12px 14px;color:#c7c7c7;font:11px/1.55 Consolas,"Cascadia Code",monospace;white-space:pre;tab-size:2}
+.agent-rename-patch span{display:block;min-height:1.55em}
+.agent-rename-patch span.added{background:#21463166;color:#a5dfb8}
+.agent-rename-patch span.removed{background:#43272777;color:#edaaaa}
+.agent-rename-patch span.hunk{color:#a3bffa}
+.agent-rename-loading,.agent-rename-error{margin:18px;color:#aaa;font-size:11px}
+.agent-rename-error{color:#e9aaaa}
+.agent-rename-dialog>footer{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:64px;padding:10px 18px;border-top:1px solid #353535}
+.agent-rename-dialog>footer p{margin:0;color:#999;font-size:10px;line-height:1.4}
+.agent-rename-dialog>footer>div{display:flex;flex:none;gap:8px}
+.agent-rename-dialog>footer button{padding:9px 13px;border:1px solid #515151;border-radius:7px;background:#2b2b2b;color:#ddd;font-size:11px}
+.agent-rename-dialog>footer button.apply{border-color:#4f7eb8;background:#315d91;color:#fff}
+.agent-rename-dialog>footer button:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:700px){.agent-rename-body{grid-template-columns:minmax(0,1fr);grid-template-rows:125px minmax(0,1fr)}.agent-rename-files{display:flex;overflow:auto;border-right:0;border-bottom:1px solid #353535}.agent-rename-files button{flex:0 0 190px}.agent-rename-dialog>footer{align-items:flex-start;flex-direction:column}.agent-rename-dialog>footer>div{align-self:flex-end}}

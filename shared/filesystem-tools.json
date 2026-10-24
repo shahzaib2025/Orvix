@@ -1,0 +1,106 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "list_directory",
+      "description": "Lists immediate files and subfolders on the user's computer or Desktop. Call this tool whenever the user asks in Bangla (e.g. 'ডেস্কটপে কি কি ফাইল আর ফোল্ডার আছে একবার দেখে বলো', 'ডেস্কটপে কি কি ফাইল আছে', 'ফোল্ডারে কি কি ফাইল আছে', 'ডেস্কটপ দেখে বলো', 'ফাইল তালিকা দেখো', 'ফোল্ডারটি দেখো'), Banglish (e.g. 'desktop er file gulo dekho', 'folder e ki ache dekho'), or English (e.g. 'list desktop files', 'what files are on Desktop', 'check directory') to inspect any folder or Desktop. Defaults to 'Desktop' if directory is omitted.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "directory": {
+            "type": "STRING",
+            "description": "Directory path to inspect (use 'Desktop' for desktop files, 'Documents', 'Downloads', or an exact folder path)."
+          }
+        },
+        "required": ["directory"]
+      }
+    },
+    {
+      "name": "search_files",
+      "description": "Searches for file names or media matching a query across a directory or drive. Call this tool whenever the user asks in Bangla (e.g. 'H ড্রাইভে ফাইল খুঁজুন', 'কোথায় ফাইলটি আছে দেখো', 'ছবিগুলো খুঁজে বের করো'), Banglish (e.g. 'file khuje ber koro'), or English (e.g. 'find files matching...', 'search for images') to find where a file or folder is located.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "query": {
+            "type": "STRING",
+            "description": "The file name, pattern, or extension to look for (e.g. 'jpg', 'png', 'image', 'notes')."
+          },
+          "directory": {
+            "type": "STRING",
+            "description": "The directory or drive to search in (e.g. 'H:', 'Desktop', 'Documents'). Defaults to 'Desktop'."
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "search_content",
+      "description": "Uses ripgrep to search for code text, functions, variables, or strings inside files across a directory. Call this tool whenever the user asks in Bangla (e.g. 'কোডের ভেতর সার্চ করো', 'ফাংশনটি কোথায় লেখা আছে খুঁজুন', 'ফাইলের মধ্যে লেখাটি কোথায় আছে'), Banglish (e.g. 'code er bhetor search koro'), or English (e.g. 'search for code snippet', 'grep text in files') to search text inside files.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "query": {
+            "type": "STRING",
+            "description": "The exact text or code snippet to search for."
+          }
+        },
+        "required": ["query"]
+      }
+    },
+    {
+      "name": "read_file",
+      "description": "Reads the text content of a file on the user's computer (e.g. on Desktop, Documents, or in the workspace). Call this tool whenever the user asks in Bangla (e.g. 'ফাইলটি পড়ে বলো', 'ফাইলের ভেতর কি লেখা আছে', 'নোটটি দেখো'), Banglish (e.g. 'file ta poro', 'file e ki ache dekho'), or English (e.g. 'read the file', 'inspect file contents').",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "path": {
+            "type": "STRING",
+            "description": "File path or file name to read (e.g. 'Desktop/todo.txt', 'package.json', or an exact file path)."
+          }
+        },
+        "required": ["path"]
+      }
+    },
+    {
+      "name": "write_file",
+      "description": "Creates, writes, or saves a text or code file on the user's computer (e.g. on Desktop, Documents, or in the workspace). Call this tool whenever the user asks to create, write, or save a file, code, script, or notes (e.g. 'ফাইল তৈরি করো', 'স্ক্রিপ্ট বানিয়ে দাও', 'কোড লিখো', 'create file', 'save notes').",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "path": {
+            "type": "STRING",
+            "description": "File path or file name to write to (e.g. 'Desktop/hello.py', 'Desktop/notes.txt', or an exact file path)."
+          },
+          "content": {
+            "type": "STRING",
+            "description": "The complete text or code content to write into the file."
+          }
+        },
+        "required": ["path", "content"]
+      }
+    },
+    {
+      "name": "manage_clipboard",
+      "description": "Reads from or copies text to the user's system clipboard. Call this tool whenever the user asks about copied text, reading clipboard, or copying text/code/docstrings to clipboard (e.g. 'ক্লিপবোর্ড দেখো', 'কপি করে দাও', 'ক্লিপবোর্ডে লিখো', 'ক্লিপবোর্ডে রাখো', 'read clipboard', 'copy to clipboard').",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "action": {
+            "type": "STRING",
+            "description": "Action to perform: 'read' to inspect current clipboard text, or 'write' to copy new text into clipboard."
+          },
+          "text": {
+            "type": "STRING",
+            "description": "The text or code to copy to the clipboard when action is 'write'."
+          }
+        },
+        "required": ["action"]
+      }
+    }
+  ]
+}

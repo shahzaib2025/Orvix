@@ -1,0 +1,30 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "search_class10_textbook",
+      "description": "Searches the local OCR index for Bangladesh NCTB Class 10, 2026, Bangla-version science-group textbooks. Choose the matching bookId from the catalog in the system instructions. On first use, it downloads that single official PDF temporarily, OCRs and caches page text locally, then deletes the PDF bytes. It never sends the PDF to Gemini. Returns matching page numbers and short excerpts with source details.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "bookId": { "type": "STRING", "description": "Exact book ID from Orvix's Class 10 Science Bangla catalog." },
+          "query": { "type": "STRING", "description": "Lesson name, phrase, concept, or question to find in that book." }
+        },
+        "required": ["bookId", "query"]
+      }
+    },
+    {
+      "name": "read_class10_textbook_pages",
+      "description": "Returns OCR text for specific pages in an indexed Bangladesh NCTB Class 10 Bangla-version science-group book. Use after search_class10_textbook when exact lesson text is needed. Cite the returned book title and PDF page number. OCR may misread equations or diagrams; say so when the answer depends on visual details.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "bookId": { "type": "STRING", "description": "Exact book ID from Orvix's Class 10 Science Bangla catalog." },
+          "pages": { "type": "ARRAY", "items": { "type": "INTEGER" }, "description": "One-based PDF page numbers returned by search; up to 8 pages." }
+        },
+        "required": ["bookId", "pages"]
+      }
+    }
+  ]
+}

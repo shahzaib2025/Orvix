@@ -1,0 +1,14 @@
+const fs=require('node:fs'),path=require('node:path');
+const {createOpenCodeHeadless}=require('../electron/agent/opencode-headless.cjs');
+const {configureOpenCodeCatalog,refreshOpenCodeCatalog}=require('../electron/agent/opencode-catalog.cjs');
+const {configureOpenCodeModel,runOpenCodeSession}=require('../electron/agent/opencode-model.cjs');
+const {redactApiKeys}=require('../electron/agent/api-key-check.cjs');
+const root=fs.mkdtempSync(path.resolve('scratch','ling31-diagnostic-')),fixture=path.join(root,'fixture');fs.mkdirSync(fixture);const file=path.join(fixture,'marker.txt');fs.writeFileSync(file,'LING_READ_OK_84291');
+const runtime=createOpenCodeHeadless(root),report={at:new Date().toISOString(),root,cases:[]};const save=()=>fs.writeFileSync(path.join(root,'result.json'),JSON.stringify(report,null,2));
+(async()=>{configureOpenCodeCatalog(root,runtime);configureOpenCodeModel(runtime);const catalog=await refreshOpenCodeCatalog(true,AbortSignal.timeout(30000));if(catalog.error)throw Error(catalog.error);report.model=catalog.models.find(m=>m.id==='opencode/ling-3.1-flash-free');
+for(const c of [{label:'Ling default response',modelId:'opencode/ling-3.1-flash-free'},{label:'Ling default file read',modelId:'opencode/ling-3.1-flash-free',read:true},{label:'Ling low reasoning response',modelId:'opencode/ling-3.1-flash-free',variant:'low'},{label:'MiMo control response',modelId:'opencode/mimo-v2.6-flash-free'}]){
+console.log('START '+c.label);const started=Date.now(),retries=[],tools=[];
+try{const reply=await runOpenCodeSession({modelId:c.modelId,variant:c.variant,directory:fixture,timeoutMs:45000,readOnly:!c.read,parts:[{type:'text',text:c.read?'Use native read to read '+file+' and report its contents. No shell, no edits, no other tools.':'Reply with exactly OK. No tools.'}],onPermission:p=>p.permission==='read'&&(p.patterns||[]).every(x=>[path.resolve(fixture,x),path.resolve(path.parse(file).root,x)].some(y=>y.toLowerCase()===file.toLowerCase())),onEvent:e=>{const s=e.properties?.status;if(s?.type==='retry')retries.push({attempt:s.attempt,message:redactApiKeys(String(s.message||''))});const p=e.properties?.part;if(p?.type==='tool'&&['completed','error'].includes(p.state?.status))tools.push({name:p.tool,status:p.state.status,error:p.state.error});}});report.cases.push({...c,status:c.read&&(!tools.some(t=>t.name==='read'&&t.status==='completed')||!reply.text.includes('LING_READ_OK_84291'))?'unverified':'passed',text:reply.text.slice(0,300),durationMs:Date.now()-started,retries,tools});}
+catch(e){report.cases.push({...c,status:'failed',error:redactApiKeys(e.message),durationMs:Date.now()-started,retries,tools});}save();console.log(JSON.stringify(report.cases.at(-1)));
+}
+})().catch(e=>{report.error=redactApiKeys(e.message);save();console.log(report.error);}).finally(()=>runtime.shutdown());

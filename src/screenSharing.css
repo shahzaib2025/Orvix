@@ -1,0 +1,41 @@
+.home-view{container-type:inline-size}
+.screen-frame-preview{width:min(320px,100%);margin:14px auto 0;border:1px solid #435449;border-radius:12px;overflow:hidden;background:#11151a;text-align:left}
+.screen-frame-preview img{display:block;width:100%;max-height:190px;object-fit:contain;background:#0b0d11}
+.screen-frame-preview figcaption{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 11px;color:#b9ddc8;font-size:10px;line-height:1.5}
+.screen-frame-preview figcaption small{flex:none;color:#8d9993;font-size:9px}
+.screen-frame-preview.is-stale{border-color:#655846}.screen-frame-preview.is-stale figcaption{color:#e7c697}.screen-frame-preview.is-stale img{opacity:.55}
+.screen-preview-wait{padding:30px 12px;text-align:center;color:#abb5be;font-size:11px}
+.sidebar-screen-preview{width:min(100%,160px);margin:0 0 8px}
+.sidebar-screen-preview .screen-frame-preview{width:100%;margin:0;border-radius:8px}
+.sidebar-screen-preview .screen-frame-preview img{height:76px;max-height:76px;object-fit:cover}
+.sidebar-screen-preview .screen-preview-wait{height:56px;padding:8px;display:grid;place-items:center;font-size:9px}
+.sidebar-screen-preview .screen-frame-preview figcaption{gap:4px;padding:5px 7px;font-size:8px;line-height:1.25}
+.sidebar-screen-preview .screen-frame-preview figcaption small{font-size:7px}
+.sidebar.collapsed .sidebar-screen-preview{display:none}
+.simple-screen-button{position:absolute;display:grid;place-items:center;border-radius:100px;border:1px solid #5b606e;background:linear-gradient(145deg,#343844,#20232c);color:#e8ebf6;box-shadow:inset 0 1px 1px #ffffff26,0 7px 22px #0003;transition:background .2s,border-color .2s,box-shadow .2s,transform .2s;cursor:pointer}
+.screen-share-wide{left:calc(100% + 5px);top:5px;width:54px;height:54px}
+.screen-share-compact{display:none;left:auto;right:26px;top:50%;width:48px;height:48px;transform:translateY(-50%)}
+.screen-share-wide:hover:not(:disabled),.screen-share-compact:hover:not(:disabled){border-color:#b2bce0;color:#fff;box-shadow:inset 0 1px 1px #ffffff30,0 0 24px #91a6ec26}
+.screen-share-wide:hover:not(:disabled){transform:translateY(-1px)}
+.screen-share-compact:hover:not(:disabled){transform:translateY(calc(-50% - 1px))}
+.simple-screen-button:focus-visible{outline:2px solid #bbc8ff;outline-offset:4px}
+.simple-screen-button:disabled{opacity:.45;cursor:default}
+.simple-screen-button.is-sharing{border-color:#9adfc7;background:linear-gradient(145deg,#355749,#21362f);color:#c6ffea;box-shadow:0 0 0 4px #76d6b114,0 6px 24px #0004}
+.screen-live-dot{position:absolute;right:7px;top:7px;width:6px;height:6px;border-radius:100px;background:#b9ffe1;box-shadow:0 0 8px #b9ffe199}
+.screen-sharing-status{margin:0 auto 8px;display:flex;align-items:center;justify-content:center;gap:8px;color:#adb9b5;font-size:11px;line-height:1.5;max-width:100%}
+.screen-sharing-status>span:nth-child(2){min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.screen-sharing-status strong{color:#d0e8dd;font-weight:500}.screen-sharing-status button{flex:none;background:none;border:0;padding:4px 6px;color:#d3e7de;text-decoration:underline;text-underline-offset:3px}
+.screen-live-indicator,.screen-picker-privacy-dot{width:6px;height:6px;border-radius:100px;background:#9cdbbd;flex:none}
+.screen-picker-backdrop{position:fixed;inset:0;z-index:1100;display:grid;place-items:center;padding:24px;background:#080b10b8;backdrop-filter:blur(14px)}
+.screen-picker{width:min(740px,100%);max-height:min(760px,90vh);overflow:auto;text-align:left;border:1px solid #4d5261;border-radius:24px;background:linear-gradient(150deg,#272b36,#181b23 68%);padding:28px;box-shadow:0 32px 100px #0008,inset 0 1px #ffffff13;color:#eef0f6;outline:none}
+.screen-picker header{display:flex;gap:15px;align-items:center}.screen-picker-emblem{display:grid;place-items:center;flex:none;width:52px;height:52px;background:linear-gradient(140deg,#414b68,#293048);border:1px solid #62718f;border-radius:17px;color:#dde7ff}
+.screen-picker header p{margin:0 0 6px;color:#a2b4d8;font-size:9px;letter-spacing:.18em;font-weight:700}.screen-picker h2{margin:0;font-size:22px;letter-spacing:-.03em;font-weight:600}
+.screen-picker-close{margin-left:auto;width:34px;height:34px;flex:none;display:grid;place-items:center;border:1px solid #484e5d;background:#ffffff05;border-radius:100px;color:#c2c8d7}.screen-picker-close:hover{background:#ffffff12}
+.screen-picker-intro{margin:20px 0 22px;color:#b0b8c9;font-size:13px;line-height:1.6}
+.screen-source-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.screen-source{padding:7px;text-align:left;border:1px solid #414858;border-radius:14px;background:#ffffff03;color:#dce2ef;transition:border-color .15s,background .15s}.screen-source:hover:not(:disabled){border-color:#9baed7;background:#7f97c918}.screen-source:focus-visible{outline:2px solid #b0c5f4;outline-offset:3px}.screen-source:disabled{opacity:.6}
+.screen-source-image{aspect-ratio:16/10;background:#11151d;border-radius:9px;display:grid;place-items:center;overflow:hidden}.screen-source-image img{width:100%;height:100%;object-fit:contain}.screen-source>span{display:flex;align-items:center;gap:8px;padding:12px 7px 6px}.screen-source strong{font-size:12px;line-height:1.4;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:500}.screen-source svg{flex:none;color:#9dabc3}
+.screen-picker-loading{padding:24px 0;display:flex;align-items:center;justify-content:center;gap:12px;font-size:13px;color:#b8c4dd}.screen-picker-loading svg{animation:screen-picker-spin 1.2s linear infinite}@keyframes screen-picker-spin{to{transform:rotate(360deg)}}
+.screen-picker-error{color:#f4b6bf;background:#cf607015;padding:12px;border-radius:10px;font-size:12px;line-height:1.5}.screen-picker footer{display:flex;align-items:center;gap:9px;border-top:1px solid #ffffff0d;margin-top:22px;padding-top:18px;font-size:11px;color:#9ca8bf;line-height:1.5}
+@container(max-width:790px){.screen-share-wide{display:none}.screen-share-compact{display:grid;right:0;width:44px;height:44px}}
+@media(max-width:560px){.screen-picker-backdrop{padding:12px}.screen-picker{padding:20px;border-radius:19px}.screen-picker h2{font-size:18px}.screen-source-grid{grid-template-columns:1fr}.screen-sharing-status{font-size:10px}}
+@media(max-width:380px){.search-keys-trigger span{display:none}.search-keys-trigger{width:36px;padding:0}}

@@ -1,0 +1,96 @@
+.agent-report-prose{min-width:0;color:#d7d9de;font-size:13px;line-height:1.75;letter-spacing:.002em;overflow-wrap:anywhere}
+.agent-report-prose>:first-child{margin-top:0}
+.agent-report-prose>p:first-child{color:#f0f2f6;font-size:14px;font-weight:520;line-height:1.65;letter-spacing:-.006em}
+.agent-report-prose>:last-child{margin-bottom:0}
+.agent-report-prose p{line-height:20px;margin:0}
+.agent-report-heading{display:flex;align-items:baseline;gap:12px;min-width:0;margin:24px 0 10px}
+.agent-report-heading:first-child{margin-top:0}
+.agent-report-heading :is(h1,h2,h3,h4,h5,h6){flex:1;min-width:0;margin:0;color:#f4f5f7;font-family:inherit;line-height:1.4;letter-spacing:-.02em;font-size:14px;font-weight:660}
+.agent-report-heading.level-1 h1{font-size:20px;font-weight:680}
+.agent-report-heading.level-2 h2{font-size:17px;font-weight:680}
+.agent-report-heading:is(.level-4,.level-5,.level-6){margin-top:18px}
+.agent-report-prose strong{color:#f1f2f5;font-weight:670}
+.agent-report-prose em{color:#e8e9ef}
+.agent-report-prose ul,.agent-report-prose ol{margin:0;padding-left:24px}
+.agent-report-prose li{padding-left:0;margin:0}
+.agent-report-prose li::marker{color:#8ea9db}
+.agent-report-prose li.is-nested{margin-left:20px;color:#b9beca}
+.agent-report-prose code:not(pre code){padding:1px 5px;border:none;border-radius:10px;background:#292d34bf;color:#c8d9ff;font:11px/1.5 Consolas,"Cascadia Code",monospace;word-break:break-word}
+.agent-report-prose a{color:#a8c5ff;text-decoration:underline;text-decoration-color:#799acf88;text-underline-offset:3px}
+.agent-report-prose a:hover{color:#d0e0ff}
+.agent-report-prose blockquote{margin:12px 0 18px;padding:10px 15px;border-left:3px solid #8299c2;border-radius:0 8px 8px 0;background:#ffffff08;color:#bfc5d1}
+.agent-report-prose hr{height:1px;margin:23px 0;border:0;background:#383b42}
+.agent-report-table-block{min-width:0;max-width:100%;margin:5px 0 15px}
+.agent-report-table-toolbar{display:flex;justify-content:flex-end;margin-bottom:-30px;min-height:0}
+.agent-report-table-wrap{min-width:0;max-width:100%;overflow-x:auto;border:1px solid #3a3e47;border-radius:10px;scrollbar-color:#515761 transparent;scrollbar-width:thin}
+.agent-report-table-wrap:focus-visible{outline:2px solid #9bb7e2;outline-offset:3px}
+.agent-report-table-wrap table{width:100%;border-collapse:collapse;font-size:12px;white-space:normal}
+.agent-report-table-wrap th,.agent-report-table-wrap td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid #343840;min-width:130px;max-width:360px;overflow-wrap:anywhere}
+.agent-report-table-wrap th{background:#2a2e36;color:#d8dce5;font-size:11px;font-weight:650;white-space:nowrap}
+.agent-report-table-wrap tr:last-child td{border-bottom:0}
+.agent-report-table-wrap tr:nth-child(even) td{background:#ffffff04}
+.agent-copy-control{position:relative;display:inline-flex;flex:none;align-items:center;gap:8px;max-width:100%;font-size:11px}
+.agent-copy-control>button{display:inline-flex;align-items:center;justify-content:center;gap:5px;min-height:28px;padding:4px 7px;border:0;border-radius:6px;background:transparent;color:#a2a8b4;font:inherit;white-space:nowrap;cursor:pointer}
+.agent-copy-control>button:hover{background:#ffffff08;color:#eef0f5}
+.agent-copy-control>button:focus-visible{outline:2px solid #9bb7e2;outline-offset:2px}
+.agent-copy-announcement{position:absolute!important;width:1px!important;height:1px!important;margin:-1px!important;padding:0!important;overflow:hidden!important;clip-path:inset(50%);white-space:nowrap!important}
+.agent-copy-error{color:#e49a92;font-size:11px;line-height:1.5;white-space:normal}
+.agent-report-heading .agent-copy-control,.agent-report-table-toolbar .agent-copy-control,.agent-code-toolbar .agent-copy-control{opacity:0;transition:opacity .14s ease}
+.agent-report-heading:hover .agent-copy-control,.agent-report-table-block:hover .agent-copy-control,.agent-code-block:hover .agent-copy-control,
+.agent-copy-control:focus-within,.agent-copy-control[data-feedback="copied"],.agent-copy-control[data-feedback="failed"]{opacity:1}
+.agent-report-heading .agent-copy-error,.agent-report-table-toolbar .agent-copy-error,.agent-code-toolbar .agent-copy-error{position:absolute;right:0;top:100%;z-index:1;width:220px;padding:6px 9px;border-radius:6px;background:#252830}
+.agent-code-block{min-width:0;max-width:100%;margin:12px 0 20px;overflow:hidden;border:1px solid #3a3e47;border-radius:10px;background:#141516}
+.agent-code-toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 12px;border-bottom:1px solid #ffffff10;color:#a2a8b4;font-size:11px}
+.agent-code-block pre{max-width:100%;overflow:auto;margin:0;padding:16px;font:12px/1.65 Consolas,"Cascadia Code",monospace;color:#dde1ea;white-space:pre;overflow-wrap:normal;overscroll-behavior:contain;scrollbar-color:#586272 #191b1f;scrollbar-width:thin}
+.agent-code-block pre::-webkit-scrollbar{width:10px;height:10px}
+.agent-code-block pre::-webkit-scrollbar-track{border-radius:999px;background:#191b1f}
+.agent-code-block pre::-webkit-scrollbar-thumb{min-width:28px;border:2px solid #191b1f;border-radius:999px;background:linear-gradient(90deg,#596271,#778394);background-clip:padding-box}
+.agent-code-block pre::-webkit-scrollbar-thumb:hover{background:linear-gradient(90deg,#77869a,#9aa9bb);background-clip:padding-box}
+.agent-code-block pre::-webkit-scrollbar-button{display:none;width:0;height:0}
+.agent-code-block pre::-webkit-scrollbar-corner{background:#191b1f}
+.agent-visual{min-width:0;max-width:100%;margin:12px 0 20px;border:1px solid #3a3e47;border-radius:10px;overflow:hidden;background:#191c22}
+.agent-visual-toolbar,.agent-visual-actions,.agent-visual-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.agent-visual-toolbar{justify-content:space-between;padding:8px 12px;border-bottom:1px solid #ffffff10;color:#b5bece;font-size:12px}
+.agent-visual button{border:0;border-radius:6px;min-height:32px;padding:5px 9px;background:#ffffff08;color:#c8d0df;font:inherit;cursor:pointer}
+.agent-visual button[aria-pressed=true]{background:#a8c5ff24;color:#eef3ff}
+.agent-visual button:disabled{opacity:.4;cursor:default}
+.agent-visual button:focus-visible,.agent-diagram-scroll:focus-visible{outline:2px solid #9bb7e2;outline-offset:-2px}
+.agent-visual-controls{padding:8px 12px;color:#a8b0bd;font-size:12px}
+.agent-visual>p{padding:16px;margin:0;font-size:12px}
+.agent-visual pre{overflow:auto;max-width:100%;margin:0;padding:16px;white-space:pre;overflow-wrap:normal;font:12px/1.65 Consolas,"Cascadia Code",monospace}
+.agent-diagram-scroll{overflow:auto;max-height:620px;padding:16px}
+.agent-diagram-svg{margin:auto;min-width:0}
+.agent-diagram-svg svg{display:block;width:100%;height:auto;max-width:none!important}
+.agent-visual iframe{display:block;width:100%;height:460px;border:0;background:#191c22}
+@media(pointer:coarse){.agent-visual button{min-height:44px;min-width:44px}}
+@media(hover:none),(pointer:coarse){.agent-report-heading .agent-copy-control,.agent-report-table-toolbar .agent-copy-control,.agent-code-toolbar .agent-copy-control{opacity:1}.agent-copy-control>button{min-height:36px}}
+@media(prefers-reduced-motion:reduce){.agent-copy-control{transition:none}}
+.agent-access-report{min-width:0;margin:3px 0 19px;overflow:hidden;border:1px solid #414651;border-radius:15px;background:linear-gradient(145deg,#242933 0%,#1c1e23 155px,#1c1e23 100%);box-shadow:0 12px 28px #00000024,inset 0 1px #ffffff0a}
+.agent-access-report-head{display:flex;align-items:center;gap:12px;padding:18px 19px 16px;border-bottom:1px solid #ffffff12}
+.agent-access-report-icon{display:grid;place-items:center;flex:none;width:35px;height:35px;border:1px solid #60749755;border-radius:10px;background:#46608735;color:#b5cffc}
+.agent-access-report-head>div{min-width:0;flex:1}
+.agent-report-eyebrow{display:block;margin:0 0 4px;color:#9bb7e2;font-size:9px;font-weight:760;letter-spacing:.14em}
+.agent-access-report-head h2{margin:0;color:#f4f6fa;font-size:16px;font-weight:680;letter-spacing:-.025em;line-height:1.25}
+.agent-access-report-head p{margin:4px 0 0;color:#9da4b0;font-size:11px;line-height:1.4}
+.agent-access-summary{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;margin:0 18px 4px;padding:15px 0 13px;border-bottom:1px solid #ffffff12}
+.agent-access-summary>div{display:flex;flex-direction:column;gap:2px;padding:0 10px;border-right:1px solid #ffffff10}
+.agent-access-summary>div:first-child{padding-left:1px}
+.agent-access-summary>div:last-child{border:0}
+.agent-access-summary strong{color:#f2f5fc;font-size:20px;font-weight:670;line-height:1.2;letter-spacing:-.04em}
+.agent-access-summary span{color:#8f98a7;font-size:10px}
+.agent-access-rows{padding:4px 11px 10px}
+.agent-access-row{display:flex;align-items:center;gap:9px;min-height:39px;padding:6px 8px;border-radius:7px}
+.agent-access-row:nth-child(even){background:#ffffff06}
+.agent-access-row-icon{display:grid;place-items:center;flex:none;width:19px;height:19px;color:#b8bbca}
+.agent-access-row.available .agent-access-row-icon,.agent-access-row.available .agent-access-state{color:#87d0a7}
+.agent-access-row.blocked .agent-access-row-icon,.agent-access-row.blocked .agent-access-state{color:#e2ad91}
+.agent-access-row strong{min-width:0;flex:1;color:#e6e8ed;font-size:11px;font-weight:600;line-height:1.35}
+.agent-access-state{max-width:40%;color:#afb6c4;font-size:10px;line-height:1.3;text-align:right}
+.agent-access-row small{flex:none;min-width:51px;color:#758092;font:10px Consolas,"Cascadia Code",monospace;text-align:right}
+.agent-access-note{display:flex;align-items:flex-start;gap:8px;margin:0;padding:13px 18px;border-top:1px solid #ffffff12;background:#ffffff04;color:#aeb6c4;font-size:11px;line-height:1.6}
+.agent-access-note svg{flex:none;margin-top:2px;color:#92a9cf}
+.agent-access-single .agent-access-report-head{border-bottom:0}
+.agent-access-ok{display:flex;align-items:center;gap:4px;flex:none;padding:5px 8px;border:1px solid #4d8b6c66;border-radius:999px;background:#294a3940;color:#9bdfb4;font-size:10px;font-weight:650}
+.agent-access-single-body{padding:0 19px 17px}
+.agent-access-single-body .agent-report-prose{color:#c2c9d2;font-size:12px}
+@media(max-width:610px){.agent-access-report-head{padding:15px}.agent-access-summary{margin:0 14px}.agent-access-rows{padding:4px 8px 9px}.agent-access-row{flex-wrap:wrap;column-gap:7px}.agent-access-row strong{flex-basis:calc(100% - 27px)}.agent-access-state{max-width:none;margin-left:26px;text-align:left}.agent-access-row small{margin-left:auto}}

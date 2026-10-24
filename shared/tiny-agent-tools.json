@@ -1,0 +1,392 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "draft_tiny_agent",
+      "description": "Create or revise a review-only tiny agent that watches the PC in the background. Call when the user asks to monitor something, alert later, or act when a condition happens. Never claim it is enabled until the user reviews and approves it. Ask the user for missing app/window scope or unsupported actions; do not guess. For 'drops to 80%', use lte and value_number 80. An explicit 'all windows' uses scope all. Scheduled reminders use an always=true condition. Active time is seconds today in the device timezone. File arrivals use folder_new_file, contains, a filename substring or *, and an absolute folder target. Download events use browser_download, eq, complete or interrupted, with optional filename target. Event rules require zero hold and repeat. Network reachability uses the Microsoft Windows connectivity probe; use baseline crossing for a returned-network rule. Daily schedules use selected weekdays and HH:MM in an IANA timezone. Only explicitly requested actions may be included. For notifications whenever selected values change, supply trigger.type=change, trigger.watches, and settleSeconds (default 1). Numeric watches default minDelta=1 percentage point and direction=any; increase/decrease are also supported. First readings establish a baseline. Changes use notification actions only, zero hold/repeat, and always/window schedules. Conditions are optional filters; omit them for an unfiltered change monitor. Messages automatically include before/after values. For new CPU/memory change monitors prefer evaluation=window with windowSeconds=10, so continuous fluctuation does not starve settling. Preserve every existing optional setting when editing.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "id": {
+            "type": "STRING",
+            "description": "Existing tiny agent ID only when revising an existing rule."
+          },
+          "name": {
+            "type": "STRING",
+            "description": "Short human-friendly name."
+          },
+          "match": {
+            "type": "STRING",
+            "enum": [
+              "all",
+              "any"
+            ],
+            "description": "How the condition rows combine."
+          },
+          "conditions": {
+            "type": "ARRAY",
+            "items": {
+              "type": "OBJECT",
+              "properties": {
+                "signal": {
+                  "type": "STRING",
+                  "enum": [
+                    "battery_percent",
+                    "on_ac",
+                    "charging",
+                    "window_state",
+                    "active_app",
+                    "idle_seconds",
+                    "browser_tab",
+                    "browser_video",
+                    "media_session",
+                    "volume_percent",
+                    "muted",
+                    "brightness_percent",
+                    "always",
+                    "active_seconds",
+                    "app_active_seconds",
+                    "fullscreen",
+                    "browser_download",
+                    "file_exists",
+                    "folder_new_file",
+                    "network_online",
+                    "cpu_percent",
+                    "memory_percent",
+                    "disk_free_percent"
+                  ]
+                },
+                "comparator": {
+                  "type": "STRING",
+                  "enum": [
+                    "eq",
+                    "neq",
+                    "lt",
+                    "lte",
+                    "gt",
+                    "gte",
+                    "contains"
+                  ]
+                },
+                "value_number": {
+                  "type": "NUMBER",
+                  "description": "Use for percentages and idle seconds."
+                },
+                "value_boolean": {
+                  "type": "BOOLEAN",
+                  "description": "Use for on_ac, charging, and muted."
+                },
+                "value_text": {
+                  "type": "STRING",
+                  "description": "Use for window state, app, tab, video, or media text."
+                },
+                "target": {
+                  "type": "STRING",
+                  "description": "Application or browser name, e.g. Chrome; required for window state."
+                },
+                "scope": {
+                  "type": "STRING",
+                  "enum": [
+                    "any",
+                    "all"
+                  ],
+                  "description": "For windows, any matching window or all matching windows."
+                },
+                "field": {
+                  "type": "STRING",
+                  "description": "For browser tab: title/url/active/audible/muted. Video: title/playing/muted. Media: title/artist/source."
+                }
+              },
+              "required": [
+                "signal",
+                "comparator"
+              ]
+            }
+          },
+          "hold_seconds": {
+            "type": "INTEGER",
+            "description": "How long conditions must stay true before firing, default 0."
+          },
+          "repeat_seconds": {
+            "type": "INTEGER",
+            "description": "Repeat interval while true, default 0 for once per crossing."
+          },
+          "action_type": {
+            "type": "STRING",
+            "enum": [
+              "notify",
+              "shutdown",
+              "open_url",
+              "open_path",
+              "focus_app",
+              "minimize_app"
+            ]
+          },
+          "notification_text": {
+            "type": "STRING",
+            "description": "Text of notification, when action is notify."
+          },
+          "action_target": {
+            "description": "Complete http/https URL, absolute local path, or application name depending on action.",
+            "type": "STRING"
+          },
+          "actions": {
+            "type": "ARRAY",
+            "description": "Optional ordered actions, maximum six. Shutdown must be last.",
+            "items": {
+              "type": "OBJECT",
+              "required": [
+                "type"
+              ],
+              "properties": {
+                "type": {
+                  "enum": [
+                    "notify",
+                    "shutdown",
+                    "open_url",
+                    "open_path",
+                    "focus_app",
+                    "minimize_app"
+                  ],
+                  "type": "STRING"
+                },
+                "target": {
+                  "type": "STRING"
+                },
+                "message": {
+                  "type": "STRING"
+                }
+              }
+            }
+          },
+          "schedule": {
+            "type": "OBJECT",
+            "required": [
+              "mode"
+            ],
+            "properties": {
+              "days": {
+                "type": "ARRAY",
+                "items": {
+                  "type": "INTEGER"
+                },
+                "description": "0 Sunday through 6 Saturday"
+              },
+              "end": {
+                "description": "HH:MM",
+                "type": "STRING"
+              },
+              "at": {
+                "description": "Unix milliseconds for a one-time reminder",
+                "type": "NUMBER"
+              },
+              "start": {
+                "description": "HH:MM",
+                "type": "STRING"
+              },
+              "missed": {
+                "enum": [
+                  "skip",
+                  "catch_up"
+                ],
+                "type": "STRING"
+              },
+              "mode": {
+                "enum": [
+                  "always",
+                  "daily",
+                  "window",
+                  "once"
+                ],
+                "type": "STRING"
+              },
+              "timezone": {
+                "description": "IANA timezone, such as Asia/Dhaka.",
+                "type": "STRING"
+              }
+            }
+          },
+          "policy": {
+            "properties": {
+              "quietHours": {
+                "type": "OBJECT",
+                "required": [
+                  "enabled"
+                ],
+                "properties": {
+                  "enabled": {
+                    "type": "BOOLEAN"
+                  },
+                  "start": {
+                    "type": "STRING"
+                  },
+                  "end": {
+                    "type": "STRING"
+                  }
+                }
+              },
+              "maxPerDay": {
+                "type": "INTEGER"
+              },
+              "deferFullscreen": {
+                "type": "BOOLEAN"
+              },
+              "cooldownSeconds": {
+                "type": "INTEGER"
+              },
+              "expiresAfterSeconds": {
+                "type": "INTEGER",
+                "description": "Discard an undelivered alert after this many seconds; 0 retains it. Range 0 to 604800."
+              },
+              "discardRecovered": {
+                "type": "BOOLEAN",
+                "description": "Discard an undelivered threshold alert only after observed recovery. Unknown readings do not mean recovered."
+              }
+            },
+            "type": "OBJECT"
+          },
+          "fire_on_approval": {
+            "type": "BOOLEAN",
+            "description": "For notifications, default true. Set false for rules such as internet returned, which need an observed false-to-true crossing."
+          },
+          "trigger": {
+            "type": "OBJECT",
+            "properties": {
+              "type": {
+                "type": "STRING",
+                "enum": [
+                  "change"
+                ]
+              },
+              "settleSeconds": {
+                "type": "NUMBER",
+                "description": "Seconds without a new change before notifying, default 1, from 0 to 60."
+              },
+              "watches": {
+                "type": "ARRAY",
+                "items": {
+                  "type": "OBJECT",
+                  "properties": {
+                    "signal": {
+                      "type": "STRING",
+                      "enum": [
+                        "brightness_percent",
+                        "volume_percent",
+                        "muted",
+                        "battery_percent",
+                        "charging",
+                        "on_ac",
+                        "network_online",
+                        "fullscreen",
+                        "active_app",
+                        "cpu_percent",
+                        "memory_percent",
+                        "disk_free_percent",
+                        "file_exists"
+                      ]
+                    },
+                    "target": {
+                      "type": "STRING",
+                      "description": "Required for disk drive or absolute local file path."
+                    },
+                    "minDelta": {
+                      "type": "NUMBER",
+                      "description": "Numeric minimum change in percentage points, default 1."
+                    },
+                    "direction": {
+                      "type": "STRING",
+                      "enum": [
+                        "any",
+                        "increase",
+                        "decrease"
+                      ]
+                    },
+                    "evaluation": {
+                      "type": "STRING",
+                      "enum": [
+                        "settled",
+                        "window"
+                      ],
+                      "description": "CPU/memory: window uses a rolling average. Other signals use settled."
+                    },
+                    "windowSeconds": {
+                      "type": "NUMBER",
+                      "description": "Rolling average duration, 3 to 600 seconds. Default 10."
+                    }
+                  },
+                  "required": [
+                    "signal"
+                  ]
+                }
+              }
+            },
+            "required": [
+              "type",
+              "watches"
+            ]
+          },
+          "condition_json": {
+            "type": "STRING",
+            "description": "Full nested TinyCondition JSON from inspection when creating or editing grouped rules. Preserve every group and leaf."
+          },
+          "district": {
+            "type": "STRING",
+            "enum": [
+              "workshop",
+              "garden",
+              "library",
+              "harbor"
+            ]
+          },
+          "incident_json": {
+            "type": "STRING",
+            "description": "Optional incident policy JSON: recoveryCondition (complete nested condition), recoveryHoldSeconds (default 5), notifyRecovery (default true). Notification-only threshold agents, no repeats. Review both entry and recovery conditions."
+          }
+        },
+        "required": [
+          "name",
+          "match"
+        ]
+      }
+    },
+    {
+      "name": "manage_tiny_agent",
+      "description": "List, approve, pause, resume, or delete saved tiny agents, or cancel a pending shutdown. Approve only after the user explicitly confirms the reviewed draft. Pause, resume, or delete only when explicitly requested. List first if the target ID is uncertain. Preview checks conditions without executing actions. Duplicate creates a new review-only draft. Snooze and clear_snooze require a user request. stop_all stops all Tiny Agent workflows, disables monitors and requests Construction Lock recovery. Starting globally stopped agents requires the visible Start reviewed agents control.",
+      "behavior": "NON_BLOCKING",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "action": {
+            "type": "STRING",
+            "enum": [
+              "list",
+              "approve",
+              "pause",
+              "resume",
+              "delete",
+              "cancel_shutdown",
+              "snooze",
+              "clear_snooze",
+              "duplicate",
+              "preview",
+              "inspect",
+              "review",
+              "stop_all"
+            ]
+          },
+          "id": {
+            "type": "STRING",
+            "description": "Tiny agent ID from a draft or list result."
+          },
+          "seconds": {
+            "description": "Snooze duration, default 1800 seconds.",
+            "type": "INTEGER"
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}

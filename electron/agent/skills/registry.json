@@ -1,0 +1,140 @@
+[
+  {
+    "id": "diagrams",
+    "name": "Diagrams and interactive visuals",
+    "description": "Create inline Mermaid diagrams and sandboxed interactive HTML explanations in chat; use for flowcharts, architecture, relationships and simulations, not general websites.",
+    "file": "diagrams/SKILL.md"
+  },
+  {
+    "id": "bug_repair",
+    "name": "Bug repair",
+    "description": "Reproduce reported defects, trace their root cause across boundaries, preserve contracts, make focused repairs, and verify the original behavior with truthful evidence.",
+    "file": "bug_repair/SKILL.md"
+  },
+  {
+    "id": "browser_verification",
+    "name": "Browser interaction verification",
+    "description": "Verify actual browser flows, launch routes, responsive layout, loading/failure states and visible outcomes; use for meaningful frontend behavior across design profiles, without visual templates.",
+    "file": "browser_verification/SKILL.md"
+  },
+  {
+    "id": "visual_composition",
+    "name": "Visual composition and critique",
+    "description": "Subject-led composition and evidence-based visual critique: hierarchy, typography, spacing, imagery, meaningful motion, 3D presentation and responsive craft; no templates or separate critic stage.",
+    "file": "visual_composition/SKILL.md"
+  },
+  {
+    "id": "website_layout_options",
+    "name": "Website layout options",
+    "description": "Two credible spatial concepts and a detailed selected layout blueprint for open new websites or requested planning only; no website construction in options-only tasks.",
+    "websiteGuidance": true,
+    "file": "website_layout_options/SKILL.md"
+  },
+  {
+    "id": "task_planning",
+    "name": "Task planning and clarification",
+    "description": "Plan dependent work, resolve material ambiguity, track requirements and evidence, apply human steering, and resume safely from completed actions; use for complex or changing tasks, not routine greetings or single actions.",
+    "file": "task_planning/SKILL.md"
+  },
+  {
+    "id": "change_review",
+    "name": "Change review",
+    "description": "Inspect actual code changes against the request for likely regressions before handoff; use for meaningful implementations and repairs, without spawning a separate reviewer stage.",
+    "file": "change_review/SKILL.md"
+  },
+  {
+    "id": "project_testing",
+    "name": "Project-specific testing",
+    "description": "Select the smallest useful existing project check for changed code; use after implementations and repairs, escalating only when risk or coverage requires it.",
+    "file": "project_testing/SKILL.md"
+  },
+  {
+    "id": "refactor",
+    "name": "Refactor",
+    "description": "Change structure or symbols while preserving behavior.",
+    "file": "refactor/SKILL.md"
+  },
+  {
+    "id": "research",
+    "name": "Research",
+    "description": "Comprehensive deep research on technical topics and their surrounding ecosystems, architectures, trade-offs, and primary evidence.",
+    "file": "research/SKILL.md"
+  },
+  {
+    "id": "website_design",
+    "name": "Website design — Default",
+    "description": "Default website design: an original, complete section with professional execution and creative autonomy.",
+    "designProfile": "normal",
+    "file": "website_design/SKILL.md"
+  },
+  {
+    "id": "website_design_medium",
+    "name": "Website design — Medium",
+    "description": "Medium website design: a premium original section, developed efficiently with stronger creative ambition.",
+    "designProfile": "medium",
+    "file": "website_design_medium/SKILL.md"
+  },
+  {
+    "id": "website_design_max",
+    "name": "Website design — MAX",
+    "description": "MAX frontend design: original premium sections; new full websites have nine or more developed sections and coordinated GSAP, ScrollTrigger and Lenis motion, with optional requested 3D.",
+    "designProfile": "max",
+    "file": "website_design_max/SKILL.md"
+  },
+  {
+    "id": "gsap",
+    "name": "GSAP animation engineering",
+    "description": "GSAP timelines, animation ownership, lifecycle, responsive and reduced-motion behavior; technical implementation only, no page designs.",
+    "forDesignProfile": "max",
+    "file": "gsap/SKILL.md"
+  },
+  {
+    "id": "scrolltrigger",
+    "name": "GSAP ScrollTrigger",
+    "description": "Scroll-linked timelines, scrub and pin behavior, refresh, responsive teardown, and scroll-state verification; no layout recipes.",
+    "forDesignProfile": "max",
+    "file": "scrolltrigger/SKILL.md"
+  },
+  {
+    "id": "lenis",
+    "name": "Lenis smooth scrolling",
+    "description": "Lenis setup, GSAP/ScrollTrigger synchronization, anchors, lifecycle, touch behavior, and reduced-motion handling.",
+    "forDesignProfile": "max",
+    "file": "lenis/SKILL.md"
+  },
+  {
+    "id": "gsap_svg",
+    "name": "GSAP SVG and layout plugins",
+    "description": "Technical use of Flip, DrawSVG, and MorphSVG for real layout or vector changes, including compatibility and accessible fallbacks.",
+    "forDesignProfile": "max",
+    "file": "gsap_svg/SKILL.md"
+  },
+  {
+    "id": "gsap_text",
+    "name": "GSAP text plugins",
+    "description": "SplitText, ScrambleText, and TextPlugin mechanics, semantic reading, font and responsive re-splitting, and reduced-motion behavior.",
+    "forDesignProfile": "max",
+    "file": "gsap_text/SKILL.md"
+  },
+  {
+    "id": "threejs",
+    "name": "Three.js WebGL engineering",
+    "description": "On-demand 3D/WebGL engineering: reference-led asset construction, proportion and material fidelity, responsive rendering, lifecycle, performance and fallback; independent of the selected design profile and never a design template.",
+    "forDesignProfile": "max",
+    "file": "threejs/SKILL.md"
+  },
+  {
+    "id": "gltf_assets",
+    "name": "3D asset sourcing and glTF pipeline",
+    "description": "On-demand sourcing, provenance, inspection, validation, import and measured optimization of external 3D assets; read only when a task involves model or texture assets, never a scene template.",
+    "forDesignProfile": "max",
+    "file": "gltf_assets/SKILL.md"
+  },
+  {
+    "id": "website_motion_max",
+    "name": "Design MAX motion implementation reference",
+    "description": "Shared MAX motion guardrails and a router to the relevant library-specific skills. Technical only; no page or visual recipe.",
+    "forDesignProfile": "max",
+    "file": "website_motion_max/SKILL.md"
+  }
+]

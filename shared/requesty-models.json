@@ -1,0 +1,11 @@
+{
+  "verifiedAt": "2026-10-18",
+  "baseUrl": "https://router.requesty.ai/v1",
+  "dailyRequestLimit": 200,
+  "defaultModel": "google/gemma-4-31b-it",
+  "models": [
+    { "id": "google/gemma-4-31b-it", "name": "Gemma 4 31B (Free)", "contextLength": 262000, "vision": false },
+    { "id": "nvidia/nemotron-3-ultra-550b-a55b", "name": "Nemotron 3 Ultra 550B (Free)", "contextLength": 1000000, "vision": false },
+    { "id": "mistral/leanstral-1-5", "name": "Leanstral 1.5 (Free)", "contextLength": 262000, "vision": false }
+  ]
+}

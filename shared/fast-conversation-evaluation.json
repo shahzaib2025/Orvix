@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "repetitions": 5,
+  "evidenceKind": "real_microphone",
+  "defaults": {
+    "tone": "professional",
+    "detail": "adaptive",
+    "memory": "conversation-local",
+    "voice": "unchanged"
+  },
+  "scenarios": [
+    {
+      "id": "greeting",
+      "command": "হ্যালো।",
+      "oracle": "Brief polite greeting without repeated name or unsolicited pitch"
+    },
+    {
+      "id": "simple-fact",
+      "command": "পৃথিবী সূর্যকে প্রদক্ষিণ করতে কত সময় নেয়?",
+      "oracle": "Direct accurate brief answer"
+    },
+    {
+      "id": "mixed-language",
+      "command": "Chrome আর browser কি একই জিনিস?",
+      "oracle": "Bangla reply retains familiar technical terms"
+    },
+    {
+      "id": "explanation",
+      "command": "Photosynthesis বুঝিয়ে বলুন।",
+      "oracle": "Main idea then example and useful explanation"
+    },
+    {
+      "id": "simplify",
+      "command": "আরও সহজ করে বলুন।",
+      "oracle": "Simplifies previous photosynthesis explanation without new research"
+    },
+    {
+      "id": "why",
+      "command": "কেন?",
+      "oracle": "Explains prior claim without changing topic"
+    },
+    {
+      "id": "earlier-style",
+      "command": "আগেরটার মতো একটা উদাহরণ দিন।",
+      "oracle": "Uses previous example format when clear"
+    },
+    {
+      "id": "ambiguous-reference",
+      "command": "এটার বদলে ওটা ব্যবহার করুন।",
+      "oracle": "Asks one clarification when two targets are plausible"
+    },
+    {
+      "id": "detailed",
+      "command": "Photosynthesis বিস্তারিত বুঝিয়ে দিন, ধাপগুলো ও গুরুত্বসহ।",
+      "oracle": "Covers every requested part without requiring repeated requests",
+      "detailed": true
+    },
+    {
+      "id": "multipart",
+      "command": "RAM কী, SSD কী, আর এদের পার্থক্য কী?",
+      "oracle": "All three questions answered"
+    },
+    {
+      "id": "english-switch",
+      "command": "Reply in English from now on.",
+      "oracle": "English persists through later mixed commands"
+    },
+    {
+      "id": "bangla-switch",
+      "command": "বাংলায় উত্তর দিন।",
+      "oracle": "Bangla resumes explicitly"
+    },
+    {
+      "id": "name-repetition",
+      "command": "Five consecutive ordinary questions",
+      "oracle": "Does not repeatedly address user by name"
+    },
+    {
+      "id": "no-routine-followup",
+      "command": "বাংলাদেশের রাজধানী কী?",
+      "oracle": "Answers without routine anything-else ending"
+    },
+    {
+      "id": "uncertain-fact",
+      "command": "এই অপ্রকাশিত মডেলের ভিতরের architecture কী?",
+      "oracle": "States uncertainty without invented internals"
+    },
+    {
+      "id": "fresh-pc",
+      "command": "এখন কোন অ্যাপটি সামনে আছে?",
+      "oracle": "Matches independently observed active window",
+      "action": true
+    },
+    {
+      "id": "stale-pc",
+      "command": "এখন কোন গান চলছে? (stale snapshot)",
+      "oracle": "Refreshes or reports uncertainty instead of guessing",
+      "action": true
+    },
+    {
+      "id": "search",
+      "command": "OpenCode সার্চ করুন।",
+      "oracle": "One useful acknowledgment and verified matching results",
+      "action": true
+    },
+    {
+      "id": "typed-search",
+      "command": "Chrome-এর সার্চ বক্সে OpenCode লিখুন।",
+      "oracle": "Actual observed field value verified; no invented submission",
+      "action": true
+    },
+    {
+      "id": "correction",
+      "command": "না, আমি Chrome-এর সার্চ বক্স বলেছি।",
+      "oracle": "Latest correction applied without replaying completed effects",
+      "action": true
+    },
+    {
+      "id": "media-choice",
+      "command": "এই গানটি চালান। (several matches)",
+      "oracle": "Real ordered choices, one selection question, verified playback",
+      "action": true
+    },
+    {
+      "id": "failed-site",
+      "command": "Open an unavailable test site",
+      "oracle": "Reports unresolved navigation accurately",
+      "action": true,
+      "unresolved": true
+    },
+    {
+      "id": "slow-tool",
+      "command": "Search with a controlled slow response",
+      "oracle": "No repeated acknowledgment or per-step narration",
+      "action": true
+    },
+    {
+      "id": "clarification-reconnect",
+      "command": "Ask an ambiguous app question, reconnect, then answer Notepad",
+      "oracle": "Retains pending clarification and launches intended app",
+      "action": true
+    },
+    {
+      "id": "topic-reconnect",
+      "command": "Explain RAM, reconnect, then আরও সহজ করে বলুন",
+      "oracle": "Retains topic without greeting restart"
+    },
+    {
+      "id": "language-reconnect",
+      "command": "Switch to English, reconnect, then ask a mixed-language question",
+      "oracle": "Retains explicit English preference in this conversation"
+    },
+    {
+      "id": "interrupt-explanation",
+      "command": "Interrupt a long explanation with a correction",
+      "oracle": "Stops within 500ms of detection; no stale speech resumes",
+      "interruption": true
+    },
+    {
+      "id": "interrupt-confirmation",
+      "command": "Interrupt Windows confirmation fallback",
+      "oracle": "Stops fallback and responds to correction",
+      "interruption": true,
+      "action": true
+    },
+    {
+      "id": "natural-pause",
+      "command": "Speak a sentence with 300–500ms thinking pauses",
+      "oracle": "Does not fragment the sentence or answer mid-sentence"
+    },
+    {
+      "id": "new-conversation",
+      "command": "Start a new conversation after an English clarification session",
+      "oracle": "No prior topic or clarification leak; starts in Bangla"
+    }
+  ]
+}

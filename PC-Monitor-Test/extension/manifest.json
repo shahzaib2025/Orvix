@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "PC Monitor Test Companion",
+  "version": "0.3.2",
+  "minimum_chrome_version": "125",
+  "description": "Reports browser activity and provides verified Chrome control for Orvix Fast through the existing paired connection.",
+  "permissions": ["tabs", "storage", "alarms", "scripting", "debugger", "webNavigation", "tabGroups", "sessions", "bookmarks", "history", "downloads"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    { "matches": ["http://*/*", "https://*/*"], "js": ["video.js"], "all_frames": false, "run_at": "document_idle" },
+    { "matches": ["https://www.youtube.com/*", "https://youtube.com/*"], "js": ["youtube.js"], "all_frames": false, "run_at": "document_idle" }
+  ],
+  "action": { "default_title": "PC Monitor Test pairing", "default_popup": "popup.html" }
+}

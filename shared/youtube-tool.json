@@ -1,0 +1,18 @@
+{
+  "functionDeclarations": [
+    {
+      "name": "youtube_action",
+      "description": "Control YouTube in the paired Chrome extension. Search for and play a video, choose a numbered search result, or pause/resume playback. Search may return needs_selection with candidateId values; ask the user which numbered video they want, then call select_and_play with that candidateId. Report actual status only. Pause and resume restore the previously used tab and window.",
+      "parameters": {
+        "type": "OBJECT",
+        "properties": {
+          "action": { "type": "STRING", "enum": ["search_and_play", "select_and_play", "pause", "resume"], "description": "YouTube action to perform." },
+          "query": { "type": "STRING", "description": "Video title or search terms. Required for search_and_play." },
+          "candidateId": { "type": "STRING", "description": "Exact candidateId from a previous needs_selection response. Required for select_and_play." },
+          "targetTitle": { "type": "STRING", "description": "Optional video title to disambiguate pause or resume when more than one YouTube video is open." }
+        },
+        "required": ["action"]
+      }
+    }
+  ]
+}

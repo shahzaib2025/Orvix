@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-17",
+  "baseUrl": "https://api.routeway.ai/v1",
+  "defaultModel": "gemma-4-26b-a4b-it-luminous:free",
+  "models": [
+    { "id": "gemma-4-26b-a4b-it-luminous:free", "name": "Gemma 4 Luminous (Free)", "contextLength": 62000, "vision": true },
+    { "id": "deepseek-v4-flash:free", "name": "DeepSeek V4 Flash (Free)", "contextLength": 128000, "vision": false },
+    { "id": "minimax-m2.7:free", "name": "MiniMax M2.7 (Free)", "contextLength": 42000, "vision": false, "subscriptionFlag": true },
+    { "id": "muse-glimmer-30b:free", "name": "Glimmer 30B (Free)", "contextLength": 131072, "vision": true },
+    { "id": "gemma-4-26b-a4b-it-chimerax:free", "name": "Gemma 4 Chimerax (Free)", "contextLength": 62000, "vision": true },
+    { "id": "gemma-4-26b-a4b-it-darksoul:free", "name": "Gemma 4 Darksoul (Free)", "contextLength": 62000, "vision": true },
+    { "id": "gemma-4-26b-a4b-it-moonlight:free", "name": "Gemma 4 Moonlight (Free)", "contextLength": 62000, "vision": true },
+    { "id": "gemma-4-26b-a4b-it-musica:free", "name": "Gemma 4 Musica (Free)", "contextLength": 62000, "vision": true },
+    { "id": "gemma-4-26b-a4b-it-meromero:free", "name": "Gemma 4 MeroMero (Free)", "contextLength": 62000, "vision": true }
+  ]
+}

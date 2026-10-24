@@ -1,0 +1,1 @@
+console.log("Fixture assertion failed"); process.exit(9);

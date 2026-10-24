@@ -1,0 +1,1 @@
+if (require("./probe.js") !== "fixed") process.exit(3); console.log("Observed fixed source");

@@ -1,0 +1,36 @@
+.agent-kilo-menu .agent-opencode-menu-head>div{display:flex;gap:5px}
+.agent-kilo-menu .agent-opencode-menu-head button:disabled{opacity:.45;cursor:wait}
+.agent-kilo-catalog-status{position:relative;padding:9px 12px;border-bottom:1px solid #ffffff0c;color:#9598a3;font-size:10px;line-height:1.5}
+.agent-kilo-empty{padding:16px;color:#999ca7;font-size:11px;line-height:1.6}
+.agent-kilo-model-info{display:grid;gap:8px;margin-top:17px;padding-top:12px;border-top:1px solid #ffffff0d;color:#9699a5;font-size:10px;line-height:1.5}
+.agent-kilo-model-info code{overflow-wrap:anywhere;font-size:9px;color:#b9bdc8}
+.agent-kilo-menu .is-refreshing{animation:kilo-refresh 1s linear infinite}
+.agent-kilo-source-switch{position:relative;display:flex;gap:4px;padding:8px 12px 0}
+.agent-kilo-source-switch button{display:flex;align-items:center;justify-content:center;gap:8px;flex:1;min-height:34px;border:1px solid transparent;border-radius:9px;background:transparent;color:#a2a3ab;font-size:11px;cursor:pointer}
+.agent-kilo-source-switch button[aria-pressed=true]{background:#dcc9aa12;border-color:#dcc9aa26;color:#f0e6d5}
+.agent-kilo-source-switch small{font-size:9px;opacity:.65}
+.agent-kilo-search{position:relative;display:flex;align-items:center;gap:8px;margin:10px 12px 0;padding:8px 10px;border:1px solid #ffffff12;border-radius:8px;color:#92949d;background:#00000016}
+.agent-kilo-search:focus-within{border-color:#dcc9aa55}
+.agent-kilo-search input{width:100%;min-width:0;border:0;outline:0;background:transparent;color:#edeae4;font:inherit;font-size:11px}
+.agent-kilo-menu .agent-opencode-menu-scroll{max-height:min(350px,calc(100vh - 310px))}
+.agent-kilo-model-group+ .agent-kilo-model-group{border-top:1px solid #ffffff09;margin-top:6px;padding-top:5px}
+.agent-kilo-model-group header,.agent-kilo-model-group summary{display:flex;align-items:center;gap:8px;padding:9px 9px 6px;font-size:9px;font-weight:600;letter-spacing:.03em;color:#b5b4b3}
+.agent-kilo-model-group header small,.agent-kilo-model-group summary small{margin-left:auto;font-size:9px;font-weight:400;color:#73757e}
+.agent-kilo-model-group summary{list-style:none;cursor:pointer;color:#92939a}
+.agent-kilo-model-group summary::-webkit-details-marker{display:none}
+.agent-kilo-model-group[open] summary svg{transform:rotate(90deg)}
+.agent-kilo-menu .agent-opencode-model{min-height:48px}
+.agent-kilo-menu .agent-opencode-model strong{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.agent-kilo-row-caption{color:#858791;font-size:9px;font-weight:400}
+.agent-kilo-check-dot{width:5px;height:5px;border-radius:50%;background:#73757e;flex-shrink:0}
+.agent-kilo-check-dot.is-passed{background:#89b69b}
+.agent-kilo-check-dot.is-attention{background:#c8ab78}
+.agent-kilo-check-card{display:grid;gap:5px;padding:10px;margin-top:12px;border:1px solid #ffffff10;border-radius:9px;background:#ffffff03;color:#a2a4ab;font-size:10px;line-height:1.5}
+.agent-kilo-check-card strong{font-size:10px;color:#c1c4cc}
+.agent-kilo-check-card.is-passed strong{color:#a2c9ad}
+.agent-kilo-check-card.is-attention strong{color:#d8bf95}
+.agent-kilo-menu .agent-thinking-panel{max-height:min(350px,calc(100vh - 310px));overflow-y:auto;scrollbar-width:thin}
+.agent-kilo-source-switch button:focus-visible,.agent-kilo-model-group summary:focus-visible{outline:2px solid #dcc9aa88;outline-offset:2px}
+@media(max-width:520px){.agent-kilo-menu .agent-opencode-menu-body{grid-template-columns:minmax(0,1fr)}.agent-kilo-menu .agent-opencode-menu-scroll{max-height:180px}.agent-kilo-menu .agent-thinking-panel{max-height:180px;border-left:0;border-top:1px solid #ffffff12}}
+@keyframes kilo-refresh{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){.agent-kilo-menu .is-refreshing{animation:none}}

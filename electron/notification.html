@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; img-src 'self'; connect-src 'none'">
+<title>Orvix Notification</title><link rel="stylesheet" href="notification.css"></head>
+<body><article id="card" class="notice" role="status" aria-live="polite">
+  <div class="head"><div class="brand"><img src="orvix-logo.png" alt="Orvix logo"><span>Orvix</span></div><div class="head-right"><time id="time">now</time><button id="dismiss" class="close" aria-label="Dismiss notification">×</button></div></div>
+  <div class="content"><div class="copy"><h1 id="title"></h1><p id="body"></p></div></div>
+  <footer><span class="state" id="state">Tiny Agent</span><button id="open" class="open">Open Orvix <span aria-hidden="true">↗</span></button><button id="cancel" class="cancel" hidden>Cancel shutdown</button></footer>
+</article><script src="notification-renderer.js"></script></body></html>

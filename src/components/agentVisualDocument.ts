@@ -1,0 +1,4 @@
+// A unique-origin sandbox has no Electron preload, parent DOM, storage or network access.
+export function visualDocument(source: string): string {
+  return `<!doctype html><html><head><meta charset="utf-8"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data:; connect-src 'none'; frame-src 'none'; object-src 'none'; base-uri 'none'; form-action 'none'; font-src 'none'"><meta name="viewport" content="width=device-width, initial-scale=1"><style>html{color-scheme:dark}body{margin:0;padding:16px;background:#191c22;color:#edf0f6;font:14px/1.5 system-ui;overflow-wrap:anywhere}*{box-sizing:border-box}svg,canvas{max-width:100%}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #adcaff;outline-offset:3px}</style></head><body>${source}</body></html>`;
+}
