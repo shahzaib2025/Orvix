@@ -48,9 +48,9 @@ type UserProfile = {
   timezone: string; language: string; interests: string; bio: string; avatar: string;
 };
 const defaultProfile: UserProfile = {
-  name: "mahdis", displayName: "Mahdis", email: "shahzaibislam159@gmail.com", phone: "01710610637",
-  occupation: "Designer, student,", company: "FlorianBD", website: "https://florianbd.com",
-  location: "Rangpur", timezone: "asia dhaka", language: "bangla",
+  name: "mahdis", displayName: "Mahdis", email: "developer@orvix.local", phone: "+1 (555) 019-2834",
+  occupation: "Designer, student,", company: "Orvix Systems", website: "https://orvix.dev",
+  location: "Global", timezone: "UTC", language: "English",
   interests: "research, coding, music, chess", bio: "", avatar: "",
 };
 const emptyProfile: UserProfile = {
@@ -289,7 +289,7 @@ function messagesForDisplay(messages: Message[]): DisplayMessage[] {
 }
 
 function App() {
-  const [page, setPage] = useState<Page>("home");
+  const [page, setPage] = useState<Page>(() => { try { const p = new URLSearchParams(window.location.search).get("page") as Page; return p || "home"; } catch { return "home"; } });
   const [agentPageVisited, setAgentPageVisited] = useState(false);
   const [agentNotificationTarget, setAgentNotificationTarget] = useState<Extract<NotificationOpenTarget, { type: 'agent' }> | null>(null);
   const [agentServerStatus, setAgentServerStatus] = useState<AgentServerIndicator | null>(null);
