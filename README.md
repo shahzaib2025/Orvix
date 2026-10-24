@@ -30,6 +30,9 @@
 ---
 
 <p align="center">
+  <video src="docs/assets/orvix-hero-animation.mp4" width="100%" autoplay loop muted playsinline style="border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.35);"></video>
+</p>
+<p align="center">
   <img src="docs/assets/orvix-preview.png" width="100%" alt="Orvix Desktop Workspace Preview" style="border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" />
 </p>
 
