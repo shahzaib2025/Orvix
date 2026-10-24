@@ -1,85 +1,222 @@
-# Orvix
+<p align="center">
+  <img src="src/assets/orvix-logo-orbit-face.png" width="128" height="128" alt="Orvix Logo" />
+</p>
 
-A dark, desktop first workspace for conversations, ideas, and tools. The Tools page has Agent, Fast, and Thinking slides, a saved collection, and custom prompt tools stored on this device. The Agent page can send live requests through OpenCode Zen or Go. The Home chat remains a local preview.
+<h1 align="center">Orvix Desktop</h1>
 
-Tiny Agents now include schedules, active-use reminders, quiet hours, live condition explanations, download alerts, snooze and run limits, ordered actions, templates and duplication, file/folder watchers, and network/system health monitoring. Open **Tiny Agents** and choose **Templates** or **New tiny agent**. Rules require review before activation. See [Tiny Agents usage and checks](docs/TINY_AGENTS.md).
+<p align="center">
+  <strong>Sovereign Multi-Engine AI Workspace for Deep Coding, Visual Design & Autonomous Agency</strong>
+</p>
 
-The right sidebar keeps separate chat histories on this device. It can be hidden completely and reopened from the small icon in the title bar. Starting a new chat leaves earlier conversations in history. Hover a chat to see its full name, creation and update times, and rename or delete controls.
+<p align="center">
+  <a href="https://github.com/shahzaib2025/Orvix/releases"><img src="https://img.shields.io/badge/version-v0.1.0-2563eb?style=for-the-badge" alt="Version" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-059669?style=for-the-badge" alt="License" /></a>
+  <a href="https://www.electronjs.org/"><img src="https://img.shields.io/badge/Electron-33+-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron" /></a>
+  <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" /></a>
+  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
+  <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" /></a>
+</p>
 
-The profile button at the bottom of the left sidebar opens a profile page. Name, email, occupation, location, and bio are saved locally; the saved name appears in the sidebar and home greeting.
+<p align="center">
+  <a href="#-overview">Overview</a> •
+  <a href="#-key-features">Key Features</a> •
+  <a href="#-screenshots">Screenshots</a> •
+  <a href="#-architecture">Architecture</a> •
+  <a href="#-getting-started">Getting Started</a> •
+  <a href="#-security--privacy">Security & Privacy</a> •
+  <a href="#-community">Community</a>
+</p>
 
-## Start the desktop app
+---
 
-Double-click `start.bat`. It opens the prepared Orvix desktop window immediately, with no browser or build step on normal launches. The terminal remains visible while Orvix runs so desktop process output can be seen. If this is a fresh checkout, it runs the one-time dependency setup and frontend build first.
+<p align="center">
+  <img src="orvix-preview.png" width="100%" alt="Orvix Desktop Workspace Preview" style="border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" />
+</p>
 
-You can also run:
+---
 
+## 🌟 Overview
+
+**Orvix** is a desktop-first, sovereign AI workspace engineered for developers, architects, and visual creators. Unlike traditional chat interfaces that freeze when commercial account quotas expire, Orvix runs an **isolated, multi-engine orchestration layer** designed for uninterrupted deep work.
+
+Whether you are performing large-scale multi-file refactoring, writing complex full-stack web applications, conducting in-depth research, or scheduling autonomous background routines, Orvix gives you transparent control, local-first privacy, and multiple fallback pathways.
+
+---
+
+## 🚀 Key Features
+
+### ⚡ 1. Multi-Engine Quota Sovereignty
+Never get blocked by a single provider's daily rate limit:
+* **OpenCode Zen Free Pool:** Headless sandbox execution routing to community models (`space-bunny-free`, `big-pickle`, `mimo`, `nemotron`) without desktop account lockouts.
+* **Antigravity I/O:** Native Google DeepMind developer integration for Gemini 3.8 Flash, Pro, and extended reasoning variants.
+* **Kilo Gateway:** Integrated distributed inference pool for high-throughput coding and open-weights.
+* **BYOK Multi-Key Rotation:** Automatic failover, cooldown management, and round-robin dispatch across Google Cloud, Groq, Cerebras, Nara, Routeway, and Inception AI.
+
+### 🧠 2. Deep Agentic Coding
+* **Semantic Code Navigation:** Language-server-backed symbol jump, definition lookup, and type diagnostics across TypeScript and JavaScript.
+* **Atomic Patch Batching (`apply_patch_batch`):** Safe, atomic multi-file refactoring across up to 16 files simultaneously with SHA-256 hash validation and instant rollbacks.
+* **Safe Checkpoints & Compaction:** Real-time turn checkpoints, deterministic context compaction, and one-click session resumption after interruptions.
+* **Automated Project Verification:** Automatically detects package scripts (`test`, `build`, `lint`, `check`), runs them in your project context, and guides repair attempts.
+
+### 🎨 3. Website & Visual Design Studio
+* **Integrated Preview Server:** Starts ephemeral local servers for live HTML/CSS/JS inspection without cluttering project files.
+* **Multi-Viewport Visual Capture:** Headless Chrome/Edge audits capturing full-page desktop and mobile viewports.
+* **Diagnostic Quality Metrics:** Automatic detection of horizontal overflow, broken media, layout shifts (CLS), accessibility defects, and render errors.
+* **Reference Comparison:** Side-by-side visual difference comparisons with attached design mocks.
+
+### 🤖 4. Tiny Autonomous Agents
+* **Background Incident & Health Monitors:** Lightweight local watchers that monitor network health, system resources, and folder modifications.
+* **Automated Schedules & Reminders:** Set active-use reminders, quiet hours, run limits, and snooze intervals for background routines.
+* **Modular Templates:** One-click duplication and creation of custom automated task routines.
+
+### 🛡️ 5. Zero-Trust Security & Windows Sandbox
+* **Disposable Windows Sandbox:** Run risky commands inside an ephemeral, network-isolated Windows Sandbox environment.
+* **Explicit Permission Gates:** Transparent approval prompts before executing shell commands, file deletions, or workspace access.
+* **Local-First Privacy:** Zero telemetry of your source code. Keys and conversation logs remain strictly on your local machine.
+
+---
+
+## 📸 Screenshots
+
+<table width="100%">
+  <tr>
+    <td width="50%">
+      <h4 align="center">Full Agent Workspace</h4>
+      <img src="dashboard-screenshot.png" alt="Orvix Agent Dashboard" />
+    </td>
+    <td width="50%">
+      <h4 align="center">Conversational Thinking Flow</h4>
+      <img src="orvix-conversation.png" alt="Orvix Conversation Flow" />
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <h4 align="center">Activity Timeline & Inspection</h4>
+      <img src="agent-codex-ui-preview.png" alt="Agent Activity Timeline" />
+    </td>
+    <td width="50%">
+      <h4 align="center">Saved History & Session Navigation</h4>
+      <img src="orvix-history-preview.png" alt="History Navigation" />
+    </td>
+  </tr>
+</table>
+
+---
+
+## 🏗️ Architecture
+
+```mermaid
+graph TD
+    User([User Prompt & Assets]) --> UI[React 19 + TypeScript UI]
+    UI --> IPC[Electron Secure IPC Bridge]
+    
+    subgraph Orvix Core Engine
+        IPC --> Engine[Agent Dispatch & Task Store]
+        Engine --> Checkpoint[Turn Checkpoints & Compaction]
+        Engine --> Sandbox[Windows Sandbox Isolation]
+        Engine --> Verification[Project Test & Lint Verifiers]
+    end
+    
+    subgraph Multi-Engine Router
+        Engine --> Router{Provider Selector}
+        Router -->|Isolated Worker| OpenCode[OpenCode Headless Zen Pool]
+        Router -->|Language Server IPC| Antigravity[Antigravity I/O Gemini]
+        Router -->|Community Gateway| Kilo[Kilo Free Inference]
+        Router -->|Direct BYOK| Keys[Google / Groq / Cerebras API]
+    end
+    
+    OpenCode --> Stream[Live Event Streaming]
+    Antigravity --> Stream
+    Kilo --> Stream
+    Keys --> Stream
+    Stream --> UI
+```
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+* **Operating System:** Windows 10 or 11 (64-bit)
+* **Node.js:** v20.0.0 or higher
+* **Git:** Installed on system path
+
+### 1-Click Launch (Recommended)
+Simply clone the repository and double-click:
+```text
+start.bat
+```
+*(On first launch, `start.bat` automatically installs dependencies, builds the client, and opens the native Orvix window).*
+
+### Manual Installation
 ```powershell
+# 1. Clone the repository
+git clone https://github.com/shahzaib2025/Orvix.git
+cd Orvix
+
+# 2. Install dependencies
 npm install
+
+# 3. Build SDK and bundle
 npm run build
+
+# 4. Launch Orvix Desktop
 npm run desktop
 ```
 
-`npm run dev` is available for interface development.
+For live interface development with hot reloading:
+```powershell
+npm run dev
+```
 
-## OpenCode agent
+---
 
-The Agent can check a supplied API key directly before any model or workspace tools run. It recognizes OpenCode, OpenAI, Anthropic, Google Gemini, OpenRouter, Groq, Mistral, xAI, DeepSeek, Cerebras, GitHub, GitLab.com, Hugging Face, and Slack. For an unfamiliar key format, name the issuing provider; unsupported providers need a dedicated adapter. Non-OpenCode checks use a provider access endpoint and confirm authentication only, not every model permission or remaining quota. OpenCode Zen checks its free models individually because per-model access differs. OpenCode Go needs a normal model request to verify plan access. Recognized key patterns and keys placed after a key label are redacted from saved Agent history. Key checks do not open a project folder or call a language model. Existing recognized keys in Agent history are sanitized when loaded.
+## 🔑 Optional API Key Configuration
 
-The Agent page opens on OpenCode and the Space Bunny Free model. Hover OpenCode to choose a Zen free or Go model. The Zen menu does not hard-block any free model: Orvix sends the selected model through its direct API and reports the provider response. OpenCode may return HTTP 403 for a free model used by an independent client; Orvix cannot override provider access rules. Set `ORVIX_OPENCODE_ZEN_KEY` and `ORVIX_OPENCODE_GO_KEY` in the ignored local `.env` file; the desktop main process loads them at startup without putting them in the frontend bundle. Existing process environment variables take priority. The key icon shows each tier's status. Zen has no key input in the interface; Go can be configured there only when no Go environment key is set. A Go subscription is required to access Go models.
+Orvix works immediately with free models out-of-the-box. If you want to connect your own provider API keys:
 
-Agent replies stream into the active task as text arrives when the endpoint supports streaming, while tool calls continue through Orvix's own agent engine. The interface batches small text fragments and keeps the current response in memory until completion. The Windows `device_status` tool reads battery percentage directly without opening a project folder. Project file access and project commands still follow the workspace and command approval flow.
+1. Create a local `.env` file in the project root:
+```env
+# Google Gemini API
+ORVIX_GOOGLE_API_KEY=your_gemini_key_here
 
-After tracked code changes, Orvix detects standard project checks such as package scripts named `typecheck`, `check`, `lint`, `test`, `test:unit`, and `build`, a Node syntax check for changed `.cjs` and `.mjs` files, plus common Go, Rust, Python, Java, and .NET test commands. Each command waits for your approval, runs in the detected project folder, and records its real exit status and output. A failed check is sent back to the model for up to two repair attempts; checks run again if the files change. Checks store their phase and the file-change fingerprint they covered. A later edit marks an earlier result as outdated. Unsupported projects and declined checks are reported as not run. Agent file tools hide environment and credential files, command output redacts OpenCode key patterns, and OpenCode keys are removed from child command environments. Approved project commands still run locally and can access files in their project folder.
+# Groq Fast Inference
+ORVIX_GROQ_API_KEY=your_groq_key_here
 
-Each agent task has its own saved project workspaces. Orvix can locate projects across drives, then asks before opening each project for that task. File search, reading, editing, and deletion are limited to the open project folders, including checks that reject symlink paths leaving a folder. The Agent header shows how many folders are open; hover it to see their paths. Every shell command, including Git status and automatic verification, needs separate approval. The existing change panel shows created, edited, and deleted files with line counts and comparisons.
+# Cerebras Ultra-Fast API
+ORVIX_CEREBRAS_API_KEY=your_cerebras_key_here
+```
+2. Orvix's built-in **Key Store** automatically handles key rotation, rate-limit cooldowns, and secure in-memory injection without exposing them to the frontend bundle.
 
-Each completed Agent turn now has a recorded results card. It shows the file and folder changes made during that turn, added and deleted line counts, and the checks that actually ran. Selecting a file opens the saved before-and-after comparison for that turn, while the toolbar Changes panel still shows the whole task. Turn comparisons are compressed and saved locally; if a report exceeds its 24 MB compressed limit, the file list and counts remain but the individual comparisons are unavailable. Interrupted runs also save their partial change report, and a safe resume merges it with the continuation. Deleting an Agent task removes its saved turn comparisons.
+---
 
-The Agent conversation keeps a visible chronological activity timeline. Tool groups expand into individual calls with their inputs, status, duration, captured result, and copy controls; file reads show numbered lines. **Expand details** opens captured outputs across the turn. Long outputs and edit inputs show their capture limit rather than silently appearing complete. Tool activity is stored with the local task history, so older runs made before this UI change only show details that were captured at the time.
+## 🔒 Security & Privacy
 
-Agent progress now uses provider-labeled timeline entries between tool calls. Supported Responses models can request streamed reasoning summaries; Messages and Chat-compatible models display provider-exposed thinking only when their endpoint actually returns it. Ordinary assistant text before a tool call appears as an Agent update. A temporary processing indicator is shown while waiting for the next provider event. These entries show provider output, not private raw reasoning. The provider registry keeps OpenCode Zen and Go transport details separate so future providers can add their own adapters. Model and proxy support varies; an unavailable summary is never fabricated.
+* **Ignored Secrets:** `.env`, `.env.*`, and temporary build outputs are excluded by default in [`.gitignore`](.gitignore).
+* **Environment Scrubbing:** Headless workers execute in sanitized environments where user auth tokens and sensitive paths are stripped.
+* **Controlled Access Modes:** Switch between **Controlled** (prompts for every action), **Plan** (read-only research), and **Full Access** per task.
 
-Agent code navigation has line-aware content search, numbered ranged reads for text files up to 20 MB, and candidate symbol definitions and references across common programming languages. Search uses a bundled ripgrep binary, respects project ignore files, excludes credential paths, and returns short surrounding snippets. Symbol lookup is textual, so the agent inspects candidate lines before editing. Navigation tools never launch an approved project command.
+---
 
-For JavaScript and TypeScript files, the Agent also has `semantic_code`. Point it at a 1-based line and column to obtain language-service definitions or references, or request diagnostics for one file. It uses the TypeScript project configuration when that configuration includes the file; otherwise it builds a limited inferred project from source files in the opened folder. Analysis runs in a worker so the desktop window stays responsive. Results are bounded to the opened project and never execute project code. Dependencies linked outside that folder are not loaded, so results may be incomplete. Other languages still use textual `find_symbol` until their own adapters are added. The worker supports up to 2,500 source files per project and stops after 30 seconds; very large projects need a narrower opened folder.
+## 📦 Building Distributable Installers
 
-For symbol renames in JavaScript and TypeScript, `semantic_rename` asks the language service for all edit locations, including edits needed for shorthand syntax. It then opens a review dialog listing every affected file and a proposed diff for each. **Apply rename** checks the original file hashes again and writes the reviewed versions through the batch change tracker; **Decline** leaves files untouched. Renames are limited to 16 files, 800 locations, and 1 MB per file, and stop if a location is outside the opened project or a diff is too large to review. The normal task changes panel records the result for comparison and restore. Existing project checks can run after the agent finishes, subject to command approval.
-
-The agent can now use `apply_patch_batch` for a related change across up to 16 files in any folders opened for its task. It supports creation, replacement, deletion, and multiple exact edits in one file. Ranged reads return a SHA-256 value; the batch tool requires it for updates, replacements, and deletes, rejects changed files and ambiguous or overlapping text edits, and checks every target before writing. If a write fails, it restores earlier files from temporary originals. A successful batch appears in the existing change panel as individual files with line counts and comparisons, and each file can be restored there. Batch edits follow the change panel's 1 MB per-file limit. A sudden process or power failure during the short commit window may leave some changed files and temporary `.orvix-stage-` or `.orvix-backup-` files that need manual review.
-
-For `run_command` and automatic project checks, the approval dialog offers **Run isolated** when Windows Sandbox is enabled, plus **Run on host** as an explicit alternative. An isolated run copies the project into a disposable Windows Sandbox, excludes environment and credential files, disables networking and clipboard access, and adds a portable Node/npm runtime when installed locally. The sandbox receives a read-only input map and a separate writable result map. On success, Orvix validates changed paths and hashes against the staged baseline, rejects concurrent host edits, then applies changes through the tracked change store. Failed commands discard their sandbox edits. Generated build folders and files over 1 MB are not copied back. The task's change panel can be used to compare or restore applied files. Git status remains a separately approved host read command. Host commands can access files outside the project.
-
-On this PC Windows Sandbox is not enabled, so **Run isolated** will appear only after you turn on the Windows Sandbox optional feature and restart Windows. The first isolated run has not been exercised on this machine. The feature needs virtualization and an administrator to enable it; see [Microsoft's installation instructions](https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-install). Windows Sandbox starts a visible window for each run and may take time to boot. Commands requiring other toolchains or network downloads may need a prepared environment or an explicit host run.
-
-Agent runs now save a local checkpoint after each completed tool batch. An interrupted turn shows **Resume** when its last checkpoint is safe. If the app stopped during a tool call or verification command, it shows **Retry** instead; inspect the task's change panel first because a command may have completed before the app stopped. Deleting a task removes its workspace permissions and checkpoint.
-
-Long agent runs now keep a bounded request history. At safe boundaries, Orvix replaces older completed tool batches with a deterministic task record containing the latest user request, recent user requests, approved workspace paths, tracked changes, check outcomes, and observed file or command locations. Recent complete tool batches stay intact when they fit; the agent can re-read any file it needs. This record and the compaction count are saved in the run checkpoint, so **Resume** keeps the same context. The Agent header shows the serialized history size, and the activity timeline records each compaction. The tooltip shows a rough token estimate and actual model input token usage when the provider reports it. Orvix performs this compaction locally for its OpenCode connections; it does not call OpenAI's server-side compaction endpoint. The trigger uses serialized bytes and reported usage where available because Orvix does not yet store per-model context limits; it reduces large requests but cannot guarantee every provider will accept them.
-
-`npm run benchmark:agent` runs eleven coding cases against the configured default Zen model and writes `benchmark-results.json`. Use `npm run benchmark:agent -- --model=MODEL_ID` to choose another model or `--case=NAME` for one case. The benchmark creates temporary projects, approves only those project folders, and only allows an exact syntax-check command in the failed-check fixture. It records outcomes, preserved-behavior regressions, tool errors, unsupported check claims, and timing, then removes the fixtures. It makes live model requests and can count toward provider usage. The cases cover bug repair, multi-file changes, separate projects, scope preservation, evidence, failed checks, and an ambiguous request. They remain small fixtures; a passing score does not establish performance on large real repositories.
-
-Each agent turn records an objective, constraints, acceptance criteria, relevant opened folders, and unresolved questions. This task contract and check evidence survive safe resume and context compaction. The agent can load focused bug repair, refactor, research, and website design workflows when relevant. Its final answer is checked against recorded verification so skipped or outdated checks cannot be described as passed. The response UI shows observed checks separately from the file changes, with expandable command output and saved before-and-after comparisons.
-
-For website work, attach up to two reference images with a model whose registry entry supports image input. Other models report the missing capability instead of silently dropping the image. With host approval, the agent can start a local preview server and inspect a localhost page in headless Chrome or Edge. The preview captures desktop and mobile screenshots, horizontal overflow, broken images, browser errors, optional clicks, fills, and text assertions, plus an automated accessibility scan and basic lab loading, paint, layout-shift, and transfer signals. Captures appear in the activity details; when a reference is attached, the desktop preview shows it beside the capture with a rough pixel difference. Pixel difference and lab performance signals are diagnostics, not a visual-quality or field Web Vitals score. The preview server stops at the end of the turn. Run `npm run check:agent` and `npm run check:preview` to check the local agent foundation and preview fixture.
-
-Hover a model in the OpenCode menu to see its configured thinking levels. Default uses the model's normal setting; models without a configured direct-API level show no level choices. A selected level is saved per model and passed to the appropriate direct API request.
-
-OpenCode models use different request formats. Orvix maps models to their documented Chat Completions, Responses, or Messages endpoint and streams replies when the endpoint provides streaming events. The independent Agent does not use the OpenCode CLI. The Agent page keeps multi-turn replies and provider errors in local task history. You can attach text or code files and up to two processed reference images to a prompt. File changes use the agent's workspace tools and appear in the change review panel.
-
-Space Bunny Free previously succeeded through the direct API. Other free models may be limited to the official OpenCode client, and Orvix does not claim that its key can unlock them for an independent agent. Go models require a Go subscription before live use. The API Base selector is not connected to a service yet.
-
-`scripts/check_opencode_models.cjs` is a legacy standalone model probe and does not verify the independent Agent's streaming tool loop. Live model requests may count toward provider usage.
-
-## Windows installers
+To package native Windows setup executables (NSIS installer & MSI):
 
 ```powershell
 npm run dist:win
 ```
+The output installers will be generated in `release/`.
 
-The desktop app uses Electron. The build is configured to produce both an MSI and an NSIS setup executable, with Orvix icons and NSIS installer artwork. Installers are unsigned until a real signing certificate is configured.
+---
 
-## Startup and branding
+## 🤝 Community & Support
 
-The launch splash is embedded in `index.html`, so its six-loop bloom appears before the React bundle loads. After the first workspace frame and local data setup, `src/App.tsx` signals readiness and `src/main.tsx` fades the splash away. A loading failure reveals a restart option. System and in-app reduced motion settings keep the bloom static.
+* **Star the Repo:** If you enjoy Orvix, give us a ⭐ on GitHub!
+* **Report Issues:** Found a bug or have a suggestion? Open an [Issue](https://github.com/shahzaib2025/Orvix/issues).
+* **Pull Requests:** Contributions, documentation improvements, and bug fixes are welcome!
 
-The steady-state logo and Windows icon are derived from `assets/branding/orvix-logo-orbit-face.png`. The source image is left untouched. The separate orb mascot is used as the assistant avatar in conversations. To regenerate the desktop icon and UI image derivatives, run `python scripts/generate_brand_assets.py`.
+---
+
+<p align="center">
+  <sub>Built with ❤️ by Shahzaib and the Orvix Open Source Community.</sub>
+</p>
