@@ -30,7 +30,7 @@
 ---
 
 <p align="center">
-  <img src="orvix-preview.png" width="100%" alt="Orvix Desktop Workspace Preview" style="border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" />
+  <img src="docs/assets/orvix-preview.png" width="100%" alt="Orvix Desktop Workspace Preview" style="border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.25);" />
 </p>
 
 ---
@@ -82,21 +82,21 @@ Never get blocked by a single provider's daily rate limit:
   <tr>
     <td width="50%">
       <h4 align="center">Full Agent Workspace</h4>
-      <img src="dashboard-screenshot.png" alt="Orvix Agent Dashboard" />
+      <img src="docs/assets/dashboard-screenshot.png" alt="Orvix Agent Dashboard" />
     </td>
     <td width="50%">
       <h4 align="center">Conversational Thinking Flow</h4>
-      <img src="orvix-conversation.png" alt="Orvix Conversation Flow" />
+      <img src="docs/assets/orvix-conversation.png" alt="Orvix Conversation Flow" />
     </td>
   </tr>
   <tr>
     <td width="50%">
       <h4 align="center">Activity Timeline & Inspection</h4>
-      <img src="agent-codex-ui-preview.png" alt="Agent Activity Timeline" />
+      <img src="docs/assets/agent-codex-ui-preview.png" alt="Agent Activity Timeline" />
     </td>
     <td width="50%">
       <h4 align="center">Saved History & Session Navigation</h4>
-      <img src="orvix-history-preview.png" alt="History Navigation" />
+      <img src="docs/assets/orvix-history-preview.png" alt="History Navigation" />
     </td>
   </tr>
 </table>
