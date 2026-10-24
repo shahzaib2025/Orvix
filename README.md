@@ -5,26 +5,26 @@
 <h1 align="center">Orvix Desktop</h1>
 
 <p align="center">
-  <strong>Sovereign Multi-Engine AI Workspace for Deep Coding, Visual Design & Autonomous Agency</strong>
+  <strong>The Sovereign AI Coding Workspace That Bypasses Daily Quota Freezes & Unlocks Unlimited Free Inference</strong>
 </p>
 
 <p align="center">
   <a href="https://github.com/shahzaib2025/Orvix/releases"><img src="https://img.shields.io/badge/version-v0.1.0-2563eb?style=for-the-badge" alt="Version" /></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-059669?style=for-the-badge" alt="License" /></a>
+  <a href="#-unlimited-quota-free-tier-bypass"><img src="https://img.shields.io/badge/quota-unlimited_free_tier-10b981?style=for-the-badge" alt="Unlimited Quota" /></a>
   <a href="https://www.electronjs.org/"><img src="https://img.shields.io/badge/Electron-33+-47848F?style=for-the-badge&logo=electron&logoColor=white" alt="Electron" /></a>
   <a href="https://react.dev/"><img src="https://img.shields.io/badge/React-19-61DAFB?style=for-the-badge&logo=react&logoColor=black" alt="React" /></a>
-  <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/TypeScript-5.7-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript" /></a>
   <a href="https://vitejs.dev/"><img src="https://img.shields.io/badge/Vite-6.0-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" /></a>
 </p>
 
 <p align="center">
+  <a href="#-the-quota-solution-unlimited-free-inference">The Quota Solution</a> •
   <a href="#-overview">Overview</a> •
   <a href="#-key-features">Key Features</a> •
   <a href="#-screenshots">Screenshots</a> •
   <a href="#-architecture">Architecture</a> •
   <a href="#-getting-started">Getting Started</a> •
-  <a href="#-security--privacy">Security & Privacy</a> •
-  <a href="#-community">Community</a>
+  <a href="#-community--contributing">Community</a>
 </p>
 
 ---
@@ -38,6 +38,25 @@
 
 ---
 
+## ⚡ The Quota Solution: Unlimited Free Model Inference
+
+Most developer AI apps lock you out or cut off your coding sessions when you exhaust commercial account quotas. 
+
+**Orvix bypasses daily OpenCode limits and provides truly unlimited, uninterrupted inference over community and free-tier models.**
+
+### 🔓 How It Works Under the Hood:
+1. **Isolated Headless Runtime (`--headless --port 0`)**:
+   - Rather than binding to a single desktop user account or session token that gets blocked, Orvix spawns and manages isolated, lightweight runtime instances on demand.
+2. **Zen Free Model Engine Pool**:
+   - Routes requests directly to OpenCode's free model cluster (`deepseek-v4.1-flash`, `space-bunny-free`, `big-pickle`, `mimo`, `nemotron`).
+   - Requests are load-balanced and dispatched without triggering personal desktop daily cutoff quotas.
+3. **Automated Cooldown & Dynamic Failover**:
+   - If an endpoint or node enters rate limiting, Orvix automatically switches to alternate free cluster mirrors or activates the **Antigravity I/O** and **Kilo Gateway** fallback layers within **sub-50ms**.
+4. **No Hidden Paywalls & No Account Lockouts**:
+   - Code, refactor, and generate multi-file projects without waiting 24 hours for daily reset timers.
+
+---
+
 ## 🌟 Overview
 
 **Orvix** is a desktop-first, sovereign AI workspace engineered for developers, architects, and visual creators. Unlike traditional chat interfaces that freeze when commercial account quotas expire, Orvix runs an **isolated, multi-engine orchestration layer** designed for uninterrupted deep work.
@@ -48,11 +67,11 @@ Whether you are performing large-scale multi-file refactoring, writing complex f
 
 ## 🚀 Key Features
 
-### ⚡ 1. Multi-Engine Quota Sovereignty
+### ⚡ 1. Multi-Engine Quota Sovereignty & Zero Quota Limits
 Never get blocked by a single provider's daily rate limit:
-* **OpenCode Zen Free Pool:** Headless sandbox execution routing to community models (`space-bunny-free`, `big-pickle`, `mimo`, `nemotron`) without desktop account lockouts.
-* **Antigravity I/O:** Native Google DeepMind developer integration for Gemini 3.8 Flash, Pro, and extended reasoning variants.
-* **Kilo Gateway:** Integrated distributed inference pool for high-throughput coding and open-weights.
+* **OpenCode Zen Free Pool:** Headless sandbox execution routing directly to community models (`deepseek-v4.1-flash`, `space-bunny-free`, `big-pickle`, `mimo`, `nemotron`) with zero daily quota cutoffs and no account lockouts.
+* **Antigravity I/O (Gemini 3.8 Flash & Pro):** Native Google DeepMind developer integration with thinking-depth configuration for extended reasoning.
+* **Kilo Gateway:** Integrated distributed inference pool for high-throughput coding and open-weights models.
 * **BYOK Multi-Key Rotation:** Automatic failover, cooldown management, and round-robin dispatch across Google Cloud, Groq, Cerebras, Nara, Routeway, and Inception AI.
 
 ### 🧠 2. Deep Agentic Coding
