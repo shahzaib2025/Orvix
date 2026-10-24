@@ -212,14 +212,32 @@ The output installers will be generated in `release/`.
 
 ---
 
-## 🤝 Community & Support
+## 🤝 Community & Contributing
 
-* **Star the Repo:** If you enjoy Orvix, give us a ⭐ on GitHub!
-* **Report Issues:** Found a bug or have a suggestion? Open an [Issue](https://github.com/shahzaib2025/Orvix/issues).
-* **Pull Requests:** Contributions, documentation improvements, and bug fixes are welcome!
+We welcome contributions of all levels! Whether you want to add support for new AI providers, improve UI aesthetics, or refine documentation:
+
+* **[Contributing Guide](CONTRIBUTING.md):** Read our development setup and PR guidelines.
+* **Open Issues:** Check out [`good first issue`](https://github.com/shahzaib2025/Orvix/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22) to get started quickly.
+* **Bug Reports & Ideas:** Open an [Issue](https://github.com/shahzaib2025/Orvix/issues/new/choose) using our structured templates.
+
+---
+
+## 📈 Star History
+
+If you find Orvix valuable, please consider giving it a ⭐ on GitHub! Your support helps make the project visible to more developers.
+
+<p align="center">
+  <a href="https://star-history.com/#shahzaib2025/Orvix&Date">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=shahzaib2025/Orvix&type=Date&theme=dark" />
+      <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=shahzaib2025/Orvix&type=Date" />
+      <img alt="Orvix Star History Chart" src="https://api.star-history.com/svg?repos=shahzaib2025/Orvix&type=Date" style="max-width: 100%;" />
+    </picture>
+  </a>
+</p>
 
 ---
 
 <p align="center">
-  <sub>Built with ❤️ by Shahzaib and the Orvix Open Source Community.</sub>
+  <sub>Built with ❤️ by Shahzaib and the Orvix Open Source Community. Released under the MIT License.</sub>
 </p>
